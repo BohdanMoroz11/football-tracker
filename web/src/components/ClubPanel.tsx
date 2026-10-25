@@ -18,7 +18,7 @@ export function ClubPanel({ m, side, team, mode }: { m: MatchDetail; side: Side;
     <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-stand ring-1 ring-rule @container" style={{ ["--team" as string]: color }}>
       <ClubHeader m={m} side={side} team={team} onClub={() => setClubOpen(true)} />
       <div className="flex min-h-0 flex-1 flex-col gap-2.5 px-3 pb-3 pt-2.5">
-        <div className="grid shrink-0 gap-2.5 @md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="grid shrink-0 gap-2.5 @lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
           <CoachCard m={m} side={side} team={team} onOpen={() => setCoachOpen(true)} />
           <LoadCard team={team} />
         </div>
@@ -49,7 +49,7 @@ function ClubHeader({ m, side, team, onClub }: { m: MatchDetail; side: Side; tea
           <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 font-ui text-[13px] text-chalk/80">
             {st ? (
               <span className="tnum" data-tip={`${st.w} wins, ${st.d} draws, ${st.l} losses · goals ${st.gf}-${st.ga}${st.zone ? `\nZone: ${st.zone.label}` : ""}`}>
-                <b className="font-semibold text-chalk">{ordinal(st.rank)}</b> · {st.pts} pts · {st.w}-{st.d}-{st.l}
+                <b className="font-semibold text-chalk">{ordinal(st.rank)}</b>{team!.league !== m.league && <span className="text-mute"> in {team!.leagueName}</span>} · {st.pts} pts · {st.w}-{st.d}-{st.l}
                 {st.zone && <span className="ml-1.5 inline-block size-2 rounded-full align-middle" style={{ background: st.zone.color }} />}
               </span>
             ) : (
@@ -88,7 +88,7 @@ function CoachCard({ m, side, team, onOpen }: { m: MatchDetail; side: Side; team
           {t && <> · <span {...tip("tenure")}>since {t.since}</span></>}
         </div>
         {r && (
-          <div className="mt-0.5 flex items-center gap-1.5 font-ui text-xs tnum text-chalk/85">
+          <div className="mt-0.5 flex items-center gap-1.5 whitespace-nowrap font-ui text-xs tnum text-chalk/85">
             <span className="text-win">{r.w}W</span>
             <span className="text-draw">{r.d}D</span>
             <span className="text-loss">{r.l}L</span>

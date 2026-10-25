@@ -13,6 +13,13 @@ export const FM_LEAGUE: Record<string, number> = {
   "esp.copa_del_rey": 138,
   "eng.fa": 132,
   "ger.dfb_pokal": 209,
+  "ita.1": 55,
+  "fra.1": 53,
+  "ned.1": 57,
+  "por.1": 61,
+  "bel.1": 40,
+  "tur.1": 71,
+  "sco.1": 64,
 };
 
 export const fmPhoto = (id?: number | string) => (id ? `https://images.fotmob.com/image_resources/playerimages/${id}.png` : undefined);

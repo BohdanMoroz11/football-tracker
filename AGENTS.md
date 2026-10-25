@@ -1,0 +1,82 @@
+# AGENTS.md
+
+Context for coding agents (and future me). Read this before changing things.
+
+## What this is
+
+A personal "second screen" for watching football: pick a match, get one dashboard with everything about both clubs and the game. Sibling of `~/projects/nba-tracker` (Courtside), but its own design. The owner cares about **UI/UX**, not the code. It's an MVP built on unofficial data sources; things are allowed to break, but the page should degrade gracefully.
+
+Competitions: LaLiga, Premier League, Bundesliga, Champions League (one line each in `server/leagues.ts`; same ESPN API for all).
+
+## Stack
+
+- **Server**: Node + Express, TypeScript run directly with `tsx`. `server/`
+- **Frontend**: React 18 + Vite + Tailwind v4 + TanStack Query. `web/`
+- **Shared types**: `shared/types.ts`, the contract between server and UI. Change it first when adding data.
+- Hash routing in `web/src/lib.ts`: `#/`, `#/d/YYYYMMDD`, `#/m/:league/:id`, `#/m/:league/:id/p/:espnId~:fotmobId`.
+- Server binds `127.0.0.1:5190` (Courtside uses 5180). Reached via SSH tunnel.
+
+## Layout
+
+```
+server/
+  index.ts      routes: /api/matches, /api/match/:league/:id, /api/team/:league/:id?fm=&at=, /api/table/:league, /api/player/:id?fm=
+  espn.ts       ESPN URLs, fetch + in-memory TTL cache (cached()), mapLimit, soft() for optional sources
+  match.ts      scoreboard -> match cards; summary -> MatchDetail (lineups, events, stats, shots, momentum estimate, odds, h2h)
+  enrich.ts     FotMob over the match: ratings, photos, xG, momentum, shot map with xG, referee, weather, injuries, insights
+  probable.ts   probable XI from recent ESPN lineups minus FotMob's unavailable list
+  formation.ts  formation slot tables -> pitch coordinates
+  team.ts       club context: squad (ESPN stats + FotMob + TM), coach (FotMob career), fixtures, load, season profile
+  player.ts     player sheet (FotMob profile + ESPN splits)
+  fotmob.ts tm.ts standings.ts leagues.ts lore.ts data.ts (match orchestration)
+data/lore.json, data/coaches.json   hand-written club and coach notes
+web/src/
+  lib.ts        query hooks, router, formatting, color helpers (accent/tint/onColor/ratingColor)
+  glossary.ts   hover explainers; new stat or term = new entry
+  styles.css    tokens (@theme) and the few custom classes (turf, counter, flash, goal-lift)
+  components/   MatchesPage, MatchPage (header + 3 layouts), Pitch (lineups, shot map, momentum),
+                ClubPanel (club header, coach card, load, profile, fit-to-height squad), CenterTabs
+                (Preview/Story/Stats/Coaches/Table/H2H), PlayerModal, CoachModal, ClubModal, ui
+docs/data-sources.md   every endpoint we use and its gotchas
+```
+
+## Data notes
+
+- See `docs/data-sources.md`. ESPN is the backbone (ids, events). FotMob and Transfermarkt are enrichment, always via `soft()` so a failure doesn't break the page.
+- ESPN soccer season year = start year (`2026` = 2026-27).
+- ESPN's roster `coach` field is wrong; coaches come from FotMob only.
+- Cross-provider pairing (`matchPerson`): shirt number + surname. Never match on a shared first name (that bug removed half a squad from the probable XI once).
+- FotMob's lineup geometry is used when it matches all 11 ESPN starters (it reads real shapes better: ESPN called the Oct 2026 Clásico 4-3-3 v 4-4-2, FotMob 4-2-3-1 v 4-2-3-1).
+- Probable XI: FotMob's own prediction when `lineupType === "predicted"` (only 1-3 days before), else ours: strongest of the last 3 XIs, unavailable players swapped for the most regular starter in the same role (roles from starts, then the squad list). Confidence = weighted share of recent starts.
+- For European/cup matches, team context (squad stats, standing, values, profile) uses the club's domestic league (`team.leagueAbbrev`), labelled "in Serie A".
+- Momentum: FotMob's when available, else our estimate from ESPN commentary (labelled as an estimate).
+- Caching: all in memory; live data 15 s, teams 30 min–6 h, FotMob people 24 h.
+
+## Design
+
+Direction: **"tactics board under floodlights"**. Graphite night base (`night`, `stand`, `terrace`), chalk text, the **pitch is the one bold element** (mown stripes, chalk lines, kit-colored counters with shirt numbers). Card colors are the only semantic accents: yellow = doubtful/yellow card, red = out/red card. Clubs bring their own colors via `accent()` (text/strokes on dark) and `tint()` (washes). Fonts: Sofia Sans Extra Condensed (display: scores, names, numbers), Sofia Sans Semi Condensed (UI/data), Sofia Sans (prose).
+
+- **The match page never scrolls** (owner's #1 rule). Detail goes into tabs, popovers and modals; tab bodies may scroll internally.
+- Football convention: **home on the left** (and at the bottom of a vertical pitch).
+- Layouts by window width (`useWidth`): ≥1500 wide = home | centre | away; ≥1000 medium = centre | club panel with home/away switch; narrow = tab bar (Pitch, Home, Away, centre tabs) with a vertical pitch.
+- Club panels use container queries (`@container`) so columns appear as they widen. The squad list fits itself to the remaining height (`Squad` → `visible`): XI, then absences, bench, rest; overflow goes behind "+N more".
+- Main grids need `grid-rows-[minmax(0,1fr)]`, or a tall panel grows the row past the viewport.
+- One numbers toggle (This match / Season) drives pitch badges and squad columns; it defaults to the match once it has started.
+- Every stat/term gets a hover explainer (`tip()` / `<Term>`). Tooltips are the app-wide `data-tip` layer; don't use `title=`.
+- Motion: only the goal lift on the score (`goal-lift`) and the flash on changed live numbers.
+- Check at 1920×1080, 1600×950, 1440×900, 1280×720, 390×760. `document.documentElement.scrollHeight` must equal the viewport height on the match page.
+
+## Conventions
+
+- Small files, functional components, Tailwind inline, minimal comments explaining *why*.
+- Run `npm run typecheck` and `npm run build` before committing.
+- To eyeball UI: `npm start`, then screenshot with Playwright.
+
+## Ideas for later
+
+- Coach head-to-head record (FotMob has no direct endpoint; could be derived from h2h matches + coach tenures).
+- Season xG trend sparkline per club (FotMob team fixtures have per-match xG).
+- League top scorers / assists race popover.
+- Live "if it ends now" for the other matches in the same matchday.
+- Copa del Rey / FA Cup / DFB-Pokal on the match list (just add to `LEAGUES`).
+- Persisted cache if sources get slow.

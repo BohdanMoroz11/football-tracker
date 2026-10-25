@@ -4,7 +4,7 @@ import { TTL, cached, getJson } from "./espn.ts";
 import { norm, similar } from "./fotmob.ts";
 
 const API = "https://tmapi-alpha.transfermarkt.technology";
-const COMP: Record<string, string> = { "esp.1": "ES1", "eng.1": "GB1", "ger.1": "L1" };
+const COMP: Record<string, string> = { "esp.1": "ES1", "eng.1": "GB1", "ger.1": "L1", "ita.1": "IT1", "fra.1": "FR1", "ned.1": "NL1", "por.1": "PO1", "bel.1": "BE1", "tur.1": "TR1", "sco.1": "SC1" };
 
 const get = (path: string, ttl = TTL.day) => getJson<any>(`${API}${path}`, ttl).then((r) => r.data);
 const ids = (key: string, list: (string | number)[]) => list.map((i) => `${key}[]=${i}`).join("&");

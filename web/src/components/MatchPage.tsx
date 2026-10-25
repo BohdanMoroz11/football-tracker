@@ -83,14 +83,14 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
     <div className="flex h-dvh flex-col overflow-hidden">
       <Header m={m} updatedAt={q.dataUpdatedAt} toggle={layout !== "narrow" ? numbersToggle : null} />
       {layout === "wide" && (
-        <main className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(600px,1.4fr)_minmax(0,1fr)] gap-2 p-2">
+        <main className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(600px,1.4fr)_minmax(0,1fr)] grid-rows-[minmax(0,1fr)] gap-2 p-2">
           {panel("home")}
           {center(true)}
           {panel("away")}
         </main>
       )}
       {layout === "medium" && (
-        <main className="grid min-h-0 flex-1 grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] gap-2 p-2">
+        <main className="grid min-h-0 flex-1 grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)] grid-rows-[minmax(0,1fr)] gap-2 p-2">
           {center(true)}
           <div className="flex min-h-0 flex-col gap-2">
             <Segmented

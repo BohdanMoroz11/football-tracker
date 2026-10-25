@@ -18,6 +18,21 @@ const EXTRA: Record<string, string> = {
   "uefa.europa": "Europa League",
   "uefa.europa.conf": "Conference League",
   "fifa.cwc": "Club World Cup",
+  "ita.1": "Serie A",
+  "fra.1": "Ligue 1",
+  "ned.1": "Eredivisie",
+  "por.1": "Liga Portugal",
+  "bel.1": "Pro League",
+  "tur.1": "Süper Lig",
+  "sco.1": "Premiership",
+  "aut.1": "Austrian Bundesliga",
+  "sui.1": "Super League",
+  "gre.1": "Super League Greece",
+  "nor.1": "Eliteserien",
+  "den.1": "Superliga",
+  "cze.1": "Czech First League",
+  "ukr.1": "Ukrainian Premier League",
+  "aze.1": "Azerbaijan Premier League",
 };
 
 export const leagueById = (id: string): League =>

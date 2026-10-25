@@ -272,7 +272,8 @@ export type ClubLore = {
 
 export type TeamDetail = {
   id: string;
-  league: string;
+  league: string; // the club's own league (differs from the match's in Europe and cups)
+  leagueName: string;
   name: string;
   short: string;
   abbr: string;

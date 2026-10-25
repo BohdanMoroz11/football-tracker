@@ -2,8 +2,8 @@
 // fixture load, season profile with league ranks. ESPN is the backbone; FotMob and Transfermarkt enrich.
 import type { Coach, FixtureRow, SquadPlayer, TeamDetail } from "../shared/types.ts";
 import { TTL, cached, espn, mapLimit, soft } from "./espn.ts";
-import { compShort, slugForCompetition } from "./leagues.ts";
-import { fmPhoto, fotmob, matchPerson, similar } from "./fotmob.ts";
+import { compShort, leagueById, slugForCompetition } from "./leagues.ts";
+import { FM_LEAGUE, fmPhoto, fotmob, matchPerson, similar } from "./fotmob.ts";
 import { findClub, squad as tmSquad } from "./tm.ts";
 import { getTable } from "./standings.ts";
 import { coachLore, lore } from "./lore.ts";
@@ -124,16 +124,18 @@ async function coachFrom(fmTeam: any): Promise<Coach | undefined> {
   };
 }
 
-export async function getTeam(league: string, id: string, opts: { fm?: string; at?: string } = {}): Promise<TeamDetail> {
-  const [teamRes, roster, results, fixtures, table, news] = await Promise.all([
-    espn.team(league, id),
+export async function getTeam(matchLeague: string, id: string, opts: { fm?: string; at?: string } = {}): Promise<TeamDetail> {
+  const teamRes = await espn.team(matchLeague, id);
+  const t = teamRes.team;
+  // In Europe or a cup, the club's own league says more: squad stats, table position, values, season profile.
+  const league: string = /^[a-z]{3}\.\d$/.test(t.leagueAbbrev ?? "") ? t.leagueAbbrev : matchLeague;
+  const [roster, results, fixtures, table, news] = await Promise.all([
     soft(espn.roster(league, id), "roster"),
     soft(espn.results(id), "results"),
     soft(espn.fixtures(id), "fixtures"),
     soft(getTable(league), "table"),
     soft(espn.teamNews(league, id), "news"),
   ]);
-  const t = teamRes.team;
   const at = opts.at ? Date.parse(opts.at) : Date.now();
 
   const past = ((results?.events ?? []) as any[]).map((e) => fixtureRow(e, id)).filter((r): r is FixtureRow => !!r && r.state === "post").sort((a, b) => b.date.localeCompare(a.date));
@@ -209,7 +211,7 @@ export async function getTeam(league: string, id: string, opts: { fm?: string; a
     "Big chances": ["bc", "Big chances", (v) => String(v)],
     "Shots on target per match": ["sotpm", "On target per match", (v) => v.toFixed(1)],
   };
-  const fmLeagueMatches = fmTeam?.stats?.primaryLeagueId && String(fmTeam.stats.primaryLeagueId) === String({ "esp.1": 87, "eng.1": 47, "ger.1": 54 }[league] ?? "");
+  const fmLeagueMatches = fmTeam?.stats?.primaryLeagueId && String(fmTeam.stats.primaryLeagueId) === String(FM_LEAGUE[league] ?? "");
   const profile = fmLeagueMatches
     ? ((fmTeam.stats.teams ?? []) as any[])
         .filter((x) => profileKeys[x.header])
@@ -231,6 +233,7 @@ export async function getTeam(league: string, id: string, opts: { fm?: string; a
   return {
     id,
     league,
+    leagueName: leagueById(league).short,
     name: t.displayName,
     short: t.shortDisplayName ?? t.displayName,
     abbr: t.abbreviation,
