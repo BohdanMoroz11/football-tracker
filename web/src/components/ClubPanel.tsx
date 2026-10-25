@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
-import type { Absentee, LineupPlayer, MatchDetail, Side, SquadPlayer, TeamDetail } from "../../../shared/types";
-import { accent, euros, go, ordinal, playerHash, relDays, samePerson, tenure, tint, useSize, yearsUntil } from "../lib";
+import { Children, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import type { Absentee, FixtureRow, LineupPlayer, MatchDetail, Side, SquadPlayer, TeamDetail } from "../../../shared/types";
+import { accent, euros, go, kickoff, ordinal, playerHash, relDays, resultColor, samePerson, shortDate, tenure, tint, useSize, yearsUntil } from "../lib";
 import { tip } from "../glossary";
 import { Crest, FormPills, Kit, Modal, Photo, RankNote, Rating, Term } from "./ui";
 import { CardIcon, kitOf } from "./Pitch";
@@ -12,6 +12,7 @@ export type NumbersMode = "match" | "season";
 export function ClubPanel({ m, side, team, mode }: { m: MatchDetail; side: Side; team?: TeamDetail; mode: NumbersMode }) {
   const [coachOpen, setCoachOpen] = useState(false);
   const [clubOpen, setClubOpen] = useState(false);
+  const [squadOpen, setSquadOpen] = useState(false);
   const ref = m[side];
   const color = accent(ref.color, ref.altColor);
   return (
@@ -22,9 +23,18 @@ export function ClubPanel({ m, side, team, mode }: { m: MatchDetail; side: Side;
           <CoachCard m={m} side={side} team={team} onOpen={() => setCoachOpen(true)} />
           <LoadCard team={team} />
         </div>
-        {team && team.profile.length > 0 && <Profile team={team} />}
-        <Squad m={m} side={side} team={team} mode={mode} />
+        <FitStack>
+          {team && team.profile.length > 0 && <Profile team={team} />}
+          <Missing m={m} side={side} team={team} />
+          {team && <Leaders m={m} side={side} team={team} />}
+          {team && <Results team={team} />}
+          {team && team.fixtures.length > 1 && <Upcoming team={team} m={m} />}
+        </FitStack>
+        <button onClick={() => setSquadOpen(true)} disabled={!team} className="shrink-0 rounded-lg py-1.5 font-ui text-[13px] font-semibold text-chalk/85 ring-1 ring-rule hover:bg-terrace disabled:opacity-40">
+          Full squad{team ? ` · ${team.squad.length} players` : ""}
+        </button>
       </div>
+      {squadOpen && <SquadModal m={m} side={side} team={team} mode={mode} onClose={() => setSquadOpen(false)} />}
       {coachOpen && team?.coach && <CoachModal team={team} onClose={() => setCoachOpen(false)} />}
       {clubOpen && team && <ClubModal team={team} m={m} onClose={() => setClubOpen(false)} />}
     </section>
@@ -159,106 +169,203 @@ type Row =
   | { kind: "player"; lp?: LineupPlayer; sp?: SquadPlayer; out?: Absentee; group: "xi" | "bench" | "out" | "squad" }
   | { kind: "more"; count: number; label: string };
 
-const ROW = 30;
-const HEAD = 22;
+const ROW = 42;
 
-function Squad({ m, side, team, mode }: { m: MatchDetail; side: Side; team?: TeamDetail; mode: NumbersMode }) {
-  const [ref, { h }] = useSize<HTMLDivElement>();
-  const [all, setAll] = useState(false);
+function squadRows(m: MatchDetail, side: Side, team?: TeamDetail): Row[] {
   const lineup = m.lineups[side];
+  const byId = new Map(team?.squad.map((p) => [p.id, p]) ?? []);
+  const xi = lineup.starters.map((lp) => ({ lp, sp: byId.get(lp.id) }));
+  // Subs who came on go first on the bench.
+  const bench = [...lineup.bench].sort((a, b) => Number(!!b.marks.subIn) - Number(!!a.marks.subIn)).map((lp) => ({ lp, sp: byId.get(lp.id) }));
+  const out = lineup.unavailable.map((u) => ({ out: u, sp: team?.squad.find((s) => samePerson(s.name, u.name)) }));
+  const used = new Set([...lineup.starters, ...lineup.bench].map((p) => p.id));
+  const rest = (team?.squad ?? []).filter((p) => !used.has(p.id) && !lineup.unavailable.some((u) => samePerson(u.name, p.name))).map((sp) => ({ sp }));
+  const rows: Row[] = [];
+  const add = (label: string, list: { lp?: LineupPlayer; sp?: SquadPlayer; out?: Absentee }[], group: "xi" | "bench" | "out" | "squad", aside?: string) => {
+    if (!list.length) return;
+    rows.push({ kind: "head", label, aside });
+    for (const r of list) rows.push({ kind: "player", ...r, group });
+  };
+  if (xi.length >= 11) {
+    add(lineup.status === "official" ? "Starting XI" : "Probable XI", xi, "xi", lineup.formation);
+    add(lineup.status === "official" ? "Bench" : "Next in line", bench, "bench");
+    add("Unavailable", out, "out");
+    add(lineup.status === "official" ? "Not in the squad" : "Rest of the squad", rest, "squad");
+  } else {
+    add("Unavailable", out, "out");
+    add("Squad by importance", rest, "squad");
+  }
+  return rows;
+}
+
+function SquadModal({ m, side, team, mode, onClose }: { m: MatchDetail; side: Side; team?: TeamDetail; mode: NumbersMode; onClose: () => void }) {
   const kit = kitOf(m, side);
-  const byId = useMemo(() => new Map(team?.squad.map((p) => [p.id, p]) ?? []), [team]);
-
-  const groups = useMemo(() => {
-    const xi = lineup.starters.map((lp) => ({ lp, sp: byId.get(lp.id) }));
-    // Subs who came on go first on the bench.
-    const bench = [...lineup.bench].sort((a, b) => Number(!!b.marks.subIn) - Number(!!a.marks.subIn)).map((lp) => ({ lp, sp: byId.get(lp.id) }));
-    const out = lineup.unavailable.map((u) => ({ out: u, sp: team?.squad.find((s) => samePerson(s.name, u.name)) }));
-    const used = new Set([...lineup.starters, ...lineup.bench].map((p) => p.id));
-    const rest = (team?.squad ?? []).filter((p) => !used.has(p.id) && !lineup.unavailable.some((u) => samePerson(u.name, p.name))).map((sp) => ({ sp }));
-    return { xi, bench, out, rest };
-  }, [lineup, team, byId]);
-
-  const rows = useMemo(() => {
-    const out: Row[] = [];
-    const hasXI = groups.xi.length >= 11;
-    const xiLabel = lineup.status === "official" ? "Starting XI" : lineup.status === "probable" ? "Probable XI" : "Squad";
-    if (hasXI) {
-      out.push({ kind: "head", label: xiLabel, aside: lineup.formation });
-      for (const r of groups.xi) out.push({ kind: "player", ...r, group: "xi" });
-    }
-    const outRows: Row[] = groups.out.length ? [{ kind: "head", label: "Unavailable", aside: `${groups.out.length}` }, ...groups.out.map((r) => ({ kind: "player" as const, ...r, group: "out" as const }))] : [];
-    const benchRows: Row[] = hasXI && groups.bench.length ? [{ kind: "head", label: lineup.status === "official" ? "Bench" : "Next in line" }, ...groups.bench.map((r) => ({ kind: "player" as const, ...r, group: "bench" as const }))] : [];
-    const squadRows: Row[] = !hasXI ? [{ kind: "head", label: "Squad by importance" }, ...groups.rest.map((r) => ({ kind: "player" as const, ...r, group: "squad" as const }))] : groups.rest.length && lineup.status === "official" ? [{ kind: "head", label: "Not in the squad" }, ...groups.rest.map((r) => ({ kind: "player" as const, ...r, group: "squad" as const }))] : [];
-    return { fixed: out, outRows, benchRows, squadRows };
-  }, [groups, lineup]);
-
-  // Fit: XI always, then absences, bench, rest of squad; whatever doesn't fit goes behind a "+N" row.
-  const visible = useMemo(() => {
-    const heightOf = (r: Row) => (r.kind === "head" ? HEAD : ROW);
-    let budget = h;
-    const take: Row[] = [];
-    const push = (list: Row[]) => {
-      let i = 0;
-      for (; i < list.length; i++) {
-        const need = heightOf(list[i]) + (i < list.length - 1 ? 0 : 0);
-        if (budget - need < (i < list.length - 1 ? ROW : 0)) break;
-        budget -= need;
-        take.push(list[i]);
-      }
-      const left = list.slice(i).filter((r) => r.kind === "player").length;
-      if (left) {
-        take.push({ kind: "more", count: left, label: "more" });
-        budget -= ROW;
-        return false;
-      }
-      return true;
-    };
-    if (!h) return [] as Row[];
-    push(rows.fixed) && push(rows.outRows) && push(rows.benchRows) && push(rows.squadRows);
-    return take;
-  }, [rows, h]);
-
+  const rows = squadRows(m, side, team);
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <SquadHeader mode={mode} m={m} />
-      <div ref={ref} className="min-h-0 flex-1 overflow-hidden">
-        {visible.map((r, i) =>
+    <Modal label="Full squad" onClose={onClose} className="sm:w-[min(820px,96vw)]">
+      <div className="scroll-thin min-h-0 overflow-auto p-4 pt-12 @container" style={{ ["--team" as string]: accent(m[side].color, m[side].altColor) }}>
+        <h3 className="mb-2 flex items-center gap-2 font-display text-3xl font-extrabold"><Crest src={m[side].logo} className="size-7" />{m[side].name} squad</h3>
+        <SquadHeader mode={mode} m={m} />
+        {rows.map((r, i) =>
           r.kind === "head" ? (
-            <div key={i} className="flex items-end justify-between border-b border-rule/60 pb-0.5 font-ui text-[11.5px] font-semibold text-mute" style={{ height: HEAD }}>
-              <span {...(r.label.startsWith("Probable") ? tip("probable", lineup.basis) : {})} className={r.label.startsWith("Probable") ? "explain" : ""}>{r.label}</span>
-              {r.aside && <span className="font-normal tnum">{r.aside}</span>}
+            <div key={i} className="mt-3 flex justify-between border-b border-rule/60 pb-0.5 font-ui text-xs font-semibold text-mute">
+              <span {...(r.label.startsWith("Probable") ? tip("probable", m.lineups[side].basis) : {})}>{r.label}</span>
+              {r.aside && <span className="font-normal">{r.aside}</span>}
             </div>
-          ) : r.kind === "more" ? (
-            <button key={i} onClick={() => setAll(true)} className="w-full text-left font-ui text-xs font-semibold text-mute hover:text-chalk" style={{ height: ROW }}>
-              +{r.count} more · see full squad
-            </button>
-          ) : (
+          ) : r.kind === "player" ? (
             <PlayerRow key={i} r={r} m={m} side={side} kit={kit} mode={mode} />
-          ),
+          ) : null,
         )}
       </div>
-      {all && (
-        <Modal label="Full squad" onClose={() => setAll(false)} className="sm:w-[min(760px,96vw)]">
-          <div className="scroll-thin min-h-0 overflow-auto p-4 pt-12 @container">
-            <h3 className="mb-2 font-display text-2xl font-extrabold">{m[side].name} squad</h3>
-            <SquadHeader mode={mode} m={m} />
-            {[...rows.fixed, ...rows.outRows, ...rows.benchRows, ...rows.squadRows].map((r, i) =>
-              r.kind === "head" ? (
-                <div key={i} className="mt-2 border-b border-rule/60 pb-0.5 font-ui text-xs font-semibold text-mute">{r.label}</div>
-              ) : r.kind === "player" ? (
-                <PlayerRow key={i} r={r} m={m} side={side} kit={kit} mode={mode} />
-              ) : null,
-            )}
-          </div>
-        </Modal>
-      )}
+    </Modal>
+  );
+}
+
+/** Stacks sections in priority order and drops whole sections that don't fit, so nothing is cut in half. */
+function FitStack({ children }: { children: ReactNode }) {
+  const [ref, { h }] = useSize<HTMLDivElement>();
+  const items = Children.toArray(children).filter(Boolean);
+  const [heights, setHeights] = useState<number[]>([]);
+  const measure = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const el = measure.current;
+    if (!el) return;
+    const hs = [...el.children].map((c) => (c as HTMLElement).offsetHeight);
+    if (hs.join() !== heights.join()) setHeights(hs);
+  });
+  let used = 0;
+  const show = items.map((_, i) => {
+    const need = (heights[i] ?? 0) + (i ? 10 : 0);
+    if (used + need > h) return false;
+    used += need;
+    return true;
+  });
+  return (
+    <div ref={ref} className="relative min-h-0 flex-1 overflow-hidden">
+      {/* Invisible copy at natural height, for measuring. */}
+      <div ref={measure} aria-hidden className="pointer-events-none invisible absolute inset-x-0 top-0">
+        {items.map((c, i) => <div key={i}>{c}</div>)}
+      </div>
+      <div className="flex flex-col gap-2.5">
+        {items.map((c, i) => (show[i] ? <div key={i}>{c}</div> : null))}
+      </div>
     </div>
   );
 }
 
+function Leaders({ m, side, team }: { m: MatchDetail; side: Side; team: TeamDetail }) {
+  const sq = team.squad;
+  if (!sq.length) return null;
+  const maxApps = Math.max(1, ...sq.map((p) => p.apps));
+  const top = <K extends keyof SquadPlayer>(k: K, min = 1, filter: (p: SquadPlayer) => boolean = () => true) =>
+    [...sq].filter((p) => filter(p) && Number(p[k] ?? 0) >= min).sort((a, b) => Number(b[k] ?? 0) - Number(a[k] ?? 0))[0];
+  const cards = [
+    { label: "Top scorer", p: top("goals"), v: (p: SquadPlayer) => String(p.goals), unit: "goals" },
+    { label: "Most assists", p: top("assists"), v: (p: SquadPlayer) => String(p.assists), unit: "assists" },
+    { label: "Best rated", p: top("rating", 0.1, (p) => p.apps >= maxApps * 0.4), v: (p: SquadPlayer) => p.rating!.toFixed(2), unit: "avg rating" },
+    { label: "Most valuable", p: top("marketValue", 1), v: (p: SquadPlayer) => euros(p.marketValue)!, unit: "value" },
+  ].filter((c) => c.p);
+  const lp = (id: string) => [...m.lineups[side].starters, ...m.lineups[side].bench].find((x) => x.id === id);
+  return (
+    <section>
+      <div className="mb-1.5 font-ui text-[12px] font-semibold text-mute">This season · {team.leagueName}</div>
+      <div className="grid grid-cols-2 gap-2">
+        {cards.map((c) => (
+          <button key={c.label} onClick={() => go(playerHash(m.league, m.id, c.p!.id, lp(c.p!.id)?.fmId))} className="flex min-w-0 items-center gap-2.5 rounded-lg bg-terrace/50 p-2 text-left hover:bg-terrace" {...(c.label === "Best rated" ? tip("seasonRating") : c.label === "Most valuable" ? tip("marketValue") : {})}>
+            <Photo src={c.p!.photo} name={c.p!.name} className="size-11" ring="var(--team)" />
+            <div className="min-w-0 leading-tight">
+              <div className="font-ui text-[11px] text-mute">{c.label}</div>
+              <div className="truncate font-ui text-[13.5px] font-bold">{c.p!.short}</div>
+              <div className="font-display text-xl font-extrabold leading-none tnum">{c.v(c.p!)} <span className="font-ui text-[11px] font-normal text-mute">{c.unit}</span></div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const MAX_MISSING = 4;
+
+function Missing({ m, side, team }: { m: MatchDetail; side: Side; team?: TeamDetail }) {
+  const list = m.lineups[side].unavailable;
+  // FotMob's match list when we have it; otherwise injuries flagged on the squad.
+  const items = list.length
+    ? list.map((u) => ({ name: u.name, photo: u.photo, status: u.status, reason: u.reason, returns: u.returns, pos: team?.squad.find((s) => samePerson(s.name, u.name))?.position, id: team?.squad.find((s) => samePerson(s.name, u.name))?.id, fm: u.fmId, value: u.marketValue }))
+    : (team?.squad ?? []).filter((p) => p.injury).map((p) => ({ name: p.name, photo: p.photo, status: p.injury!.status, reason: p.injury!.reason, returns: p.injury!.returns, pos: p.position, id: p.id, fm: undefined, value: p.marketValue }));
+  const sorted = [...items].sort((a, b) => (b.value ?? 0) - (a.value ?? 0));
+  return (
+    <section>
+      <div className="mb-1.5 flex justify-between font-ui text-[12px] font-semibold text-mute">
+        <span>Missing</span>
+        {items.length > 0 && <span className="font-normal">{items.length}</span>}
+      </div>
+      {items.length ? (
+        <ul className="space-y-1">
+          {sorted.slice(0, MAX_MISSING).map((u) => (
+            <li key={u.name}>
+              <button onClick={() => (u.id || u.fm) && go(playerHash(m.league, m.id, u.id ?? `fm${u.fm}`, u.fm))} className="flex w-full items-center gap-2.5 rounded-md px-1 py-0.5 text-left hover:bg-terrace/70">
+                <Photo src={u.photo} name={u.name} className="size-8" />
+                <span className="min-w-0 flex-1 leading-tight">
+                  <span className="block truncate font-ui text-[13px] font-semibold">{u.name}</span>
+                  <span className="block truncate font-ui text-[11px] text-mute">{[u.pos, u.reason, u.returns && `back: ${u.returns}`].filter(Boolean).join(" · ")}</span>
+                </span>
+                <span className={`shrink-0 rounded px-1.5 font-ui text-[10.5px] font-semibold leading-[16px] ${u.status === "doubt" ? "bg-yellow/15 text-yellow" : "bg-red/15 text-red"}`}>
+                  {u.status === "suspended" ? "Suspended" : u.status === "doubt" ? "Doubtful" : "Out"}
+                </span>
+              </button>
+            </li>
+          ))}
+          {sorted.length > MAX_MISSING && (
+            <li className="px-1 font-ui text-[12px] text-mute" data-tip={sorted.slice(MAX_MISSING).map((u) => `${u.name}${u.returns ? ` (back: ${u.returns})` : ""}`).join("\n")}>
+              +{sorted.length - MAX_MISSING} more
+            </li>
+          )}
+        </ul>
+      ) : (
+        <p className="font-ui text-[13px] text-chalk/70">No injuries or suspensions reported.</p>
+      )}
+    </section>
+  );
+}
+
+function FixtureLine({ r, upcoming }: { r: FixtureRow; upcoming?: boolean }) {
+  return (
+    <li className="grid grid-cols-[46px_44px_minmax(0,1fr)_auto] items-center gap-2 font-ui text-[12.5px]">
+      <span className="text-mute tnum">{shortDate(r.date)}</span>
+      <span className="truncate text-faint">{r.comp}</span>
+      <span className="flex min-w-0 items-center gap-1.5">
+        <span className="text-faint">{r.home ? "vs" : "at"}</span>
+        <Crest src={r.opponent.logo} className="size-4" />
+        <span className="truncate">{r.opponent.name}</span>
+      </span>
+      {upcoming ? <span className="text-mute tnum">{kickoff(r.date)}</span> : <span className="rounded px-1.5 font-bold tnum text-[#0d1216]" style={{ background: resultColor(r.result) }}>{r.score}</span>}
+    </li>
+  );
+}
+
+function Results({ team }: { team: TeamDetail }) {
+  return (
+    <section>
+      <div className="mb-1 font-ui text-[12px] font-semibold text-mute">Recent results</div>
+      <ul className="space-y-1">{team.results.slice(0, 5).map((r) => <FixtureLine key={r.id} r={r} />)}</ul>
+    </section>
+  );
+}
+
+function Upcoming({ team, m }: { team: TeamDetail; m: MatchDetail }) {
+  const next = team.fixtures.filter((f) => f.id !== m.id).slice(0, 3);
+  if (!next.length) return null;
+  return (
+    <section>
+      <div className="mb-1 font-ui text-[12px] font-semibold text-mute">After this</div>
+      <ul className="space-y-1">{next.map((r) => <FixtureLine key={r.id} r={r} upcoming />)}</ul>
+    </section>
+  );
+}
+
 // Columns appear as the panel widens (container queries), like a broadcast graphic that grows.
-const COLS = "grid grid-cols-[22px_24px_minmax(0,1fr)_34px_30px_30px] @sm:grid-cols-[22px_24px_minmax(0,1fr)_34px_30px_30px_38px] @md:grid-cols-[22px_24px_minmax(0,1fr)_34px_30px_30px_38px_52px] @lg:grid-cols-[22px_24px_minmax(0,1fr)_34px_30px_30px_38px_52px_44px] items-center gap-x-2";
+const COLS = "grid grid-cols-[22px_36px_minmax(0,1fr)_34px_30px_30px] @sm:grid-cols-[22px_36px_minmax(0,1fr)_34px_30px_30px_38px] @md:grid-cols-[22px_36px_minmax(0,1fr)_34px_30px_30px_38px_52px] @lg:grid-cols-[22px_36px_minmax(0,1fr)_34px_30px_30px_38px_52px_44px] items-center gap-x-2";
 
 function SquadHeader({ mode, m }: { mode: NumbersMode; m: MatchDetail }) {
   const live = mode === "match" && m.state !== "pre";
@@ -322,7 +429,7 @@ function PlayerRow({ r, m, side, kit, mode }: { r: Extract<Row, { kind: "player"
       data-tip-title={name}
     >
       <Kit color={kit.color} alt={kit.alt} number={jersey} size={20} className="!text-[10px]" />
-      <Photo src={photo} name={name} className="size-6" />
+      <Photo src={photo} name={name} className="size-9" />
       <span className="flex min-w-0 items-center gap-1.5">
         <span className="truncate font-ui text-[13px] font-semibold leading-none">{name}</span>
         {marks?.goals.map((g) => <span key={g} className="shrink-0 text-[10px]" data-tip={`Goal ${g}`}>⚽</span>)}

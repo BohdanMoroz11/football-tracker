@@ -1,5 +1,7 @@
-import type { Lineup, LineupPlayer, MatchDetail, Shot, Side } from "../../../shared/types";
+import { useState } from "react";
+import type { Lineup, LineupPlayer, MatchDetail, Shot, Side, SquadPlayer } from "../../../shared/types";
 import { accent, euros, go, minuteNum, playerHash, ratingColor, useSize } from "../lib";
+import { tip } from "../glossary";
 import { Kit } from "./ui";
 
 /** Kit colors for a side: the match uniform when ESPN has it, else the club colors. */
@@ -62,11 +64,13 @@ export function CardIcon({ red, className = "" }: { red?: boolean; className?: s
   return <span className={`inline-block h-[11px] w-[8px] rounded-[1.5px] ${red ? "bg-red" : "bg-yellow"} ${className}`} aria-label={red ? "Red card" : "Yellow card"} />;
 }
 
-function playerTip(p: LineupPlayer, lineup: Lineup, m: MatchDetail) {
+function playerTip(p: LineupPlayer, lineup: Lineup, m: MatchDetail, sp?: SquadPlayer) {
   const lines = [
-    [p.pos, p.age ? `${p.age} yrs` : undefined, p.nationality].filter(Boolean).join(" · "),
+    [sp?.position ?? p.pos, p.age ?? sp?.age ? `${p.age ?? sp?.age} yrs` : undefined, p.nationality ?? sp?.nationality].filter(Boolean).join(" · "),
+    sp ? `League: ${sp.starts} starts${sp.apps > sp.starts ? ` (+${sp.apps - sp.starts} sub)` : ""} · ${sp.goals} goals · ${sp.assists} assists` : undefined,
     p.seasonRating ? `Season rating ${p.seasonRating.toFixed(2)}` : undefined,
-    p.marketValue ? `Value ${euros(p.marketValue)}` : undefined,
+    p.marketValue ?? sp?.marketValue ? `Value ${euros(p.marketValue ?? sp?.marketValue)}${sp?.contractUntil ? ` · contract to ${new Date(sp.contractUntil).getFullYear()}` : ""}` : undefined,
+    sp?.injury ? `Fitness: ${sp.injury.status === "doubt" ? "doubtful" : "injured"}${sp.injury.returns ? ` (${sp.injury.returns})` : ""}` : undefined,
     p.confidence != null && lineup.status === "probable" ? `Started ${Math.round(p.confidence * 100)}% of recent matches (weighted)` : undefined,
     p.marks.goals.length ? `Goal${p.marks.goals.length > 1 ? "s" : ""} ${p.marks.goals.join(", ")}` : undefined,
     p.marks.assists.length ? `Assist${p.marks.assists.length > 1 ? "s" : ""} ${p.marks.assists.join(", ")}` : undefined,
@@ -78,59 +82,153 @@ function playerTip(p: LineupPlayer, lineup: Lineup, m: MatchDetail) {
   return lines.filter(Boolean).join("\n");
 }
 
-function Counter({ p, side, m, vertical, size, showSeason }: { p: LineupPlayer; side: Side; m: MatchDetail; vertical: boolean; size: number; showSeason: boolean }) {
+export type SquadIndex = Record<Side, Map<string, SquadPlayer>>;
+
+/** A player as a tactics-board piece: face in a kit-colored ring, shirt number as a badge. Falls back to a numbered disc. */
+export function PlayerDisc({ p, kit, size, probable, dim }: { p: Pick<LineupPlayer, "photo" | "jersey" | "name">; kit: { color: string; alt?: string }; size: number; probable?: boolean; dim?: boolean }) {
+  const [broken, setBroken] = useState(false);
+  const ring = `#${kit.color.replace("#", "")}`;
+  if (!p.photo || broken) return <Kit color={kit.color} alt={kit.alt} number={p.jersey} size={size} probable={probable} className={dim ? "opacity-50" : ""} />;
+  const badge = Math.max(15, Math.round(size * 0.4));
+  return (
+    <span className={`relative inline-block shrink-0 ${dim ? "opacity-50" : ""}`} style={{ width: size, height: size }}>
+      <img
+        src={p.photo}
+        alt=""
+        loading="lazy"
+        onError={() => setBroken(true)}
+        className={`counter size-full rounded-full bg-[#dfe3e6] object-cover object-top ${probable ? "counter-probable" : ""}`}
+        style={{ border: `${size >= 40 ? 3 : 2}px solid ${ring}` }}
+      />
+      {p.jersey && (
+        <span className="absolute -bottom-0.5 -left-1">
+          <Kit color={kit.color} alt={kit.alt} number={p.jersey} size={badge} className="!border" />
+        </span>
+      )}
+    </span>
+  );
+}
+
+const lastName = (short: string) => short.replace(/^[A-ZÀ-Ý]\.\s*/, "");
+
+function seasonLine(sp?: SquadPlayer) {
+  if (!sp) return undefined;
+  const bits = [sp.goals ? `${sp.goals}G` : "", sp.assists ? `${sp.assists}A` : ""].filter(Boolean);
+  return bits.length ? bits.join(" ") : sp.apps ? `${sp.apps} apps` : undefined;
+}
+
+function Counter({ p, side, m, vertical, size, showSeason, sp }: { p: LineupPlayer; side: Side; m: MatchDetail; vertical: boolean; size: number; showSeason: boolean; sp?: SquadPlayer }) {
   const lineup = m.lineups[side];
   const kit = kitOf(m, side);
   const pos = spot(p, side, vertical);
   const sentOff = !!p.marks.red;
-  const rating = showSeason ? p.seasonRating : p.rating;
+  const rating = showSeason ? p.seasonRating ?? sp?.rating : p.rating;
   const probable = lineup.status === "probable";
-  const label = p.short.replace(/^[A-ZÀ-Ý]\.\s*/, "");
+  const line = showSeason || m.state === "pre" ? seasonLine(sp) : undefined;
   return (
     <button
       onClick={() => go(playerHash(m.league, m.id, p.id, p.fmId))}
       className={`group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center focus-visible:outline-none ${sentOff ? "opacity-50" : ""}`}
-      style={{ left: `${pos.left}%`, top: `${pos.top}%`, width: size * 2.6 }}
-      data-tip={playerTip(p, lineup, m)}
+      style={{ left: `${pos.left}%`, top: `${pos.top}%`, width: size * 1.9 }}
+      data-tip={playerTip(p, lineup, m, sp)}
       data-tip-title={`${p.jersey ? `#${p.jersey} ` : ""}${p.name}`}
     >
       <span className="relative transition-transform group-hover:scale-110 group-focus-visible:scale-110">
-        <Kit color={kit.color} alt={kit.alt} number={p.jersey} size={size} probable={probable} />
+        <PlayerDisc p={p} kit={kit} size={size} probable={probable} />
         {rating != null && (
-          <span
-            className="absolute -right-3 -top-1.5 rounded px-[3px] font-ui text-[10px] font-bold leading-[14px] text-[#0d1216] tnum shadow"
-            style={{ background: ratingColor(rating), opacity: showSeason ? 0.85 : 1 }}
-          >
+          <span className="absolute -right-2.5 -top-1 rounded px-[3px] font-ui text-[10.5px] font-bold leading-[15px] text-[#0d1216] tnum shadow" style={{ background: ratingColor(rating), opacity: showSeason ? 0.9 : 1 }}>
             {rating.toFixed(1)}
           </span>
         )}
-        {(p.marks.yellow || p.marks.red) && <CardIcon red={sentOff} className="absolute -left-1.5 -top-1 rotate-[-12deg] shadow" />}
-        {p.marks.goals.length + p.marks.pens.length > 0 && (
-          <span className="absolute -bottom-1 -left-2.5 flex">
-            {p.marks.goals.map((g) => <Ball key={g} className="-mr-1 size-3 drop-shadow" />)}
+        {(p.marks.yellow || p.marks.red) && <CardIcon red={sentOff} className="absolute -left-1 -top-0.5 rotate-[-12deg] shadow" />}
+        {p.marks.goals.length + p.marks.ownGoals.length > 0 && (
+          <span className="absolute -bottom-0.5 -right-2 flex">
+            {p.marks.goals.map((g) => <Ball key={g} className="-ml-1 size-3.5 drop-shadow" />)}
+            {p.marks.ownGoals.map((g) => <Ball key={`o${g}`} className="-ml-1 size-3.5 opacity-60 drop-shadow" />)}
           </span>
         )}
-        {p.marks.ownGoals.length > 0 && <Ball className="absolute -bottom-1 -left-2.5 size-3 opacity-60 drop-shadow" />}
         {p.marks.assists.length > 0 && (
-          <span className="absolute -bottom-1 -right-2.5 rounded-full bg-chalk px-1 font-ui text-[9px] font-bold leading-[12px] text-night">A{p.marks.assists.length > 1 ? p.marks.assists.length : ""}</span>
+          <span className="absolute -right-3 top-1/2 rounded-full bg-chalk px-1 font-ui text-[9px] font-bold leading-[13px] text-night">A{p.marks.assists.length > 1 ? p.marks.assists.length : ""}</span>
         )}
-        {p.potm && <span className="absolute -right-3 top-2.5 text-[11px] text-yellow drop-shadow" aria-label="Player of the match">★</span>}
+        {p.potm && <span className="absolute -left-2.5 top-1/3 text-[12px] text-yellow drop-shadow" aria-label="Player of the match">★</span>}
       </span>
-      <span
-        className="mt-1 max-w-full truncate rounded px-1 font-ui text-[11px] font-semibold leading-tight text-chalk [text-shadow:0_1px_2px_rgba(0,0,0,.9)] group-hover:bg-black/40"
-      >
-        {label}
+      <span className="mt-0.5 max-w-full truncate rounded px-1 font-ui text-[11.5px] font-semibold leading-tight text-chalk [text-shadow:0_1px_2px_rgba(0,0,0,.95)] group-hover:bg-black/40">
+        {lastName(p.short)}
       </span>
-      {p.marks.subOut && (
-        <span className="font-ui text-[10px] leading-tight text-red/90 [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">▼ {p.marks.subOut}</span>
-      )}
+      {p.marks.subOut ? (
+        <span className="font-ui text-[10px] leading-tight text-red [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">▼ {p.marks.subOut}</span>
+      ) : line ? (
+        <span className="font-ui text-[10px] leading-tight text-chalk/75 tnum [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">{line}</span>
+      ) : null}
       {probable && p.confidence != null && (
-        <span className="mt-0.5 h-[3px] w-6 overflow-hidden rounded-full bg-black/40">
+        <span className="mt-0.5 h-[3px] w-7 overflow-hidden rounded-full bg-black/40" {...tip("confidence")}>
           <span className="block h-full rounded-full bg-chalk/80" style={{ width: `${Math.round(p.confidence * 100)}%` }} />
         </span>
       )}
     </button>
   );
+}
+
+/** The bench beside the pitch: who's next in, who came on and when. */
+function Dugout({ m, side, squad, showSeason, horizontal }: { m: MatchDetail; side: Side; squad: SquadIndex; showSeason: boolean; horizontal?: boolean }) {
+  const [ref, { w, h }] = useSize<HTMLDivElement>();
+  const l = m.lineups[side];
+  const kit = kitOf(m, side);
+  const bench = [...l.bench].sort((a, b) => Number(!!b.marks.subIn) - Number(!!a.marks.subIn) || (b.seasonRating ?? 0) - (a.seasonRating ?? 0));
+  const ROWH = 34;
+  // Vertical dugout: as many rows as fit. Horizontal strip: chips wrap into at most two rows.
+  const perRow = horizontal ? Math.max(1, Math.floor((w + 6) / 138)) : 1;
+  const fit = horizontal ? perRow * 2 : Math.max(0, Math.floor((h - 4) / ROWH));
+  const shown = fit < bench.length ? bench.slice(0, Math.max(0, fit - 1)) : bench;
+  const rest = bench.slice(shown.length);
+  const title = l.status === "official" ? "Bench" : l.status === "probable" ? "Next in line" : "";
+  if (!bench.length) return <div />;
+  return (
+    <div className={`flex min-h-0 flex-col ${horizontal ? "" : "h-full"}`}>
+      <div className={`mb-1 flex items-center gap-1.5 font-ui text-[11px] font-semibold text-mute ${side === "away" && !horizontal ? "flex-row-reverse" : ""}`}>
+        <span className="size-2 rounded-full" style={{ background: `#${kit.color}`, boxShadow: "0 0 0 1px rgba(255,255,255,.35)" }} />
+        {title}
+      </div>
+      <div ref={ref} className={horizontal ? "grid grid-cols-[repeat(auto-fill,minmax(132px,1fr))] gap-1.5" : "min-h-0 flex-1 overflow-hidden"}>
+        {shown.map((p) => {
+          const sp = squad[side].get(p.id);
+          const played = !!p.marks.subIn;
+          const live = m.state !== "pre" && !showSeason;
+          const rating = live ? p.rating : p.seasonRating ?? sp?.rating;
+          return (
+            <button
+              key={p.id}
+              onClick={() => go(playerHash(m.league, m.id, p.id, p.fmId))}
+              className={`flex shrink-0 items-center gap-2 rounded-md px-1 text-left hover:bg-terrace ${horizontal ? "min-w-0 bg-night/40 py-0.5" : "w-full"} ${side === "away" && !horizontal ? "flex-row-reverse text-right" : ""} ${m.state !== "pre" && !played && !showSeason ? "opacity-55" : ""}`}
+              style={horizontal ? undefined : { height: ROWH }}
+              data-tip={playerTip(p, l, m, sp)}
+              data-tip-title={`${p.jersey ? `#${p.jersey} ` : ""}${p.name}`}
+            >
+              <PlayerDisc p={p} kit={kit} size={26} />
+              <span className="min-w-0 flex-1 leading-tight">
+                <span className="block truncate font-ui text-[12px] font-semibold">{lastName(p.short)}</span>
+                <span className="block truncate font-ui text-[10.5px] text-mute tnum">
+                  {played ? <span className="text-win">▲ {p.marks.subIn}{p.replaces ? ` for ${lastName([...l.starters].find((s) => s.id === p.replaces)?.short ?? "")}` : ""}</span> : seasonLine(sp) ?? sp?.position ?? p.role}
+                  {p.marks.goals.length > 0 && " ⚽"}
+                  {p.marks.yellow && <CardIcon red={!!p.marks.red} className="ml-1 !h-[9px] !w-[6px] align-[-1px]" />}
+                </span>
+              </span>
+              {rating != null && (live ? played : true) && <span className="shrink-0"><RatingChip value={rating} /></span>}
+            </button>
+          );
+        })}
+        {rest.length > 0 && (
+          <div className={`font-ui text-[11px] text-mute ${side === "away" && !horizontal ? "text-right" : ""}`} data-tip={rest.map((r) => r.name).join("\n")} style={{ height: horizontal ? 30 : ROWH, lineHeight: `${horizontal ? 30 : ROWH}px` }}>
+            +{rest.length} more
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RatingChip({ value }: { value: number }) {
+  return <span className="rounded px-[3px] font-ui text-[10px] font-bold leading-[14px] text-[#0d1216] tnum" style={{ background: ratingColor(value) }}>{value.toFixed(1)}</span>;
 }
 
 function ShotDot({ s, m, vertical }: { s: Shot; m: MatchDetail; vertical: boolean }) {
@@ -160,41 +258,81 @@ function ShotDot({ s, m, vertical }: { s: Shot; m: MatchDetail; vertical: boolea
 
 export type PitchMode = "lineups" | "shots";
 
-export function Pitch({ m, mode, showSeason }: { m: MatchDetail; mode: PitchMode; showSeason: boolean }) {
+export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: PitchMode; showSeason: boolean; squad: SquadIndex }) {
   const [ref, { w, h }] = useSize<HTMLDivElement>();
-  // Fit a 105x68 pitch into the box; go vertical when the box is tall (narrow windows).
   const vertical = w > 0 && w / Math.max(h, 1) < 1.05;
-  const ratio = vertical ? 68 / 105 : 105 / 68;
-  let pw = w;
-  let ph = w / ratio;
-  if (ph > h) {
-    ph = h;
-    pw = h * ratio;
-  }
-  const size = Math.round(Math.max(20, Math.min(36, (vertical ? pw : ph) / 13)));
+  const hasBench = m.lineups.home.bench.length + m.lineups.away.bench.length > 0;
+  // Dugouts sit beside the pitch when there's room (wide screens), otherwise in a strip underneath.
+  const dug = Math.round(Math.min(178, Math.max(138, w * 0.15)));
+  const fitPitch = (bw: number, bh: number) => {
+    const ratio = vertical ? 68 / 105 : 105 / 68;
+    let pw = bw;
+    let ph = bw / ratio;
+    if (ph > bh) {
+      ph = bh;
+      pw = bh * ratio;
+    }
+    return { pw, ph };
+  };
+  // Side dugouts show the whole bench; take them unless they'd shrink the pitch noticeably vs a strip underneath.
+  const STRIP = 92; // two rows of bench chips under the pitch
+  const side = hasBench && !vertical && fitPitch(w - 2 * dug - 16, h).ph >= fitPitch(w, h - STRIP).ph * 0.86;
+  const strip = hasBench && !side;
+  const stripH = strip ? (vertical ? 0 : STRIP) : 0;
+  const { pw, ph } = side ? fitPitch(w - 2 * dug - 16, h) : fitPitch(w, h - stripH - (strip && !vertical ? 6 : 0));
+  const size = Math.round(Math.max(26, Math.min(50, vertical ? pw / 7.2 : Math.min(ph / 8.6, pw / 13))));
   const hasXI = (s: Side) => m.lineups[s].starters.length >= 11 && m.lineups[s].starters.every((p) => p.x != null);
 
+  const pitch = (
+    <div className="turf relative shrink-0 overflow-hidden rounded-lg ring-1 ring-black/40" style={{ width: pw, height: ph, ["--stripe-dir" as string]: vertical ? "180deg" : "90deg" }}>
+      <Markings vertical={vertical} />
+      {mode === "lineups" &&
+        (["home", "away"] as Side[]).map((s) =>
+          hasXI(s) ? (
+            m.lineups[s].starters.map((p) => <Counter key={`${s}${p.id}`} p={p} side={s} m={m} vertical={vertical} size={size} showSeason={showSeason} sp={squad[s].get(p.id)} />)
+          ) : (
+            <NoLineup key={s} side={s} vertical={vertical} />
+          ),
+        )}
+      {mode === "shots" && (
+        <>
+          {m.shots.map((s, i) => <ShotDot key={i} s={s} m={m} vertical={vertical} />)}
+          {!m.shots.length && <div className="absolute inset-0 grid place-items-center font-ui text-sm text-chalk/70">No shots yet</div>}
+        </>
+      )}
+    </div>
+  );
+
   return (
-    <div ref={ref} className="relative grid h-full min-h-0 w-full place-items-center">
-      {w > 0 && (
-        <div className="turf relative overflow-hidden rounded-lg ring-1 ring-black/40" style={{ width: pw, height: ph, ["--stripe-dir" as string]: vertical ? "180deg" : "90deg" }}>
-          <Markings vertical={vertical} />
-          {mode === "lineups" &&
-            (["home", "away"] as Side[]).map((s) =>
-              hasXI(s) ? (
-                m.lineups[s].starters.map((p) => <Counter key={`${s}${p.id}`} p={p} side={s} m={m} vertical={vertical} size={size} showSeason={showSeason} />)
-              ) : (
-                <NoLineup key={s} side={s} vertical={vertical} />
-              ),
-            )}
-          {mode === "shots" && (
-            <>
-              {m.shots.map((s, i) => <ShotDot key={i} s={s} m={m} vertical={vertical} />)}
-              {!m.shots.length && <div className="absolute inset-0 grid place-items-center font-ui text-sm text-chalk/70">No shots yet</div>}
-            </>
+    <div ref={ref} className="relative h-full min-h-0 w-full">
+      {w > 0 && side && (
+        <div className="grid h-full items-center gap-2" style={{ gridTemplateColumns: `${dug}px minmax(0,1fr) ${dug}px` }}>
+          <div className="h-full min-h-0 py-1"><Dugout m={m} side="home" squad={squad} showSeason={showSeason} /></div>
+          <div className="grid place-items-center">{pitch}</div>
+          <div className="h-full min-h-0 py-1"><Dugout m={m} side="away" squad={squad} showSeason={showSeason} /></div>
+        </div>
+      )}
+      {w > 0 && !side && (
+        <div className="flex h-full flex-col items-center gap-1.5">
+          <div className="grid min-h-0 w-full flex-1 place-items-center">{pitch}</div>
+          {strip && !vertical && (
+            <div className="grid w-full shrink-0 grid-cols-2 gap-3">
+              <Dugout m={m} side="home" squad={squad} showSeason={showSeason} horizontal />
+              <Dugout m={m} side="away" squad={squad} showSeason={showSeason} horizontal />
+            </div>
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/** Narrow windows: the benches go under the vertical pitch, scrolling sideways. */
+export function BenchStrip({ m, squad, showSeason }: { m: MatchDetail; squad: SquadIndex; showSeason: boolean }) {
+  if (!m.lineups.home.bench.length && !m.lineups.away.bench.length) return null;
+  return (
+    <div className="space-y-1.5">
+      {(["away", "home"] as Side[]).map((s) => <Dugout key={s} m={m} side={s} squad={squad} showSeason={showSeason} horizontal />)}
     </div>
   );
 }

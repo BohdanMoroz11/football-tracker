@@ -1,9 +1,9 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { MatchDetail, Side, TeamDetail } from "../../../shared/types";
 import { accent, go, kickoff, ordinal, tint, useMatch, useTeam, useWidth } from "../lib";
 import { tip } from "../glossary";
 import { Crest, ErrorNote, Flash, Segmented, Spinner, Term } from "./ui";
-import { Momentum, Pitch, type PitchMode } from "./Pitch";
+import { BenchStrip, Momentum, Pitch, type PitchMode, type SquadIndex } from "./Pitch";
 import { ClubPanel, type NumbersMode } from "./ClubPanel";
 import { TabBody, centerTabs, type CenterTab } from "./CenterTabs";
 import { PlayerModal } from "./PlayerModal";
@@ -29,6 +29,11 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
     if (m) document.title = `${m.home.abbr} ${m.state === "pre" ? "v" : `${m.home.score}-${m.away.score}`} ${m.away.abbr} · Touchline`;
   }, [m]);
 
+  const squad: SquadIndex = useMemo(
+    () => ({ home: new Map(home.data?.squad.map((p) => [p.id, p]) ?? []), away: new Map(away.data?.squad.map((p) => [p.id, p]) ?? []) }),
+    [home.data, away.data],
+  );
+
   if (q.isLoading) return <Spinner label="Loading the match" />;
   if (q.error || !m) return <ErrorNote error={q.error} what="this match" />;
 
@@ -51,11 +56,16 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
 
   const center = (withTabs: boolean) => (
     <div className="flex h-full min-h-0 flex-col gap-2">
-      <div className="flex min-h-0 flex-[1.35_1_0] flex-col rounded-xl bg-stand p-2 ring-1 ring-rule">
+      <div className="flex min-h-0 flex-[1.7_1_0] flex-col rounded-xl bg-stand p-2 ring-1 ring-rule">
         <PitchBar m={m} mode={pitchMode} setMode={setPitchMode} />
         <div className="min-h-0 flex-1 py-1.5">
-          <Pitch m={m} mode={pitchMode} showSeason={mode === "season"} />
+          <Pitch m={m} mode={pitchMode} showSeason={mode === "season"} squad={squad} />
         </div>
+        {!withTabs && (
+          <div className="shrink-0 px-1 pb-1">
+            <BenchStrip m={m} squad={squad} showSeason={mode === "season"} />
+          </div>
+        )}
         {m.momentum.length > 0 && (
           <div className="shrink-0 px-1">
             <div className="flex items-center justify-between font-ui text-[10.5px] text-faint">
@@ -83,7 +93,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
     <div className="flex h-dvh flex-col overflow-hidden">
       <Header m={m} updatedAt={q.dataUpdatedAt} toggle={layout !== "narrow" ? numbersToggle : null} />
       {layout === "wide" && (
-        <main className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_minmax(600px,1.4fr)_minmax(0,1fr)] grid-rows-[minmax(0,1fr)] gap-2 p-2">
+        <main className="grid min-h-0 flex-1 grid-cols-[minmax(340px,1fr)_minmax(640px,1.8fr)_minmax(340px,1fr)] grid-rows-[minmax(0,1fr)] gap-2 p-2">
           {panel("home")}
           {center(true)}
           {panel("away")}
