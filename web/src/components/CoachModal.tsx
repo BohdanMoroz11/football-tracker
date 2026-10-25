@@ -1,12 +1,13 @@
-import type { Coach, TeamDetail } from "../../../shared/types";
+import type { Coach, ShapeInfo, TeamDetail } from "../../../shared/types";
 import { accent, tenure } from "../lib";
 import { tip } from "../glossary";
 import { Crest, Label, Modal, Photo } from "./ui";
 
 const yr = (iso?: string) => (iso ? new Date(iso).getFullYear() : undefined);
 
-export function CoachModal({ team, onClose }: { team: TeamDetail; onClose: () => void }) {
-  const c = team.coach!;
+export function CoachModal({ team, shape, onClose }: { team: TeamDetail; shape?: ShapeInfo; onClose: () => void }) {
+  // FotMob's recent lineups read shapes better than ESPN's formation codes; prefer them.
+  const c = { ...team.coach!, formations: shape?.counts.length ? shape.counts : team.coach!.formations };
   return (
     <Modal label={`Coach: ${c.name}`} onClose={onClose} className="sm:w-[min(780px,96vw)]">
       <div className="scroll-thin min-h-0 overflow-auto" style={{ ["--team" as string]: accent(team.color, team.altColor) }}>
@@ -18,6 +19,9 @@ export function CoachModal({ team, onClose }: { team: TeamDetail; onClose: () =>
                 <Label className="mb-1.5">How he sets up</Label>
                 <p className="text-[15px] leading-relaxed text-chalk/90">{c.style}</p>
                 {c.knownFor && <p className="mt-2 text-sm leading-relaxed text-mute">{c.knownFor}</p>}
+                {shape?.coach?.in_possession && <p className="mt-2 text-sm leading-relaxed"><span className="text-good">With the ball:</span> <span className="text-chalk/85">{shape.coach.in_possession}</span></p>}
+                {shape?.coach?.out_of_possession && <p className="mt-1 text-sm leading-relaxed"><span className="text-bad">Without it:</span> <span className="text-chalk/85">{shape.coach.out_of_possession}</span></p>}
+                {shape?.coach?.roles && shape.coach.roles.length > 0 && <ul className="mt-1.5 space-y-0.5 text-sm text-chalk/80">{shape.coach.roles.map((r) => <li key={r}>◆ {r}</li>)}</ul>}
               </section>
             )}
             {c.formations && c.formations.length > 0 && <Formations c={c} />}

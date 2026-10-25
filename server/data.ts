@@ -5,11 +5,13 @@ import { enrichMatch } from "./enrich.ts";
 import { fillProbable } from "./probable.ts";
 import { fmPhoto, fotmob, matchPerson } from "./fotmob.ts";
 import { getTable } from "./standings.ts";
+import { getShapes } from "./shape.ts";
 
 export async function getMatch(league: string, id: string): Promise<MatchDetail> {
   const m = await enrichMatch(mapMatch(league, await espn.summary(league, id)));
   await fillProbable(m);
   await Promise.all((["home", "away"] as Side[]).map((s) => decorateFromSquad(m, s)));
+  m.shape = await soft(getShapes(m), "shapes");
   const table = await soft(getTable(league), "table");
   for (const s of ["home", "away"] as Side[]) {
     m[s].rank = table?.groups.flatMap((g) => g.rows).find((r) => r.teamId === m[s].id)?.rank;

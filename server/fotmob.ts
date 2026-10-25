@@ -22,6 +22,20 @@ export const FM_LEAGUE: Record<string, number> = {
   "sco.1": 64,
 };
 
+// FotMob position ids, learned from squad data (positionIds vs positionIdsDesc).
+const POSITIONS: Record<number, string> = {
+  11: "GK", 32: "RB", 33: "CB", 34: "CB", 35: "CB", 36: "CB", 37: "CB", 38: "LB", 51: "RWB", 59: "LWB", 62: "RWB", 68: "LWB",
+  64: "CDM", 65: "CDM", 66: "CDM", 71: "RM", 72: "RM", 73: "CM", 74: "CM", 75: "CM", 76: "CM", 77: "CM", 78: "LM", 79: "LM",
+  82: "RW", 83: "RW", 84: "CAM", 85: "CAM", 86: "CAM", 95: "CAM", 87: "LW", 88: "LW", 103: "RW", 107: "LW", 104: "ST", 105: "ST", 106: "ST", 115: "ST",
+};
+
+export function positionLabel(id?: number): string | undefined {
+  if (id == null) return undefined;
+  if (POSITIONS[id]) return POSITIONS[id];
+  // Unknown id: fall back to its depth band.
+  return id === 0 ? "GK" : id < 50 ? "DEF" : id < 90 ? "MID" : "FWD";
+}
+
 export const fmPhoto = (id?: number | string) => (id ? `https://images.fotmob.com/image_resources/playerimages/${id}.png` : undefined);
 
 export const fotmob = {

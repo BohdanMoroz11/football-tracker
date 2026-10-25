@@ -64,6 +64,19 @@ export function CardIcon({ red, className = "" }: { red?: boolean; className?: s
   return <span className={`inline-block h-[11px] w-[8px] rounded-[1.5px] ${red ? "bg-red" : "bg-yellow"} ${className}`} aria-label={red ? "Red card" : "Yellow card"} />;
 }
 
+/** Natural positions vs today's slot, and where they've lined up lately. */
+function shapeLine(p: LineupPlayer, m: MatchDetail, lineup: Lineup) {
+  const side: Side = m.lineups.home === lineup ? "home" : "away";
+  const info = m.shape?.[side]?.players[p.id];
+  if (!info || (!info.natural.length && !info.recent.length)) return undefined;
+  const parts = [
+    p.slot ? `Today: ${p.slot}` : undefined,
+    info.natural.length ? `natural: ${info.natural.join(", ")}` : undefined,
+    info.recent.length ? `lately: ${info.recent.map((r) => `${r.slot} ×${r.count}`).join(", ")}` : undefined,
+  ].filter(Boolean);
+  return parts.join(" · ");
+}
+
 function playerTip(p: LineupPlayer, lineup: Lineup, m: MatchDetail, sp?: SquadPlayer) {
   const lines = [
     [sp?.position ?? p.pos, p.age ?? sp?.age ? `${p.age ?? sp?.age} yrs` : undefined, p.nationality ?? sp?.nationality].filter(Boolean).join(" · "),
@@ -77,6 +90,7 @@ function playerTip(p: LineupPlayer, lineup: Lineup, m: MatchDetail, sp?: SquadPl
     p.marks.subOut ? `Off ${p.marks.subOut}${p.replacedBy ? ` for ${[...lineup.bench].find((b) => b.id === p.replacedBy)?.name ?? ""}` : ""}` : undefined,
     p.fm?.xg != null ? `xG ${p.fm.xg.toFixed(2)}${p.fm.xa != null ? ` · xA ${p.fm.xa.toFixed(2)}` : ""}` : undefined,
     m.state !== "pre" && p.fm?.min ? `${p.fm.min} min played` : undefined,
+    shapeLine(p, m, lineup),
     "Click for the full profile",
   ];
   return lines.filter(Boolean).join("\n");
@@ -125,6 +139,7 @@ function Counter({ p, side, m, vertical, size, showSeason, sp }: { p: LineupPlay
   const rating = showSeason ? p.seasonRating ?? sp?.rating : p.rating;
   const probable = lineup.status === "probable";
   const line = showSeason || m.state === "pre" ? seasonLine(sp) : undefined;
+  const oop = m.shape?.[side]?.outOfPosition.find((o) => o.playerId === p.id);
   return (
     <button
       onClick={() => go(playerHash(m.league, m.id, p.id, p.fmId))}
@@ -155,7 +170,11 @@ function Counter({ p, side, m, vertical, size, showSeason, sp }: { p: LineupPlay
       <span className="mt-0.5 max-w-full truncate rounded px-1 font-ui text-[11.5px] font-semibold leading-tight text-chalk [text-shadow:0_1px_2px_rgba(0,0,0,.95)] group-hover:bg-black/40">
         {lastName(p.short)}
       </span>
-      {p.marks.subOut ? (
+      {oop ? (
+        <span className="font-ui text-[10px] font-semibold leading-tight text-yellow [text-shadow:0_1px_2px_rgba(0,0,0,.9)]" data-tip={oop.kind === "flank" ? `Usually plays on the other flank (${oop.natural.join(", ")})` : `Out of position: usually ${oop.natural.join(", ")}`}>
+          at {oop.slot}
+        </span>
+      ) : p.marks.subOut ? (
         <span className="font-ui text-[10px] leading-tight text-red [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">▼ {p.marks.subOut}</span>
       ) : line ? (
         <span className="font-ui text-[10px] leading-tight text-chalk/75 tnum [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">{line}</span>

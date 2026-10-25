@@ -393,7 +393,8 @@ function Coaches({ m, teams }: { m: MatchDetail; teams: Record<Side, TeamDetail 
     ["Career matches", (s) => career(s) || undefined],
     ["Trophies", (s) => trophies(s)],
     ["Clubs coached", (s) => (teams[s]?.coach?.previous?.length ?? 0) + 1],
-    ["Usual shape", (s) => teams[s]?.coach?.formation, "formation"],
+    ["Usual shape", (s) => m.shape?.[s]?.usual ?? teams[s]?.coach?.formation, "formation"],
+    ["Shape habits", (s) => { const f = m.shape?.[s]?.fluidity; return f ? { fixed: "Settled", variable: "Switches", fluid: "Fluid" }[f] : undefined; }],
     ["Age", (s) => teams[s]?.coach?.age],
   ];
   return (
@@ -419,7 +420,16 @@ function Coaches({ m, teams }: { m: MatchDetail; teams: Record<Side, TeamDetail 
         ))}
       </div>
       <div className="grid gap-3 @md:grid-cols-2">
-        {rows.map(({ s, c }) => (c?.style ? <p key={s} className="font-ui text-[13px] leading-relaxed text-chalk/80" style={{ borderLeft: `2px solid ${sideColor(m, s)}`, paddingLeft: 8 }}>{c.style}</p> : <span key={s} />))}
+        {rows.map(({ s, c }) => {
+          const sh = m.shape?.[s]?.coach;
+          return (
+            <div key={s} className="space-y-1.5 font-ui text-[13px] leading-relaxed" style={{ borderLeft: `2px solid ${sideColor(m, s)}`, paddingLeft: 8 }}>
+              {c?.style && <p className="text-chalk/80">{c.style}</p>}
+              {sh?.in_possession && <p><span className="text-good">With the ball:</span> <span className="text-chalk/80">{sh.in_possession}</span></p>}
+              {sh?.out_of_possession && <p><span className="text-bad">Without it:</span> <span className="text-chalk/80">{sh.out_of_possession}</span></p>}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

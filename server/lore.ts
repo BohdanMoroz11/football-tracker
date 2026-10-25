@@ -25,6 +25,6 @@ export function lore(club: string): ClubLore | undefined {
   return clubs[club] ?? clubsN.get(norm(club));
 }
 
-export function coachLore(name: string): { style?: string; known_for?: string } | undefined {
+export function coachLore(name: string): { style?: string; known_for?: string; shapes?: { base?: string; in_possession?: string; out_of_possession?: string; roles?: string[]; fluidity?: string; confidence?: string } } | undefined {
   return coaches[name] ?? coachesN.get(norm(name));
 }

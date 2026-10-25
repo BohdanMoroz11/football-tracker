@@ -35,7 +35,7 @@ export function ClubPanel({ m, side, team, mode }: { m: MatchDetail; side: Side;
         </button>
       </div>
       {squadOpen && <SquadModal m={m} side={side} team={team} mode={mode} onClose={() => setSquadOpen(false)} />}
-      {coachOpen && team?.coach && <CoachModal team={team} onClose={() => setCoachOpen(false)} />}
+      {coachOpen && team?.coach && <CoachModal team={team} shape={m.shape?.[side]} onClose={() => setCoachOpen(false)} />}
       {clubOpen && team && <ClubModal team={team} m={m} onClose={() => setClubOpen(false)} />}
     </section>
   );
@@ -107,7 +107,7 @@ function CoachCard({ m, side, team, onOpen }: { m: MatchDetail; side: Side; team
                 · {r.ppg.toFixed(2)} ppg
               </span>
             )}
-            {c?.formation && <span className="ml-auto rounded bg-night/60 px-1 text-[11px] text-chalk/80" {...tip("formation")}>{c.formation}</span>}
+            {(m.shape?.[side]?.usual ?? c?.formation) && <span className="ml-auto rounded bg-night/60 px-1 text-[11px] text-chalk/80" data-tip="Most used shape in recent matches">{m.shape?.[side]?.usual ?? c?.formation}</span>}
           </div>
         )}
       </div>

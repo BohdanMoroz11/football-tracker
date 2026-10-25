@@ -71,6 +71,8 @@ export type LineupPlayer = {
   confidence?: number;
   replacedBy?: string; // player id
   replaces?: string;
+  /** Slot they fill today, from FotMob ("RB", "CDM", "LW"...). */
+  slot?: string;
   // FotMob enrichment
   fmId?: number;
   photo?: string;
@@ -98,6 +100,26 @@ export type Lineup = {
   rating?: number; // FotMob team rating
   avgAge?: number;
   value?: number; // starting XI market value, EUR
+  /** What each source called the formation, when they differ it's worth saying. */
+  formationSources?: { espn?: string; fotmob?: string };
+};
+
+export type ShapeInfo = {
+  today?: string;
+  sources: { espn?: string; fotmob?: string };
+  disagree: boolean;
+  /** Recent matches (any competition FotMob covers), newest first. */
+  recent: { matchId: string; date: string; opponent: string; comp: string; home: boolean; formation?: string; result?: "W" | "D" | "L"; score?: string }[];
+  counts: { formation: string; count: number }[];
+  usual?: string;
+  changedFromUsual: boolean;
+  /** Our read from recent lineups; the coach note has the human one. */
+  fluidity?: "fixed" | "variable" | "fluid";
+  outOfPosition: { playerId: string; name: string; slot: string; natural: string[]; kind: "position" | "flank" }[];
+  /** Per starter: natural positions and where they've lined up lately. */
+  players: Record<string, { natural: string[]; recent: { slot: string; count: number }[] }>;
+  changes: { minute: string; text: string }[];
+  coach?: { base?: string; in_possession?: string; out_of_possession?: string; roles?: string[]; fluidity?: string; confidence?: string };
 };
 
 export type MatchEvent = {
@@ -165,6 +187,7 @@ export type MatchDetail = MatchCard & {
   /** "estimate" when the pressure curve is our own (ESPN commentary), "fotmob" when it's FotMob's. */
   momentumSource?: "fotmob" | "estimate";
   h2hAllTime?: { home: number; draw: number; away: number };
+  shape?: Partial<Record<Side, ShapeInfo>>;
 };
 
 // ---------- standings ----------

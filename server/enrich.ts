@@ -1,7 +1,7 @@
 // Layers FotMob's match data over the ESPN-based MatchDetail. Everything here is optional: if FotMob
 // can't be matched or is down, the page still works from ESPN alone.
 import type { Absentee, Lineup, LineupPlayer, MatchDetail, Shot, Side, StatRow } from "../shared/types.ts";
-import { findMatchId, fmPhoto, fotmob, matchPerson } from "./fotmob.ts";
+import { findMatchId, fmPhoto, fotmob, matchPerson, positionLabel } from "./fotmob.ts";
 import { TTL, soft } from "./espn.ts";
 
 const SIDES: Side[] = ["home", "away"];
@@ -136,6 +136,7 @@ const roleFromFm = (positionId?: number): LineupPlayer["role"] | undefined => {
 };
 
 function enrichLineup(l: Lineup, t: any, ps: Record<string, any>, lineupType?: string) {
+  if (l.formation || t.formation) l.formationSources = { espn: l.formation, fotmob: t.formation || undefined };
   const all = [...l.starters, ...l.bench];
   const fmPlayers: any[] = [...(t.starters ?? []), ...(t.subs ?? [])];
   for (const fp of fmPlayers) {
@@ -143,6 +144,7 @@ function enrichLineup(l: Lineup, t: any, ps: Record<string, any>, lineupType?: s
     if (!p) continue;
     p.fmId = fp.id;
     p.photo = fmPhoto(fp.id);
+    if (p.starter) p.slot = positionLabel(fp.positionId);
     p.age = fp.age;
     p.nationality = fp.countryName;
     p.marketValue = fp.marketValue;
@@ -224,6 +226,7 @@ function fmToLineup(fp: any, starter: boolean, l: Lineup): LineupPlayer {
     marks: known?.marks ?? { goals: [], ownGoals: [], pens: [], assists: [] },
     fmId: fp.id,
     photo: fmPhoto(fp.id),
+    slot: starter ? positionLabel(fp.positionId) : undefined,
     age: fp.age,
     nationality: fp.countryName,
     marketValue: fp.marketValue,

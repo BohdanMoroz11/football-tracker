@@ -7,6 +7,7 @@ import { Momentum, Pitch, type PitchMode, type SquadIndex } from "./Pitch";
 import { ClubPanel, type NumbersMode } from "./ClubPanel";
 import { TabBody, centerTabs, type CenterTab } from "./CenterTabs";
 import { PlayerModal } from "./PlayerModal";
+import { FormationButton } from "./Shape";
 
 // A fixed-viewport dashboard: the page never scrolls. Detail lives in tabs, popovers and modals.
 export function MatchPage({ league, id, player }: { league: string; id: string; player?: { id: string; fm?: string } }) {
@@ -154,7 +155,7 @@ function PitchBar({ m, mode, setMode, benchTab }: { m: MatchDetail; mode: PitchM
     return (
       <div className={`flex min-w-0 items-center gap-2 font-ui text-[12.5px] ${s === "away" ? "flex-row-reverse text-right" : ""}`}>
         <span className="size-2.5 shrink-0 rounded-full" style={{ background: `#${l.kit?.color ?? m[s].color}`, boxShadow: "0 0 0 1px rgba(255,255,255,.35)" }} />
-        {l.formation && <span className="whitespace-nowrap font-display text-lg font-extrabold leading-none tnum" {...tip("formation")}>{l.formation}</span>}
+        <FormationButton m={m} side={s} />
         <span className="hidden truncate text-mute @2xl:inline">{l.coach?.name}</span>
         <span className="hidden shrink-0 @lg:inline">{status}</span>
       </div>
