@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Absentee, LineupPlayer, MatchDetail, Side, SquadPlayer, TeamDetail } from "../../../shared/types";
-import { accent, euros, go, ordinal, playerHash, relDays, tenure, tint, useSize, yearsUntil } from "../lib";
+import { accent, euros, go, ordinal, playerHash, relDays, samePerson, tenure, tint, useSize, yearsUntil } from "../lib";
 import { tip } from "../glossary";
 import { Crest, FormPills, Kit, Modal, Photo, RankNote, Rating, Term } from "./ui";
 import { CardIcon, kitOf } from "./Pitch";
@@ -173,9 +173,9 @@ function Squad({ m, side, team, mode }: { m: MatchDetail; side: Side; team?: Tea
     const xi = lineup.starters.map((lp) => ({ lp, sp: byId.get(lp.id) }));
     // Subs who came on go first on the bench.
     const bench = [...lineup.bench].sort((a, b) => Number(!!b.marks.subIn) - Number(!!a.marks.subIn)).map((lp) => ({ lp, sp: byId.get(lp.id) }));
-    const out = lineup.unavailable.map((u) => ({ out: u, sp: team?.squad.find((s) => s.name === u.name) }));
+    const out = lineup.unavailable.map((u) => ({ out: u, sp: team?.squad.find((s) => samePerson(s.name, u.name)) }));
     const used = new Set([...lineup.starters, ...lineup.bench].map((p) => p.id));
-    const rest = (team?.squad ?? []).filter((p) => !used.has(p.id) && !lineup.unavailable.some((u) => u.name === p.name)).map((sp) => ({ sp }));
+    const rest = (team?.squad ?? []).filter((p) => !used.has(p.id) && !lineup.unavailable.some((u) => samePerson(u.name, p.name))).map((sp) => ({ sp }));
     return { xi, bench, out, rest };
   }, [lineup, team, byId]);
 
@@ -277,6 +277,17 @@ function SquadHeader({ mode, m }: { mode: NumbersMode; m: MatchDetail }) {
   );
 }
 
+/** FotMob's minutes when it has them, else from the clock and substitutions (FotMob lags early in a match). */
+function minutesPlayed(lp: LineupPlayer, m: MatchDetail) {
+  if (lp.fm?.min) return lp.fm.min;
+  const now = m.state === "post" ? 90 : Math.floor((m.clockSeconds ?? 0) / 60);
+  const num = (x?: string) => (x ? parseInt(x, 10) : undefined);
+  const start = lp.starter ? 0 : num(lp.marks.subIn);
+  if (start == null) return undefined;
+  const end = num(lp.marks.subOut) ?? num(lp.marks.red) ?? now;
+  return Math.max(0, end - start) || undefined;
+}
+
 function PlayerRow({ r, m, side, kit, mode }: { r: Extract<Row, { kind: "player" }>; m: MatchDetail; side: Side; kit: { color: string; alt?: string }; mode: NumbersMode }) {
   const { lp, sp, out } = r;
   const name = lp?.name ?? sp?.name ?? out?.name ?? "";
@@ -292,7 +303,7 @@ function PlayerRow({ r, m, side, kit, mode }: { r: Extract<Row, { kind: "player"
   const posLabel = sp?.position ?? lp?.pos ?? role;
   const rating = live ? lp?.rating : lp?.seasonRating ?? sp?.rating ?? out?.seasonRating;
   const cells = live
-    ? [marks ? marks.goals.length || "" : "", marks ? marks.assists.length || "" : "", lp?.fm?.min ?? (marks?.subIn ? "" : ""), lp?.fm?.xg != null ? lp.fm.xg.toFixed(2) : "", lp?.fm?.chances ?? ""]
+    ? [marks ? marks.goals.length || "" : "", marks ? marks.assists.length || "" : "", lp ? minutesPlayed(lp, m) ?? "" : "", lp?.fm?.xg != null ? lp.fm.xg.toFixed(2) : "", lp?.fm?.chances ?? ""]
     : [sp?.goals || (sp ? "" : ""), sp?.assists || "", sp ? `${sp.starts}${sp.apps > sp.starts ? `(${sp.apps - sp.starts})` : ""}` : "", euros(sp?.marketValue ?? lp?.marketValue ?? out?.marketValue) ?? "", yearsUntil(sp?.contractUntil) ?? ""];
   const open = () => id && go(playerHash(m.league, m.id, id, fm));
   return (

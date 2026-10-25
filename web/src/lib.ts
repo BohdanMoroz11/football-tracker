@@ -160,6 +160,15 @@ export function minuteNum(m: string) {
   return Number(base) + (Number(add) || 0) * 0.1;
 }
 
+/** Same person across providers? Accent-insensitive, surname-based ("Vinicius Junior" = "Vinícius Júnior"). */
+export function samePerson(a: string, b: string) {
+  const n = (x: string) => x.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z ]/g, " ").trim().split(/\s+/);
+  const ta = n(a), tb = n(b);
+  if (ta.join(" ") === tb.join(" ")) return true;
+  const la = ta[ta.length - 1], lb = tb[tb.length - 1];
+  return (lb.length > 2 && ta.includes(lb) && (ta.length === 1 || tb.length === 1 || ta[0][0] === tb[0][0])) || (la.length > 2 && tb.includes(la) && ta[0][0] === tb[0][0]);
+}
+
 // ---------- colors ----------
 
 function lum(hex: string) {
