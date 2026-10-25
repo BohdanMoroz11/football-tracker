@@ -3,6 +3,7 @@ import type { Lineup, LineupPlayer, MatchDetail, Shot, Side, SquadPlayer } from 
 import { accent, euros, go, minuteNum, playerHash, ratingColor, useSize } from "../lib";
 import { tip } from "../glossary";
 import { Kit } from "./ui";
+import { useTunerScale } from "./FontTuner";
 
 /** Kit colors for a side: the match uniform when ESPN has it, else the club colors. */
 export function kitOf(m: MatchDetail, side: Side) {
@@ -194,7 +195,9 @@ function Dugout({ m, side, squad, showSeason, horizontal }: { m: MatchDetail; si
   const l = m.lineups[side];
   const kit = kitOf(m, side);
   const bench = [...l.bench].sort((a, b) => Number(!!b.marks.subIn) - Number(!!a.marks.subIn) || (b.seasonRating ?? 0) - (a.seasonRating ?? 0));
-  const ROWH = 34;
+  const textScale = useTunerScale("dugout", "text");
+  const discScale = useTunerScale("dugout", "display");
+  const ROWH = Math.round(34 * Math.max(1, textScale, discScale));
   // Vertical dugout: as many rows as fit. Horizontal strip: chips wrap into at most two rows.
   const perRow = horizontal ? Math.max(1, Math.floor((w + 6) / 138)) : 1;
   const fit = horizontal ? perRow * 2 : Math.max(0, Math.floor((h - 4) / ROWH));
@@ -223,7 +226,7 @@ function Dugout({ m, side, squad, showSeason, horizontal }: { m: MatchDetail; si
               data-tip={playerTip(p, l, m, sp)}
               data-tip-title={`${p.jersey ? `#${p.jersey} ` : ""}${p.name}`}
             >
-              <PlayerDisc p={p} kit={kit} size={26} />
+              <PlayerDisc p={p} kit={kit} size={Math.round(26 * discScale)} />
               <span className="min-w-0 flex-1 leading-tight">
                 <span className="block truncate font-ui text-[12px] font-semibold">{lastName(p.short)}</span>
                 <span className="block truncate font-ui text-[10.5px] text-mute tnum">
@@ -299,7 +302,8 @@ export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: Pi
   const strip = hasBench && !side;
   const stripH = strip ? (vertical ? 0 : STRIP) : 0;
   const { pw, ph } = side ? fitPitch(w - 2 * dug - 16, h) : fitPitch(w, h - stripH - (strip && !vertical ? 6 : 0));
-  const size = Math.round(Math.max(26, Math.min(50, vertical ? Math.min(pw / 8.6, ph / 13.5) : Math.min(ph / 8.6, pw / 13))));
+  const discScale = useTunerScale("pitch", "display");
+  const size = Math.round(Math.max(26, Math.min(50, vertical ? Math.min(pw / 8.6, ph / 13.5) : Math.min(ph / 8.6, pw / 13))) * discScale);
   const hasXI = (s: Side) => m.lineups[s].starters.length >= 11 && m.lineups[s].starters.every((p) => p.x != null);
 
   const pitch = (

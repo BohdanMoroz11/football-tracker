@@ -64,7 +64,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
           <Pitch m={m} mode={shownPitchMode} showSeason={mode === "season"} squad={squad} />
         </div>
         {m.momentum.length > 0 && (
-          <div className="shrink-0 px-1">
+          <div data-fs="pitchbar" className="shrink-0 px-1">
             <div className="flex items-center justify-between font-ui text-[10.5px] text-faint">
               <Term k={m.momentumSource === "fotmob" ? "momentum" : "momentumEstimate"}>Momentum</Term>
               {m.xg && <span {...tip("xg")} className="tnum">xG {m.xg.home.toFixed(2)} – {m.xg.away.toFixed(2)}</span>}
@@ -162,7 +162,7 @@ function PitchBar({ m, mode, setMode, benchTab }: { m: MatchDetail; mode: PitchM
     );
   };
   return (
-    <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-1 @container">
+    <div data-fs="pitchbar" className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-1 @container">
       {side("home")}
       <Segmented
         size="sm"

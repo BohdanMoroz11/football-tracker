@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 
 export const REGIONS = [
   { key: "header", label: "Match header", hint: "team names, score, odds" },
-  { key: "pitch", label: "Pitch", hint: "player names, formation bar, momentum" },
+  { key: "pitch", label: "Players on the pitch", hint: "faces, names, ratings, stat lines" },
+  { key: "pitchbar", label: "Pitch bar", hint: "formation, coach, toggles, momentum" },
   { key: "dugout", label: "Benches", hint: "dugouts beside the pitch" },
   { key: "panel", label: "Club columns", hint: "coach, profile, missing, leaders, results" },
   { key: "tabs", label: "Centre tabs", hint: "preview, story, stats, table…" },
@@ -41,9 +42,10 @@ function buildCss(): string {
   const visit = (rules: CSSRuleList, wrap?: string) => {
     for (const r of Array.from(rules)) {
       if (r instanceof CSSStyleRule) {
-        const m = r.selectorText.match(/^\.((?:[@\w\\[\]-]+\\:)?text-(?:\\\[([\d.]+)px\\\]|(xs|sm|base|lg|xl|[2-6]xl)))$/);
+        // Arbitrary sizes come escaped, decimals included: .text-\[11\.5px\]
+        const m = r.selectorText.match(/^\.((?:[@\w\\[\]-]+\\:)?text-(?:\\\[([\d.\\]+)px\\\]|(xs|sm|base|lg|xl|[2-6]xl)))$/);
         if (!m || !r.style.fontSize) continue;
-        const px = m[2] ? Number(m[2]) : NAMED[m[3]];
+        const px = m[2] ? Number(m[2].replace(/\\/g, "")) : NAMED[m[3]];
         if (!px || seen.has(r.selectorText + wrap)) continue;
         seen.add(r.selectorText + wrap);
         const sel = `.${m[1]}`;
@@ -70,6 +72,21 @@ function buildCss(): string {
   // Each region hands its sliders to the generic variables; nested regions (benches inside the pitch) win.
   for (const { key } of REGIONS) out.push(`[data-fs="${key}"]{--fs-text:var(--fs-${key}-text,1);--fs-display:var(--fs-${key}-display,1)}`);
   return out.join("\n");
+}
+
+/** Current multiplier for a region's sliders, for things sized in code (player discs, row heights). Re-renders on change. */
+export function useTunerScale(region: string, kind: Kind) {
+  const read = () => {
+    const st = getComputedStyle(document.documentElement);
+    return (parseFloat(st.getPropertyValue(`--fs-${region}-${kind}`)) || 1) * (parseFloat(st.getPropertyValue("--fs-all")) || 1);
+  };
+  const [v, setV] = useState(read);
+  useEffect(() => {
+    const on = () => setV(read());
+    window.addEventListener("fonttuner", on);
+    return () => window.removeEventListener("fonttuner", on);
+  }, [region, kind]);
+  return v;
 }
 
 function apply(c: Config) {
@@ -104,8 +121,9 @@ export function FontTuner() {
     } catch {
       /* ignore */
     }
-    // Layouts that measure themselves (fit-to-height lists, the pitch) re-measure on resize.
+    // Layouts that measure themselves re-measure on resize; code-sized things listen for "fonttuner".
     window.dispatchEvent(new Event("resize"));
+    window.dispatchEvent(new Event("fonttuner"));
   }, [cfg]);
 
   const set = (region: string, kind: Kind, v: number) => setCfg((c) => ({ ...c, [region]: { ...(c[region] as object), [kind]: v } }) as Config);
