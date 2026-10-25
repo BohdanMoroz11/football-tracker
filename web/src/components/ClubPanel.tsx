@@ -16,7 +16,7 @@ export function ClubPanel({ m, side, team, mode }: { m: MatchDetail; side: Side;
   const ref = m[side];
   const color = accent(ref.color, ref.altColor);
   return (
-    <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-stand ring-1 ring-rule @container" style={{ ["--team" as string]: color }}>
+    <section data-fs="panel" className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-stand ring-1 ring-rule @container" style={{ ["--team" as string]: color }}>
       <ClubHeader m={m} side={side} team={team} onClub={() => setClubOpen(true)} />
       <div className="flex min-h-0 flex-1 flex-col gap-2.5 px-3 pb-3 pt-2.5">
         <div className="grid shrink-0 gap-2.5 @lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">

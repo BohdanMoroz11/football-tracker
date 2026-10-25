@@ -203,7 +203,7 @@ function Dugout({ m, side, squad, showSeason, horizontal }: { m: MatchDetail; si
   const title = l.status === "official" ? "Bench" : l.status === "probable" ? "Next in line" : "";
   if (!bench.length) return <div />;
   return (
-    <div className={`flex min-h-0 flex-col ${horizontal ? "" : "h-full"}`}>
+    <div data-fs="dugout" className={`flex min-h-0 flex-col ${horizontal ? "" : "h-full"}`}>
       <div className={`mb-1 flex items-center gap-1.5 font-ui text-[11px] font-semibold text-mute ${side === "away" && !horizontal ? "flex-row-reverse" : ""}`}>
         <span className="size-2 rounded-full" style={{ background: `#${kit.color}`, boxShadow: "0 0 0 1px rgba(255,255,255,.35)" }} />
         {title}

@@ -58,7 +58,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
 
   const center = (withTabs: boolean) => (
     <div className="flex h-full min-h-0 flex-col gap-2">
-      <div className="flex min-h-0 flex-[1.7_1_0] flex-col rounded-xl bg-stand p-2 ring-1 ring-rule">
+      <div data-fs="pitch" className="flex min-h-0 flex-[1.7_1_0] flex-col rounded-xl bg-stand p-2 ring-1 ring-rule">
         <PitchBar m={m} mode={shownPitchMode} setMode={setPitchMode} benchTab={!withTabs} />
         <div className="min-h-0 flex-1 py-1.5">
           <Pitch m={m} mode={shownPitchMode} showSeason={mode === "season"} squad={squad} />
@@ -74,7 +74,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
         )}
       </div>
       {withTabs && (
-        <div className="flex min-h-0 flex-[1_1_0] flex-col rounded-xl bg-stand ring-1 ring-rule @container">
+        <div data-fs="tabs" className="flex min-h-0 flex-[1_1_0] flex-col rounded-xl bg-stand ring-1 ring-rule @container">
           <div className="flex shrink-0 items-center gap-2 border-b border-rule px-2 py-1.5">
             <Segmented size="sm" value={activeTab} onChange={setTab} options={tabs} />
           </div>
@@ -112,7 +112,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
       )}
       {layout === "narrow" && (
         <>
-          <nav className="scroll-thin flex shrink-0 items-center gap-2 overflow-x-auto px-2 py-1.5">
+          <nav data-fs="tabs" className="scroll-thin flex shrink-0 items-center gap-2 overflow-x-auto px-2 py-1.5">
             <Segmented
               size="sm"
               value={narrowTab}
@@ -129,7 +129,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
             {narrowTab === "pitch" && center(false)}
             {(narrowTab === "home" || narrowTab === "away") && panel(narrowTab)}
             {tabs.some((t) => t.value === narrowTab) && (
-              <div className="scroll-thin h-full overflow-auto rounded-xl bg-stand p-3 ring-1 ring-rule @container">
+              <div data-fs="tabs" className="scroll-thin h-full overflow-auto rounded-xl bg-stand p-3 ring-1 ring-rule @container">
                 <TabBody tab={narrowTab as CenterTab} m={m} teams={teams} />
               </div>
             )}
@@ -197,6 +197,7 @@ function Header({ m, updatedAt, toggle }: { m: MatchDetail; updatedAt: number; t
   }, []);
   return (
     <header
+      data-fs="header"
       className="relative shrink-0 border-b border-rule @container"
       style={{ background: `linear-gradient(100deg, ${tint(m.home.color)}66 0%, #151c23 30%, #151c23 70%, ${tint(m.away.color)}66 100%)` }}
     >

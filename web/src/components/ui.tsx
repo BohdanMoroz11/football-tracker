@@ -65,6 +65,7 @@ function TipBox({ title, body, rect }: TipState) {
     <div
       ref={ref}
       role="tooltip"
+      data-fs="tooltip"
       className="pointer-events-none fixed z-[70] max-w-[min(340px,calc(100vw-16px))] whitespace-pre-line rounded-lg border border-rule bg-terrace px-3 py-2 text-[13px] leading-snug text-chalk/90 shadow-xl"
       style={pos ?? { left: 0, top: 0, visibility: "hidden" }}
     >
@@ -165,7 +166,7 @@ export function Modal({ onClose, label, className = "", children }: { onClose: (
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
   return createPortal(
-    <div className="fixed inset-0 z-50 grid place-items-center sm:p-6" role="dialog" aria-modal="true" aria-label={label}>
+    <div data-fs="modal" className="fixed inset-0 z-50 grid place-items-center sm:p-6" role="dialog" aria-modal="true" aria-label={label}>
       <button className="absolute inset-0 bg-black/70" onClick={onClose} aria-label="Close" />
       <div className={`modal-in relative flex h-full w-full flex-col overflow-hidden bg-night shadow-2xl sm:h-auto sm:max-h-[92dvh] sm:rounded-2xl sm:border sm:border-rule ${className}`}>
         <button onClick={onClose} className="absolute right-3 top-3 z-10 rounded-full bg-black/50 px-3 py-1 text-sm hover:bg-black/70">
@@ -220,7 +221,7 @@ export function Popover({ trigger, children, align = "left", className = "" }: {
         {trigger(open)}
       </button>
       {open && (
-        <div className={`pop-in absolute top-full z-40 mt-2 rounded-xl border border-rule bg-stand p-3 shadow-2xl ${align === "right" ? "right-0" : "left-0"} ${className}`}>
+        <div data-fs="modal" className={`pop-in absolute top-full z-40 mt-2 rounded-xl border border-rule bg-stand p-3 shadow-2xl ${align === "right" ? "right-0" : "left-0"} ${className}`}>
           {children}
         </div>
       )}
