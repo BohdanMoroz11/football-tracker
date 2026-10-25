@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* "Tactics board under floodlights": graphite night stands, one bold element (the pitch), chalk-white type.
+   Clubs bring their own colors; card colors are the only semantic accents. */
+@theme {
+  --color-night: #0e1318; /* page */
+  --color-stand: #151c23; /* raised surfaces */
+  --color-terrace: #1c252e; /* nested / hover */
+  --color-rule: #27323d; /* hairlines */
+  --color-chalk: #eceeea; /* primary text */
+  --color-mute: #8d99a5; /* secondary text */
+  --color-faint: #5d6976;
+  --color-turf: #1d3d2c;
+  --color-turf-2: #214532;
+  --color-yellow: #f2c230; /* yellow card / doubtful */
+  --color-red: #e8505b; /* red card / out */
+  --color-live: #ff5a5f;
+  --color-win: #3ecf8e;
+  --color-draw: #9aa5b1;
+  --color-loss: #e8505b;
+  --color-good: #3ecf8e;
+  --color-bad: #f07178;
+
+  --font-display: "Sofia Sans Extra Condensed", "Arial Narrow", sans-serif;
+  --font-ui: "Sofia Sans Semi Condensed", "Sofia Sans", system-ui, sans-serif;
+  --font-sans: "Sofia Sans", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-night);
+  color: var(--color-chalk);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-chalk);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- the pitch: mown stripes, chalk lines ---------- */
+.turf {
+  background-color: var(--color-turf);
+  background-image: repeating-linear-gradient(var(--stripe-dir, 90deg), transparent 0 calc(100% / 18), rgb(255 255 255 / 0.035) calc(100% / 18) calc(100% / 9));
+}
+
+/* A player counter: a tactics-board disc in kit colors. */
+.counter {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.25) inset,
+    0 2px 6px rgb(0 0 0 / 0.45);
+}
+.counter-probable {
+  box-shadow:
+    0 0 0 1.5px rgb(236 238 234 / 0.75),
+    0 2px 6px rgb(0 0 0 / 0.45);
+  outline: 1.5px dashed rgb(236 238 234 / 0.55);
+  outline-offset: 2px;
+}
+
+@keyframes pulse-dot {
+  50% {
+    opacity: 0.3;
+  }
+}
+.live-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+@keyframes modal-in {
+  from {
+    transform: translateY(8px) scale(0.99);
+    opacity: 0;
+  }
+}
+.modal-in {
+  animation: modal-in 160ms ease-out;
+}
+
+@keyframes pop-in {
+  from {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+.pop-in {
+  animation: pop-in 120ms ease-out;
+}
+
+/* Glossary terms: a quiet hint that hovering explains them. */
+.explain {
+  cursor: help;
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 3px;
+}
+
+/* Live updates: a changed number glows in the club color, then fades back. */
+@keyframes flash {
+  0%,
+  20% {
+    background: color-mix(in srgb, var(--team, #3ecf8e) 45%, transparent);
+    color: #fff;
+  }
+}
+.flash {
+  animation: flash 2.5s ease-out;
+  border-radius: 4px;
+}
+
+/* A goal: the score lifts once. The one orchestrated motion moment. */
+@keyframes goal-lift {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.goal-lift {
+  animation: goal-lift 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-block;
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-rule) transparent;
+}

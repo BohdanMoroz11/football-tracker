@@ -1,0 +1,1377 @@
+{
+  "Barcelona": {
+    "nickname": "Barça / Blaugrana",
+    "founded": 1899,
+    "identity": "A member-owned Catalan institution whose motto is \"més que un club\". Its football religion is possession and positional play, built on the La Masia academy and the ideas Johan Cruyff planted.",
+    "history": "Cruyff's Dream Team won the club's first European Cup in 1992. The Guardiola era from 2008 produced arguably the finest club side ever, with Messi, Xavi and Iniesta winning trebles in 2009 and repeated in 2015 under Luis Enrique. Messi's 2021 exit amid a financial crisis marked a low, before a young, academy-heavy side revived the club.",
+    "rivals": [
+      "Real Madrid",
+      "Espanyol",
+      "Atlético Madrid"
+    ],
+    "legends": [
+      "Lionel Messi",
+      "Johan Cruyff",
+      "Xavi Hernández",
+      "Andrés Iniesta",
+      "Carles Puyol",
+      "Ronaldinho"
+    ]
+  },
+  "Atlético Madrid": {
+    "nickname": "Los Colchoneros / Atleti",
+    "founded": 1903,
+    "identity": "Madrid's working-class, defiant alternative to Real Madrid. Under Diego Simeone it became synonymous with compact defending, collective sacrifice and counter-attacking grit.",
+    "history": "Atlético won leagues across the decades, including a famous double in 1996, but also suffered relegation in 2000. Simeone's arrival in late 2011 transformed them: Europa League wins, the 2014 and 2021 La Liga titles and two Champions League finals, both lost agonisingly to Real Madrid.",
+    "rivals": [
+      "Real Madrid",
+      "Barcelona"
+    ],
+    "legends": [
+      "Luis Aragonés",
+      "Fernando Torres",
+      "Antoine Griezmann",
+      "Koke",
+      "Diego Godín",
+      "Adelardo"
+    ]
+  },
+  "Real Madrid": {
+    "nickname": "Los Blancos / Los Merengues",
+    "founded": 1902,
+    "identity": "The most decorated club in European history, run on a model of signing galácticos and expecting trophies every season. Famous for an almost mythical knack for comebacks on big Champions League nights.",
+    "history": "Di Stéfano's side won the first five European Cups from 1956 to 1960. The club added a sixth in 1966, then waited until 1998 to start a modern run that includes three straight Champions Leagues under Zidane (2016 to 2018) and further titles in 2022 and 2024, for a record 15 European Cups.",
+    "rivals": [
+      "Barcelona",
+      "Atlético Madrid"
+    ],
+    "legends": [
+      "Alfredo Di Stéfano",
+      "Cristiano Ronaldo",
+      "Raúl",
+      "Paco Gento",
+      "Iker Casillas",
+      "Zinedine Zidane"
+    ]
+  },
+  "Real Betis": {
+    "nickname": "Los Verdiblancos",
+    "founded": 1907,
+    "identity": "A passionate, populist Seville club with a famous motto, \"viva el Betis manque pierda\" (long live Betis, even if it loses). Known in recent years for stylish, technical football.",
+    "history": "Betis won their only league title in 1935 and have lived through plenty of yo-yo years since. Copa del Rey wins in 1977, 2005 and 2022 are cherished, and under Manuel Pellegrini they became regular European qualifiers and reached the 2025 Conference League final.",
+    "rivals": [
+      "Sevilla"
+    ],
+    "legends": [
+      "Joaquín",
+      "Rafael Gordillo",
+      "Hipólito Rincón",
+      "Denílson",
+      "Alfonso Pérez",
+      "Rubén Castro"
+    ]
+  },
+  "Real Sociedad": {
+    "nickname": "La Real / Txuri-Urdin",
+    "founded": 1909,
+    "identity": "A Basque club built on its Zubieta academy, with a long-held preference for homegrown and regional talent. Typically plays neat, possession-minded football.",
+    "history": "La Real won back-to-back league titles in 1981 and 1982 with a largely local team. They came close again in 2003 and spent a spell in the second tier before a 2020 Copa del Rey win (over Athletic, no less) and regular European football under Imanol Alguacil.",
+    "rivals": [
+      "Athletic Club",
+      "Osasuna"
+    ],
+    "legends": [
+      "Luis Arconada",
+      "Xabi Alonso",
+      "Mikel Oyarzabal",
+      "Jesús María Satrústegui",
+      "Antoine Griezmann",
+      "Darko Kovačević"
+    ]
+  },
+  "Sevilla": {
+    "nickname": "Los Nervionenses / Los Rojiblancos",
+    "founded": 1890,
+    "identity": "Andalusia's most successful club, famous for a sharp transfer-trading model built by sporting director Monchi. The Europa League is practically their home competition.",
+    "history": "Sevilla won La Liga only once, in 1946, but became a European force this century with a record seven UEFA Cup and Europa League titles, the first in 2006 and the latest in 2023. Recent seasons have been far rockier as finances tightened.",
+    "rivals": [
+      "Real Betis"
+    ],
+    "legends": [
+      "Jesús Navas",
+      "Frédéric Kanouté",
+      "Dani Alves",
+      "Ivan Rakitić",
+      "Antonio Puerta",
+      "Juan Arza"
+    ]
+  },
+  "Alavés": {
+    "nickname": "Babazorros / El Glorioso",
+    "founded": 1921,
+    "identity": "A modest club from Vitoria-Gasteiz that punches above its weight with organised, hard-working sides. A classic yo-yo club with a loyal following.",
+    "history": "Alavés's finest moment was reaching the 2001 UEFA Cup final, losing 5-4 to Liverpool on a golden goal in one of the great finals. They fell as low as the third tier after a financial collapse, then reached the 2017 Copa del Rey final and have bounced between the top two divisions since.",
+    "rivals": [
+      "Athletic Club",
+      "Real Sociedad",
+      "Osasuna"
+    ],
+    "legends": [
+      "Jordi Cruyff",
+      "Javi Moreno",
+      "Iván Tomić",
+      "Manu García",
+      "Hermes Desio"
+    ]
+  },
+  "Athletic Club": {
+    "nickname": "Los Leones",
+    "founded": 1898,
+    "identity": "Unique in elite football for fielding only players born or raised in the Basque Country, built through the Lezama academy. Never relegated, fiercely proud and backed by the roaring San Mamés.",
+    "history": "Athletic dominated early Spanish football and won eight league titles, the last two in 1983 and 1984 under Javier Clemente. They reached the 2012 Europa League final under Bielsa, and ended a 40-year trophy wait with the 2024 Copa del Rey.",
+    "rivals": [
+      "Real Sociedad",
+      "Real Madrid",
+      "Barcelona"
+    ],
+    "legends": [
+      "Telmo Zarra",
+      "José Ángel Iribar",
+      "Andoni Zubizarreta",
+      "Julen Guerrero",
+      "Aritz Aduriz",
+      "Iker Muniain"
+    ]
+  },
+  "Celta Vigo": {
+    "nickname": "Os Celestes",
+    "founded": 1923,
+    "identity": "Galicia's sky-blue club, with a recent emphasis on its A Madroa academy and attacking, ball-playing football in front of the Balaídos crowd.",
+    "history": "The 'EuroCelta' side of the late 1990s and early 2000s, with Mostovoi and Karpin, thrashed big names in Europe and reached the Champions League in 2003-04. Celta also reached the 2017 Europa League semi-finals, and Iago Aspas has been the face of the club for over a decade.",
+    "rivals": [
+      "Deportivo"
+    ],
+    "legends": [
+      "Iago Aspas",
+      "Aleksandr Mostovoi",
+      "Valery Karpin",
+      "Haim Revivo",
+      "Claude Makélélé"
+    ]
+  },
+  "Villarreal": {
+    "nickname": "El Submarino Amarillo",
+    "founded": 1923,
+    "identity": "A small-town club punching far above its size, backed by owner Fernando Roig and known for technical football and smart recruitment.",
+    "history": "Villarreal climbed from the lower leagues to reach the Champions League semi-finals in 2006 under Pellegrini, with Riquelme in the side. After a shock relegation in 2012 they bounced straight back, won the 2021 Europa League under Unai Emery and reached another Champions League semi in 2022.",
+    "rivals": [
+      "Valencia",
+      "Castellón"
+    ],
+    "legends": [
+      "Juan Román Riquelme",
+      "Marcos Senna",
+      "Santi Cazorla",
+      "Diego Forlán",
+      "Bruno Soriano",
+      "Gerard Moreno"
+    ]
+  },
+  "Deportivo": {
+    "nickname": "Dépor / Los Turcos",
+    "founded": 1906,
+    "identity": "A proud Galician club from A Coruña whose 'SuperDépor' era made it a household name. Its fans stayed loyal through a long fall down the pyramid.",
+    "history": "Under president Augusto César Lendoiro, Dépor won La Liga in 2000 and became a Champions League regular, famously overturning a 4-1 deficit against Milan in 2004 to reach the semi-finals. Debt and decline followed, including relegation to the third tier, before a gradual climb back.",
+    "rivals": [
+      "Celta Vigo"
+    ],
+    "legends": [
+      "Fran",
+      "Bebeto",
+      "Mauro Silva",
+      "Djalminha",
+      "Roy Makaay",
+      "Juan Carlos Valerón"
+    ]
+  },
+  "Osasuna": {
+    "nickname": "Los Rojillos",
+    "founded": 1920,
+    "identity": "Pamplona's member-owned club, known for intensity, a strong local core and the ferocious atmosphere at El Sadar.",
+    "history": "Osasuna reached the 2005 Copa del Rey final and the UEFA Cup semi-finals in 2007, their best European run. They have had several relegations, and a match-fixing scandal in 2014, but returned to reach another cup final in 2023 and play in Europe again.",
+    "rivals": [
+      "Real Sociedad",
+      "Athletic Club",
+      "Alavés",
+      "Real Zaragoza"
+    ],
+    "legends": [
+      "Patxi Puñal",
+      "Jan Urban",
+      "Savo Milošević",
+      "Roberto Torres",
+      "Oier Sanjurjo"
+    ]
+  },
+  "Racing Santander": {
+    "nickname": "Racing / Verdiblancos",
+    "founded": 1913,
+    "identity": "A founding member of La Liga from Cantabria, with a loyal fan base at El Sardinero. Historically a club that develops talent and survives on modest means.",
+    "history": "Racing were league runners-up in 1931 and enjoyed their best modern spell in 2008, qualifying for the UEFA Cup and reaching a Copa del Rey semi-final. Financial collapse brought a long fall into the third tier before a slow return.",
+    "rivals": [
+      "Sporting Gijón",
+      "Athletic Club"
+    ],
+    "legends": [
+      "Pedro Munitis",
+      "Quique Setién",
+      "Santillana",
+      "Francisco Gento",
+      "Nikola Žigić"
+    ]
+  },
+  "Levante": {
+    "nickname": "Granotes",
+    "founded": 1909,
+    "identity": "Valencia's other club, a working-class outfit from the city's port district that relies on hard work and organisation over money.",
+    "history": "Levante spent much of their history outside the top flight. Their high point came in 2011-12 when they briefly led La Liga and finished sixth to qualify for Europe, reaching the Europa League last 16 the following season.",
+    "rivals": [
+      "Valencia",
+      "Villarreal"
+    ],
+    "legends": [
+      "Sergio Ballesteros",
+      "José Luis Morales",
+      "Juanfran",
+      "Arouna Koné"
+    ]
+  },
+  "Elche": {
+    "nickname": "Los Franjiverdes / Ilicitanos",
+    "founded": 1923,
+    "identity": "A club from the Alicante region with a big stadium and a loyal following, usually a battler fighting to stay in La Liga.",
+    "history": "Elche's golden period came in the 1960s, when they finished fifth in La Liga and reached the 1969 Copa del Rey final. Since then they have bounced between the first, second and third tiers.",
+    "rivals": [
+      "Hércules"
+    ],
+    "legends": [
+      "Marcial Pina",
+      "Nino",
+      "Fidel Chaves"
+    ]
+  },
+  "Rayo Vallecano": {
+    "nickname": "Los Franjirrojos",
+    "founded": 1924,
+    "identity": "A neighbourhood club from working-class Vallecas in Madrid, with left-leaning, community-minded fans and a tiny, atmospheric stadium. Usually plays brave, intense football on a shoestring.",
+    "history": "Rayo have moved up and down the divisions for decades. They reached the UEFA Cup quarter-finals in 2001 and have had memorable top-flight spells, including European qualification in 2025.",
+    "rivals": [
+      "Atlético Madrid",
+      "Getafe",
+      "Real Madrid"
+    ],
+    "legends": [
+      "Óscar Trejo",
+      "Míchel",
+      "Wilfred Agbonavbare",
+      "Raúl de Tomás"
+    ]
+  },
+  "Getafe": {
+    "nickname": "Azulones",
+    "founded": 1983,
+    "identity": "A relatively young club from Madrid's southern suburbs, best known for compact, physical and fiercely competitive sides that are hard to play against.",
+    "history": "Getafe reached La Liga for the first time in 2004 and quickly made back-to-back Copa del Rey finals in 2007 and 2008, plus a UEFA Cup quarter-final against Bayern. Under José Bordalás they returned to Europe and reached the Europa League last 16 in 2020.",
+    "rivals": [
+      "Rayo Vallecano",
+      "Leganés"
+    ],
+    "legends": [
+      "Jaime Mata",
+      "Pedro León",
+      "Djené",
+      "Manu del Moral",
+      "Jaime Gavilán"
+    ]
+  },
+  "Espanyol": {
+    "nickname": "Periquitos",
+    "founded": 1900,
+    "identity": "Barcelona's other club, founded by Spanish rather than foreign students and long defined by being the alternative to Barça. Typically a solid, workmanlike side.",
+    "history": "Espanyol have won the Copa del Rey four times, most recently in 2000 and 2006, and reached two UEFA Cup finals, losing both on penalties in 1988 and 2007. They have had several relegations but are a top-flight mainstay.",
+    "rivals": [
+      "Barcelona"
+    ],
+    "legends": [
+      "Raúl Tamudo",
+      "Ricardo Zamora",
+      "Iván de la Peña",
+      "Daniel Jarque",
+      "Thomas N'Kono"
+    ]
+  },
+  "Valencia": {
+    "nickname": "Los Che / Murciélagos",
+    "founded": 1919,
+    "identity": "One of Spain's traditional big clubs with a huge, demanding fan base and the steep stands of Mestalla. Historically a strong developer of talent.",
+    "history": "Valencia reached consecutive Champions League finals in 2000 and 2001, then won La Liga in 2002 and 2004 under Rafa Benítez, adding the 2004 UEFA Cup. Under owner Peter Lim since 2014 the club has struggled, despite a 2019 Copa del Rey win.",
+    "rivals": [
+      "Levante",
+      "Villarreal",
+      "Real Madrid",
+      "Barcelona"
+    ],
+    "legends": [
+      "Mario Kempes",
+      "David Villa",
+      "David Albelda",
+      "Santiago Cañizares",
+      "Fernando Gómez",
+      "Gaizka Mendieta"
+    ]
+  },
+  "Málaga": {
+    "nickname": "Boquerones",
+    "founded": 1904,
+    "identity": "A big-city Andalusian club with passionate support at La Rosaleda, whose modern story is one of spectacular boom and painful bust.",
+    "history": "Backed by Qatari owner Sheikh Abdullah Al Thani, Málaga reached the Champions League quarter-finals in 2013 under Manuel Pellegrini, losing late to Dortmund. Financial trouble followed, with relegation to the second and even third tier before a recovery.",
+    "rivals": [
+      "Sevilla",
+      "Granada"
+    ],
+    "legends": [
+      "Isco",
+      "Joaquín",
+      "Santi Cazorla",
+      "Duda",
+      "Julio Baptista"
+    ]
+  },
+  "Manchester City": {
+    "nickname": "The Citizens / Sky Blues",
+    "founded": 1880,
+    "identity": "Transformed by Abu Dhabi ownership since 2008 into a global super-club and the model of Guardiola's possession and positional play.",
+    "history": "City won league titles in 1937 and 1968, then sank as low as the third tier in 1998. After the 2008 takeover, Agüero's last-gasp goal won the 2012 title, and Guardiola's sides won a record four straight Premier Leagues and the 2023 treble. The club faces a long-running case over alleged financial rule breaches.",
+    "rivals": [
+      "Manchester United",
+      "Liverpool"
+    ],
+    "legends": [
+      "Sergio Agüero",
+      "Vincent Kompany",
+      "David Silva",
+      "Kevin De Bruyne",
+      "Colin Bell",
+      "Yaya Touré"
+    ]
+  },
+  "Arsenal": {
+    "nickname": "The Gunners",
+    "founded": 1886,
+    "identity": "North London's grand old club, associated with stylish, passing football since Arsène Wenger's reign and with a proud tradition of youth development.",
+    "history": "Herbert Chapman built a dominant side in the 1930s. Wenger's teams won doubles in 1998 and 2002 and the 2003-04 'Invincibles' went a whole league season unbeaten. A long title drought followed, and Mikel Arteta rebuilt them into consistent title challengers.",
+    "rivals": [
+      "Tottenham Hotspur",
+      "Chelsea",
+      "Manchester United"
+    ],
+    "legends": [
+      "Thierry Henry",
+      "Dennis Bergkamp",
+      "Tony Adams",
+      "Patrick Vieira",
+      "Ian Wright",
+      "Liam Brady"
+    ]
+  },
+  "Brighton & Hove Albion": {
+    "nickname": "The Seagulls",
+    "founded": 1901,
+    "identity": "A model of data-driven recruitment under owner Tony Bloom, buying undervalued players, developing them in a progressive possession style and selling at a profit.",
+    "history": "Brighton reached the 1983 FA Cup final but then fell into crisis, losing their stadium and nearly dropping out of the league in 1997. They rebuilt, moved to the Amex in 2011, reached the Premier League in 2017 and played in Europe for the first time in 2023-24 after a sixth-placed finish under De Zerbi.",
+    "rivals": [
+      "Crystal Palace"
+    ],
+    "legends": [
+      "Peter Ward",
+      "Bobby Zamora",
+      "Glenn Murray",
+      "Lewis Dunk",
+      "Brian Horton"
+    ]
+  },
+  "Liverpool": {
+    "nickname": "The Reds",
+    "founded": 1892,
+    "identity": "A club built on Anfield's emotional atmosphere, \"You'll Never Walk Alone\" and the boot-room tradition of continuity. Modern Liverpool is known for intense, high-energy football.",
+    "history": "Shankly laid the foundations in the 1960s and Paisley's sides dominated England and Europe in the late 1970s and 1980s. After the Hillsborough tragedy and a long title drought, the 2005 'Miracle of Istanbul' and Klopp's 2019 Champions League and 2020 league title restored them, and they won the league again in 2025 under Arne Slot.",
+    "rivals": [
+      "Everton",
+      "Manchester United",
+      "Manchester City"
+    ],
+    "legends": [
+      "Kenny Dalglish",
+      "Steven Gerrard",
+      "Ian Rush",
+      "Mohamed Salah",
+      "Graeme Souness",
+      "John Barnes"
+    ]
+  },
+  "Chelsea": {
+    "nickname": "The Blues",
+    "founded": 1905,
+    "identity": "A West London club transformed by Roman Abramovich's money from 2003 and now run by a consortium that buys young talent on long contracts. Chelsea have tended to change coaches often and still win trophies.",
+    "history": "Chelsea won their first league in 1955 and had a stylish 1970s cup side. Under Abramovich and Mourinho they won back-to-back titles in 2005 and 2006, then Champions Leagues in 2012 and 2021, plus a stack of other trophies. The 2022 sale to Todd Boehly and Clearlake started a big-spending rebuild.",
+    "rivals": [
+      "Tottenham Hotspur",
+      "Arsenal",
+      "Fulham",
+      "Leeds United"
+    ],
+    "legends": [
+      "Frank Lampard",
+      "John Terry",
+      "Didier Drogba",
+      "Petr Čech",
+      "Gianfranco Zola",
+      "Peter Osgood"
+    ]
+  },
+  "Brentford": {
+    "nickname": "The Bees",
+    "founded": 1889,
+    "identity": "A West London club owned by Matthew Benham and run on analytics, with smart recruitment, set-piece mastery and a willingness to sell stars and replace them.",
+    "history": "Brentford spent most of their history in the lower leagues and were last in the top flight in 1947 before winning promotion in 2021. Under Thomas Frank they established themselves as a solid Premier League side.",
+    "rivals": [
+      "Fulham",
+      "Queens Park Rangers"
+    ],
+    "legends": [
+      "Ken Coote",
+      "Ivan Toney",
+      "Peter Gelson",
+      "Jim Towers",
+      "Kevin O'Connor"
+    ]
+  },
+  "Leeds United": {
+    "nickname": "The Whites / The Peacocks",
+    "founded": 1919,
+    "identity": "A one-club city with a huge, intense fan base. The Don Revie era defined its hard-nosed reputation, and in recent years it has been linked with high-energy football.",
+    "history": "Revie's 1960s and 1970s side won two league titles and two Fairs Cups. Leeds won the last old First Division in 1992, reached a Champions League semi in 2001, then collapsed financially and fell to the third tier. Bielsa brought them back up in 2020.",
+    "rivals": [
+      "Manchester United",
+      "Chelsea"
+    ],
+    "legends": [
+      "Billy Bremner",
+      "Johnny Giles",
+      "Norman Hunter",
+      "Peter Lorimer",
+      "Gordon Strachan",
+      "Lucas Radebe"
+    ]
+  },
+  "Newcastle United": {
+    "nickname": "The Magpies / Toon",
+    "founded": 1892,
+    "identity": "A one-club city with fervent support at St James' Park. Saudi PIF ownership since 2021 has revived ambitions after years of underinvestment.",
+    "history": "Newcastle won four league titles before 1930 and the 1969 Fairs Cup. Keegan's 'Entertainers' came agonisingly close to the 1996 title, and Bobby Robson took them into the Champions League. Under Eddie Howe they returned to the Champions League and ended a 70-year domestic trophy drought with the 2025 League Cup.",
+    "rivals": [
+      "Sunderland",
+      "Middlesbrough"
+    ],
+    "legends": [
+      "Alan Shearer",
+      "Jackie Milburn",
+      "Malcolm Macdonald",
+      "Peter Beardsley",
+      "Kevin Keegan",
+      "Hughie Gallacher"
+    ]
+  },
+  "Aston Villa": {
+    "nickname": "The Villans",
+    "founded": 1874,
+    "identity": "A founding member of the Football League and one of England's most decorated old clubs, backed by a big Birmingham fan base.",
+    "history": "Villa were a powerhouse in the Victorian era, then won the 1981 league title and the 1982 European Cup under Tony Barton. After relegation in 2016 they rebuilt, and Unai Emery took them back into the Champions League in 2024-25, where they reached the quarter-finals.",
+    "rivals": [
+      "Birmingham City",
+      "West Bromwich Albion",
+      "Wolverhampton Wanderers"
+    ],
+    "legends": [
+      "Paul McGrath",
+      "Peter Withe",
+      "Gordon Cowans",
+      "Gareth Barry",
+      "Gabriel Agbonlahor",
+      "Billy Walker"
+    ]
+  },
+  "Hull City": {
+    "nickname": "The Tigers",
+    "founded": 1904,
+    "identity": "A Yorkshire club with amber-and-black stripes, typically a battler that has spent most of its history outside the top flight.",
+    "history": "Hull reached the top flight for the first time in 2008 via a play-off final win. They reached the 2014 FA Cup final, leading Arsenal 2-0 before losing, and have since moved between the top three divisions.",
+    "rivals": [
+      "Leeds United",
+      "Sheffield Wednesday"
+    ],
+    "legends": [
+      "Ken Wagstaff",
+      "Chris Chilton",
+      "Dean Windass",
+      "Ian Ashbee",
+      "Andy Robertson"
+    ]
+  },
+  "Everton": {
+    "nickname": "The Toffees",
+    "founded": 1878,
+    "identity": "A founding member of the Football League and one of England's great old clubs, nicknamed 'the People's Club'. Famous for long top-flight continuity.",
+    "history": "Everton have won nine league titles, with peaks in the 1960s and the mid-1980s, when Howard Kendall's side won two titles and the 1985 Cup Winners' Cup. Recent decades were harder, with financial trouble and relegation scares, before the move from Goodison Park to a new waterfront stadium in 2025.",
+    "rivals": [
+      "Liverpool"
+    ],
+    "legends": [
+      "Dixie Dean",
+      "Neville Southall",
+      "Alan Ball",
+      "Graeme Sharp",
+      "Howard Kendall",
+      "Tim Cahill"
+    ]
+  },
+  "Ipswich Town": {
+    "nickname": "The Tractor Boys",
+    "founded": 1878,
+    "identity": "A Suffolk club with a famous history of overachievement under great managers, run as a modest family-feel club for much of its life.",
+    "history": "Alf Ramsey took Ipswich from the second tier to the league title in 1962. Bobby Robson then built a side that won the 1978 FA Cup and the 1981 UEFA Cup. A long spell in the lower leagues ended with back-to-back promotions to the Premier League in 2024.",
+    "rivals": [
+      "Norwich City"
+    ],
+    "legends": [
+      "Kevin Beattie",
+      "John Wark",
+      "Mick Mills",
+      "Arnold Mühren",
+      "Ray Crawford",
+      "Terry Butcher"
+    ]
+  },
+  "AFC Bournemouth": {
+    "nickname": "The Cherries",
+    "founded": 1899,
+    "identity": "A small south-coast club with a tiny stadium that keeps outperforming its size, usually with brave, high-pressing football.",
+    "history": "Bournemouth were nearly wound up in 2008 and started a season in League Two on minus 17 points. Eddie Howe led them from there to the Premier League in 2015, and after a brief relegation they returned and became an established top-flight side.",
+    "rivals": [
+      "Southampton",
+      "Portsmouth"
+    ],
+    "legends": [
+      "Steve Fletcher",
+      "Eddie Howe",
+      "Callum Wilson",
+      "Ted MacDougall",
+      "Simon Francis"
+    ]
+  },
+  "Tottenham Hotspur": {
+    "nickname": "Spurs / Lilywhites",
+    "founded": 1882,
+    "identity": "A North London club with a credo of playing attractive football, \"to dare is to do\", and a modern stadium among the best in Europe.",
+    "history": "Spurs won the first 20th-century double in 1961 and the 1963 Cup Winners' Cup, Britain's first European trophy. They reached the 2019 Champions League final under Pochettino, and ended a 17-year trophy wait by winning the 2025 Europa League.",
+    "rivals": [
+      "Arsenal",
+      "Chelsea",
+      "West Ham United"
+    ],
+    "legends": [
+      "Jimmy Greaves",
+      "Danny Blanchflower",
+      "Glenn Hoddle",
+      "Harry Kane",
+      "Ledley King",
+      "Son Heung-min"
+    ]
+  },
+  "Fulham": {
+    "nickname": "The Cottagers",
+    "founded": 1879,
+    "identity": "London's oldest professional club, with the charming riverside Craven Cottage, typically a mid-table side that plays tidy football.",
+    "history": "Fulham reached the 1975 FA Cup final and, under owner Mohamed Al-Fayed, climbed from the third tier to the Premier League by 2001. Roy Hodgson's side reached the 2010 Europa League final. They yo-yoed for a while before settling back in the top flight.",
+    "rivals": [
+      "Chelsea",
+      "Queens Park Rangers",
+      "Brentford"
+    ],
+    "legends": [
+      "Johnny Haynes",
+      "George Cohen",
+      "Bobby Moore",
+      "Clint Dempsey",
+      "Aleksandar Mitrović",
+      "Brian McBride"
+    ]
+  },
+  "Manchester United": {
+    "nickname": "The Red Devils",
+    "founded": 1878,
+    "identity": "One of the world's best-supported clubs, with a tradition of attacking football, youth development and late drama from the Ferguson era.",
+    "history": "Busby's 'Babes' were devastated by the 1958 Munich air disaster, but the rebuilt side won the 1968 European Cup. Alex Ferguson's 26-year reign brought 13 league titles and Champions Leagues in 1999 (part of a treble) and 2008. Since his 2013 retirement United have cycled through managers and rebuilt repeatedly.",
+    "rivals": [
+      "Liverpool",
+      "Manchester City",
+      "Leeds United",
+      "Arsenal"
+    ],
+    "legends": [
+      "Bobby Charlton",
+      "George Best",
+      "Ryan Giggs",
+      "Eric Cantona",
+      "Paul Scholes",
+      "Wayne Rooney"
+    ]
+  },
+  "Crystal Palace": {
+    "nickname": "The Eagles",
+    "founded": 1905,
+    "identity": "A South London club with one of England's loudest home atmospheres at Selhurst Park, a strong academy and a knack for spotting wide forwards.",
+    "history": "Palace reached the 1990 FA Cup final and finished third in the top flight in 1991. After years of yo-yoing and administration they settled in the Premier League from 2013, and won their first major trophy with the 2025 FA Cup under Oliver Glasner.",
+    "rivals": [
+      "Brighton & Hove Albion",
+      "Millwall"
+    ],
+    "legends": [
+      "Ian Wright",
+      "Wilfried Zaha",
+      "Mark Bright",
+      "Julián Speroni",
+      "Geoff Thomas"
+    ]
+  },
+  "Nottingham Forest": {
+    "nickname": "Forest / The Reds",
+    "founded": 1865,
+    "identity": "A historic club defined by the miracle of Brian Clough, who took a provincial side to the top of Europe.",
+    "history": "Clough and Peter Taylor won promotion, the 1978 league title and back-to-back European Cups in 1979 and 1980. Forest then spent more than two decades outside the Premier League, returning in 2022 and becoming competitive again under owner Evangelos Marinakis.",
+    "rivals": [
+      "Derby County",
+      "Leicester City"
+    ],
+    "legends": [
+      "Brian Clough",
+      "John Robertson",
+      "Stuart Pearce",
+      "Roy Keane",
+      "Trevor Francis",
+      "Peter Shilton"
+    ]
+  },
+  "Coventry City": {
+    "nickname": "The Sky Blues",
+    "founded": 1883,
+    "identity": "A Midlands club with a strong, long-suffering fan base, famous for its sky blue kit and innovations of the Jimmy Hill era.",
+    "history": "Coventry spent 34 straight years in the top flight from 1967 and won the 1987 FA Cup. Relegation in 2001 began a long decline, with stadium disputes and a drop to the fourth tier, before a revival that included the 2023 Championship play-off final.",
+    "rivals": [
+      "Aston Villa",
+      "Leicester City"
+    ],
+    "legends": [
+      "Jimmy Hill",
+      "Steve Ogrizovic",
+      "Dion Dublin",
+      "Cyrille Regis",
+      "Keith Houchen"
+    ]
+  },
+  "Sunderland": {
+    "nickname": "The Black Cats",
+    "founded": 1879,
+    "identity": "A big northeast club with passionate, long-suffering support at the Stadium of Light and a reputation for drama, good and bad.",
+    "history": "Sunderland won six league titles, the last in 1936, and the 1973 FA Cup as a second-tier side. They had a long Premier League spell until 2017, then suffered back-to-back relegations to League One before rebuilding with a young squad.",
+    "rivals": [
+      "Newcastle United",
+      "Middlesbrough"
+    ],
+    "legends": [
+      "Charlie Buchan",
+      "Bob Stokoe",
+      "Niall Quinn",
+      "Kevin Phillips",
+      "Jim Montgomery",
+      "Raich Carter"
+    ]
+  },
+  "Bayern Munich": {
+    "nickname": "Die Roten / FCB",
+    "founded": 1900,
+    "identity": "Germany's dominant super-club, member-owned and run by former players, with a motto of \"mia san mia\" (we are who we are). The expectation is to win the league every year.",
+    "history": "Beckenbauer, Müller and Maier won three straight European Cups from 1974 to 1976. Bayern have won six European Cups, including trebles in 2013 and 2020, and a record 11 straight Bundesliga titles until Leverkusen ended the run in 2024. They regained the title in 2025.",
+    "rivals": [
+      "Borussia Dortmund",
+      "1860 Munich"
+    ],
+    "legends": [
+      "Franz Beckenbauer",
+      "Gerd Müller",
+      "Thomas Müller",
+      "Sepp Maier",
+      "Philipp Lahm",
+      "Karl-Heinz Rummenigge"
+    ]
+  },
+  "Borussia Dortmund": {
+    "nickname": "BVB / Die Schwarzgelben",
+    "founded": 1909,
+    "identity": "A club famed for its Yellow Wall terrace, and for buying and developing young talent before selling it for big profit.",
+    "history": "Dortmund won the 1966 Cup Winners' Cup and the 1997 Champions League under Ottmar Hitzfeld. They nearly went bankrupt in 2005, then Klopp's pressing side won back-to-back titles in 2011 and 2012 and reached the 2013 Champions League final. They reached another final in 2024.",
+    "rivals": [
+      "Schalke 04",
+      "Bayern Munich"
+    ],
+    "legends": [
+      "Michael Zorc",
+      "Matthias Sammer",
+      "Marco Reus",
+      "Roman Weidenfeller",
+      "Lars Ricken",
+      "Robert Lewandowski"
+    ]
+  },
+  "SC Freiburg": {
+    "nickname": "Breisgau-Brasilianer",
+    "founded": 1904,
+    "identity": "A small, sensibly run Black Forest club known for stability, coaching continuity and developing players from its academy.",
+    "history": "Freiburg rose to the Bundesliga in the 1990s and have bounced back from several relegations. Under Christian Streich (2011 to 2024) they became a solid top-half side, reaching the 2022 DFB-Pokal final and playing in Europe.",
+    "rivals": [
+      "VfB Stuttgart",
+      "Karlsruher SC"
+    ],
+    "legends": [
+      "Christian Streich",
+      "Nils Petersen",
+      "Joachim Löw",
+      "Christian Günter",
+      "Rodolfo Cardoso"
+    ]
+  },
+  "Bayer Leverkusen": {
+    "nickname": "Die Werkself",
+    "founded": 1904,
+    "identity": "A club founded by workers at the Bayer pharmaceutical company, long known for attacking football and talent development. Once mocked as 'Neverkusen' for near-misses.",
+    "history": "Leverkusen won the 1988 UEFA Cup and the 1993 DFB-Pokal, but in 2002 lost the league, cup and Champions League final in a matter of weeks. Under Xabi Alonso they finally won the Bundesliga in 2024, unbeaten, and added the cup for a double.",
+    "rivals": [
+      "FC Cologne",
+      "Borussia Mönchengladbach"
+    ],
+    "legends": [
+      "Ulf Kirsten",
+      "Michael Ballack",
+      "Bernd Schneider",
+      "Rudi Völler",
+      "Stefan Kießling",
+      "Florian Wirtz"
+    ]
+  },
+  "RB Leipzig": {
+    "nickname": "Die Roten Bullen",
+    "founded": 2009,
+    "identity": "A club built by Red Bull, criticised by many fans for bypassing Germany's member-ownership traditions. It plays the Red Bull pressing style and buys young talent.",
+    "history": "Leipzig rose from the fifth tier to the Bundesliga by 2016 and finished second in their first season. They reached the 2020 Champions League semi-finals and won the DFB-Pokal in 2022 and 2023.",
+    "rivals": [
+      "Union Berlin",
+      "Hertha BSC"
+    ],
+    "legends": [
+      "Yussuf Poulsen",
+      "Emil Forsberg",
+      "Timo Werner",
+      "Willi Orbán",
+      "Péter Gulácsi"
+    ]
+  },
+  "Werder Bremen": {
+    "nickname": "Die Werderaner",
+    "founded": 1899,
+    "identity": "A traditional, member-run northern club with a reputation for attacking football and a loyal fan base at the Weserstadion.",
+    "history": "Otto Rehhagel's Bremen won league titles in 1988 and 1993 and the 1992 Cup Winners' Cup. Thomas Schaaf's side won the 2004 double and played thrilling football. They were relegated in 2021 but bounced back after one season.",
+    "rivals": [
+      "Hamburg SV"
+    ],
+    "legends": [
+      "Marco Bode",
+      "Dieter Burdenski",
+      "Johan Micoud",
+      "Claudio Pizarro",
+      "Diego",
+      "Rune Bratseth"
+    ]
+  },
+  "Mainz": {
+    "nickname": "Die Nullfünfer",
+    "founded": 1905,
+    "identity": "A carnival-city club known as a coaching incubator, having produced Jürgen Klopp and Thomas Tuchel. Plays energetic, pressing football on a modest budget.",
+    "history": "Mainz reached the Bundesliga for the first time in 2004 under Klopp and have been a top-flight mainstay for most of the time since, including several European campaigns.",
+    "rivals": [
+      "Eintracht Frankfurt",
+      "1. FC Kaiserslautern"
+    ],
+    "legends": [
+      "Jürgen Klopp",
+      "Nikolče Noveski",
+      "Shinji Okazaki",
+      "Yunus Mallı",
+      "Stefan Bell"
+    ]
+  },
+  "SV Elversberg": {
+    "nickname": "Die Elv",
+    "founded": 1907,
+    "identity": "A small club from a village in Saarland that has risen remarkably through the divisions with progressive, attacking football.",
+    "history": "Elversberg won promotion from the third tier to the 2. Bundesliga in 2023 and quickly established themselves as a fresh story in German football, coming very close to the top flight in 2025.",
+    "rivals": [
+      "1. FC Saarbrücken"
+    ],
+    "legends": []
+  },
+  "FC Augsburg": {
+    "nickname": "Fuggerstädter",
+    "founded": 1907,
+    "identity": "A Bavarian club that has survived in the Bundesliga on a modest budget through organisation and hard work.",
+    "history": "Augsburg reached the Bundesliga for the first time in 2011. Their best season came in 2014-15, when they finished fifth and qualified for the Europa League.",
+    "rivals": [
+      "Bayern Munich",
+      "1860 Munich"
+    ],
+    "legends": [
+      "Helmut Haller",
+      "Daniel Baier",
+      "Paul Verhaegh",
+      "Koo Ja-cheol",
+      "Marwin Hitz"
+    ]
+  },
+  "TSG Hoffenheim": {
+    "nickname": "Die Kraichgauer",
+    "founded": 1899,
+    "identity": "A village club bankrolled by SAP co-founder Dietmar Hopp, now a laboratory for young coaches and data-driven football.",
+    "history": "Hoffenheim rose from the fifth tier to the Bundesliga by 2008 and led the league that winter. Under Julian Nagelsmann they reached the Champions League in 2018.",
+    "rivals": [
+      "VfB Stuttgart",
+      "Karlsruher SC"
+    ],
+    "legends": [
+      "Andrej Kramarić",
+      "Sejad Salihović",
+      "Roberto Firmino",
+      "Kevin Vogt",
+      "Oliver Baumann"
+    ]
+  },
+  "Hamburg SV": {
+    "nickname": "Der Dino / Die Rothosen",
+    "founded": 1887,
+    "identity": "A grand old Hanseatic club and former giant whose struggle to return to the Bundesliga became a long-running saga.",
+    "history": "HSV won the 1983 European Cup under Ernst Happel and three German titles between 1979 and 1983. They were never relegated until 2018, then spent seven seasons in the 2. Bundesliga, repeatedly falling just short, before finally going back up in 2025.",
+    "rivals": [
+      "Werder Bremen",
+      "FC St. Pauli"
+    ],
+    "legends": [
+      "Uwe Seeler",
+      "Kevin Keegan",
+      "Felix Magath",
+      "Manfred Kaltz",
+      "Horst Hrubesch"
+    ]
+  },
+  "FC Cologne": {
+    "nickname": "Die Geißböcke (The Billy Goats)",
+    "founded": 1948,
+    "identity": "A big-city club with a huge, carnival-loving fan base and a live billy goat mascot named Hennes. Something of a yo-yo club in recent decades.",
+    "history": "Köln won the first Bundesliga title in 1964 and the double in 1978. They have been relegated multiple times since 1998 but always return, and reached the Europa League in 2017 and the Conference League in 2022.",
+    "rivals": [
+      "Borussia Mönchengladbach",
+      "Bayer Leverkusen",
+      "Fortuna Düsseldorf"
+    ],
+    "legends": [
+      "Wolfgang Overath",
+      "Lukas Podolski",
+      "Toni Schumacher",
+      "Hans Schäfer",
+      "Pierre Littbarski"
+    ]
+  },
+  "SC Paderborn 07": {
+    "nickname": "Die Paderborner",
+    "founded": 1907,
+    "identity": "A small club from Westphalia known for rapid rises and falls, and for punching above its weight with brave football.",
+    "history": "Paderborn made their Bundesliga debut in 2014 and briefly topped the table before going down. They slid further and were only spared a drop to the fourth tier in 2017 on a technicality, then back-to-back promotions brought them back to the top flight in 2019.",
+    "rivals": [
+      "Arminia Bielefeld"
+    ],
+    "legends": [
+      "Uwe Hünemeier",
+      "Sven Michel"
+    ]
+  },
+  "Eintracht Frankfurt": {
+    "nickname": "Die Adler",
+    "founded": 1899,
+    "identity": "A big-city club with a huge, travelling fan base, known for European nights and a smart recruitment model.",
+    "history": "Frankfurt reached the 1960 European Cup final, losing 7-3 to Real Madrid. They won the 1959 German title and the 1980 UEFA Cup, and in 2022 won the Europa League, after tens of thousands of fans famously travelled to Barcelona.",
+    "rivals": [
+      "Kickers Offenbach",
+      "Mainz"
+    ],
+    "legends": [
+      "Jürgen Grabowski",
+      "Bernd Hölzenbein",
+      "Uwe Bein",
+      "Charly Körbel",
+      "Alexander Meier"
+    ]
+  },
+  "VfB Stuttgart": {
+    "nickname": "Die Schwaben",
+    "founded": 1893,
+    "identity": "A traditional Swabian club with a strong academy, which has produced a long line of Germany internationals.",
+    "history": "Stuttgart won league titles in 1984, 1992 and 2007, and their young 'Magical Triangle' side reached the 1998 Cup Winners' Cup final. They were relegated twice in the 2010s, then came second in 2024 under Sebastian Hoeneß and won the DFB-Pokal in 2025.",
+    "rivals": [
+      "Karlsruher SC",
+      "Stuttgarter Kickers",
+      "Bayern Munich"
+    ],
+    "legends": [
+      "Karl Allgöwer",
+      "Guido Buchwald",
+      "Jürgen Klinsmann",
+      "Krassimir Balakov",
+      "Giovane Élber",
+      "Fredi Bobic"
+    ]
+  },
+  "Schalke 04": {
+    "nickname": "Die Königsblauen / Die Knappen",
+    "founded": 1904,
+    "identity": "A huge Ruhr club with mining roots and an intense fan base. Famous for passion more than recent results.",
+    "history": "Schalke won seven German titles before 1958 and the 1997 UEFA Cup with the 'Eurofighters'. They reached the Champions League semi-finals in 2011 but declined amid heavy debt, and have spent most seasons since 2021 in the 2. Bundesliga.",
+    "rivals": [
+      "Borussia Dortmund"
+    ],
+    "legends": [
+      "Ernst Kuzorra",
+      "Fritz Szepan",
+      "Klaus Fischer",
+      "Raúl",
+      "Olaf Thon",
+      "Manuel Neuer"
+    ]
+  },
+  "1. FC Union Berlin": {
+    "nickname": "Die Eisernen",
+    "founded": 1966,
+    "identity": "A fan-driven, working-class East Berlin club. Supporters helped rebuild their stadium, and the team is known for compact, physical football.",
+    "history": "Union were an East German cult club, and only reached the Bundesliga in 2019. Under Urs Fischer they rose all the way to the Champions League in 2023.",
+    "rivals": [
+      "Hertha BSC",
+      "RB Leipzig"
+    ],
+    "legends": [
+      "Torsten Mattuschka",
+      "Christopher Trimmel",
+      "Rafał Gikiewicz",
+      "Robin Knoche",
+      "Sebastian Polter"
+    ]
+  },
+  "Borussia Mönchengladbach": {
+    "nickname": "Die Fohlen (The Foals)",
+    "founded": 1900,
+    "identity": "A traditional club famous for its 1970s attacking 'Foals' and a vibrant atmosphere at Borussia-Park.",
+    "history": "Gladbach won five Bundesliga titles in the 1970s and two UEFA Cups under Hennes Weisweiler and Udo Lattek, and reached the 1977 European Cup final. They have since been a solid top-flight side, reaching the Champions League round of 16 in 2021.",
+    "rivals": [
+      "FC Cologne",
+      "Bayer Leverkusen"
+    ],
+    "legends": [
+      "Günter Netzer",
+      "Berti Vogts",
+      "Jupp Heynckes",
+      "Allan Simonsen",
+      "Rainer Bonhof",
+      "Lothar Matthäus"
+    ]
+  },
+  "Paris Saint-Germain": {
+    "nickname": "Les Parisiens / PSG",
+    "founded": 1970,
+    "identity": "France's dominant club since Qatar Sports Investments took over in 2011, built on star signings and now increasingly on young, hungry talent.",
+    "history": "PSG won the 1996 Cup Winners' Cup and became a superpower after 2011, winning a string of Ligue 1 titles with stars like Ibrahimović, Neymar and Mbappé. After years of European heartbreak, Luis Enrique's side won the Champions League in 2025.",
+    "rivals": [
+      "Marseille"
+    ],
+    "legends": [
+      "Kylian Mbappé",
+      "Zlatan Ibrahimović",
+      "Pauleta",
+      "Raí",
+      "Thiago Silva",
+      "Safet Sušić"
+    ]
+  },
+  "Como": {
+    "nickname": "I Lariani",
+    "founded": 1907,
+    "identity": "A lakeside club owned by Indonesia's Hartono brothers, now a stylish, possession-minded project that attracts talented young players.",
+    "history": "Como had several Serie A spells, notably in the 1980s, then went bankrupt more than once. After the Hartonos bought the club in 2019, with Cesc Fàbregas first as a player and then as coach, they climbed from Serie C back to Serie A in 2024.",
+    "rivals": [
+      "Atalanta",
+      "Varese"
+    ],
+    "legends": [
+      "Gianluca Zambrotta",
+      "Pietro Vierchowod",
+      "Stefano Borgonovo",
+      "Dan Corneliusson"
+    ]
+  },
+  "Club Brugge": {
+    "nickname": "Blauw-Zwart",
+    "founded": 1891,
+    "identity": "Belgium's most consistent club of recent years, with a strong recruitment model and a regular place in the Champions League.",
+    "history": "Brugge reached the 1978 European Cup final, losing to Liverpool, and have won many Belgian titles. They reached the Champions League last 16 in 2023 and 2025.",
+    "rivals": [
+      "Anderlecht",
+      "Cercle Brugge",
+      "Standard Liège"
+    ],
+    "legends": [
+      "Jan Ceulemans",
+      "Raoul Lambert",
+      "Franky Van der Elst",
+      "Hans Vanaken",
+      "Birger Jensen"
+    ]
+  },
+  "Sporting CP": {
+    "nickname": "Os Leões",
+    "founded": 1906,
+    "identity": "Lisbon's green-and-white giant, famous for its academy, which produced Cristiano Ronaldo and Luís Figo.",
+    "history": "Sporting won the 1964 Cup Winners' Cup and dominated in the 1950s. After a long title drought they won the league in 2021 under Rúben Amorim, then again in 2024 and the double in 2025.",
+    "rivals": [
+      "Benfica",
+      "FC Porto"
+    ],
+    "legends": [
+      "Fernando Peyroteo",
+      "Luís Figo",
+      "Cristiano Ronaldo",
+      "Manuel Fernandes",
+      "Hilário"
+    ]
+  },
+  "AS Roma": {
+    "nickname": "I Giallorossi / La Lupa",
+    "founded": 1927,
+    "identity": "A club with an intensely passionate fan base, defined by loyal local heroes and the city derby.",
+    "history": "Roma won Serie A in 1942, 1983 and 2001, and reached the 1984 European Cup final. They reached the 2018 Champions League semi-finals and won the 2022 Conference League under José Mourinho.",
+    "rivals": [
+      "Lazio"
+    ],
+    "legends": [
+      "Francesco Totti",
+      "Daniele De Rossi",
+      "Bruno Conti",
+      "Paulo Roberto Falcão",
+      "Giuseppe Giannini",
+      "Gabriel Batistuta"
+    ]
+  },
+  "Shakhtar Donetsk": {
+    "nickname": "The Miners / Hirnyky",
+    "founded": 1936,
+    "identity": "A Ukrainian club owned by Rinat Akhmetov, known for scouting Brazilian talent. Displaced from Donetsk by war since 2014.",
+    "history": "Shakhtar won the 2009 UEFA Cup under Mircea Lucescu and dominated Ukrainian football. Since 2014 they have played in exile, in Lviv, Kharkiv, Kyiv and abroad.",
+    "rivals": [
+      "Dynamo Kyiv"
+    ],
+    "legends": [
+      "Darijo Srna",
+      "Fernandinho",
+      "Willian",
+      "Andriy Pyatov",
+      "Yaroslav Rakitskiy"
+    ]
+  },
+  "PSV Eindhoven": {
+    "nickname": "De Lampen / Boeren",
+    "founded": 1913,
+    "identity": "A club founded by Philips workers, known as a springboard for great strikers like Romário and Ronaldo.",
+    "history": "PSV won the 1978 UEFA Cup and the 1988 European Cup under Guus Hiddink. They won many Eredivisie titles, including back-to-back in 2024 and 2025.",
+    "rivals": [
+      "Ajax",
+      "Feyenoord"
+    ],
+    "legends": [
+      "Willy van der Kuijlen",
+      "Romário",
+      "Ronaldo",
+      "Ruud Gullit",
+      "Phillip Cocu",
+      "Luuk de Jong"
+    ]
+  },
+  "Internazionale": {
+    "nickname": "I Nerazzurri / Inter",
+    "founded": 1908,
+    "identity": "A Milan giant formed as a breakaway welcoming foreign players, famous for its 1960s Grande Inter and resilient, tough football.",
+    "history": "Helenio Herrera's Grande Inter won back-to-back European Cups in 1964 and 1965. Mourinho's 2010 side won a treble. Inter won Serie A in 2021 and 2024, and reached the Champions League final in 2023 and 2025.",
+    "rivals": [
+      "AC Milan",
+      "Juventus"
+    ],
+    "legends": [
+      "Giuseppe Meazza",
+      "Javier Zanetti",
+      "Sandro Mazzola",
+      "Giacinto Facchetti",
+      "Ronaldo",
+      "Diego Milito"
+    ]
+  },
+  "Napoli": {
+    "nickname": "Gli Azzurri / Partenopei",
+    "founded": 1926,
+    "identity": "A club with fervent support in Naples, a symbol of southern Italian pride and rebellion against northern power.",
+    "history": "Maradona led Napoli to Serie A titles in 1987 and 1990 and the 1989 UEFA Cup. They went bankrupt in 2004, then rebuilt and won Serie A in 2023 under Spalletti and 2025 under Conte.",
+    "rivals": [
+      "Juventus",
+      "AS Roma"
+    ],
+    "legends": [
+      "Diego Maradona",
+      "Marek Hamšík",
+      "Dries Mertens",
+      "Lorenzo Insigne",
+      "Careca",
+      "Giuseppe Bruscolotti"
+    ]
+  },
+  "Galatasaray": {
+    "nickname": "Cimbom / Aslanlar",
+    "founded": 1905,
+    "identity": "Turkey's most decorated club, with a hostile home atmosphere and a tradition of big signings.",
+    "history": "Galatasaray won the 2000 UEFA Cup and Super Cup, Turkey's only major European trophies. They won Süper Lig titles in 2023, 2024 and 2025 under Okan Buruk.",
+    "rivals": [
+      "Fenerbahce",
+      "Beşiktaş"
+    ],
+    "legends": [
+      "Metin Oktay",
+      "Gheorghe Hagi",
+      "Hakan Şükür",
+      "Bülent Korkmaz",
+      "Fernando Muslera",
+      "Cláudio Taffarel"
+    ]
+  },
+  "LASK Linz": {
+    "nickname": "Die Linzer / Athletiker",
+    "founded": 1908,
+    "identity": "An Austrian club from Linz, the first team outside Vienna to win the league, now with a modern stadium and regular European football.",
+    "history": "LASK won the Austrian league in 1965. After financial trouble they rose from the third tier to finish second in 2019 and reach the Europa League last 16 in 2020.",
+    "rivals": [
+      "Blau-Weiß Linz",
+      "Red Bull Salzburg"
+    ],
+    "legends": [
+      "Helmut Köglberger",
+      "Gernot Trauner",
+      "Peter Michorl"
+    ]
+  },
+  "Sabah FK": {
+    "nickname": "Sabah",
+    "founded": 2017,
+    "identity": "A young, well-funded club from Baku, Azerbaijan, building quickly behind Azerbaijan's traditional powers.",
+    "history": "Sabah were founded in 2017 and joined the Azerbaijan Premier League soon after, establishing themselves as a regular top-half side with European ambitions.",
+    "rivals": [
+      "Qarabağ",
+      "Neftçi Baku"
+    ],
+    "legends": []
+  },
+  "Feyenoord Rotterdam": {
+    "nickname": "De Club van het Volk",
+    "founded": 1908,
+    "identity": "Rotterdam's working-class club with passionate fans at De Kuip, proud of a hard-working, no-nonsense identity.",
+    "history": "Feyenoord became the first Dutch club to win the European Cup in 1970, and also won the UEFA Cup in 1974 and 2002. They won the Eredivisie in 2017 and 2023, and reached the 2022 Conference League final.",
+    "rivals": [
+      "Ajax",
+      "PSV Eindhoven",
+      "Sparta Rotterdam"
+    ],
+    "legends": [
+      "Coen Moulijn",
+      "Wim van Hanegem",
+      "Ove Kindvall",
+      "Rinus Israël",
+      "Dirk Kuyt",
+      "Robin van Persie"
+    ]
+  },
+  "Lens": {
+    "nickname": "Les Sang et Or",
+    "founded": 1906,
+    "identity": "A club rooted in northern France's mining heritage, with one of the most passionate atmospheres in French football at the Stade Bollaert-Delelis.",
+    "history": "Lens won Ligue 1 in 1998 and the 1999 League Cup. After several relegations, they returned and finished second in 2023, earning a Champions League place.",
+    "rivals": [
+      "Lille"
+    ],
+    "legends": [
+      "Éric Sikora",
+      "Tony Vairelles",
+      "Daniel Leclercq",
+      "Seydou Keita",
+      "Guillaume Warmuz"
+    ]
+  },
+  "Bodo/Glimt": {
+    "nickname": "Glimt",
+    "founded": 1916,
+    "identity": "A small club from above the Arctic Circle that became a model of collective, attacking, mentally prepared football.",
+    "history": "Bodø/Glimt won their first Norwegian title in 2020 and added several more. They beat Roma 6-1 in 2021 and reached the Europa League semi-finals in 2025.",
+    "rivals": [
+      "Tromsø",
+      "Rosenborg",
+      "Molde"
+    ],
+    "legends": [
+      "Patrick Berg",
+      "Ulrik Saltnes",
+      "Kasper Høgh",
+      "Philip Zinckernagel"
+    ]
+  },
+  "AEK Athens": {
+    "nickname": "Enosis / Kitrinomavri",
+    "founded": 1924,
+    "identity": "A club founded by Greek refugees from Constantinople, proud of its heritage and passionate support.",
+    "history": "AEK reached the 1977 UEFA Cup semi-finals and won several Greek titles, the latest in 2023. They suffered relegation in 2013 amid financial collapse before a quick recovery.",
+    "rivals": [
+      "Olympiacos",
+      "Panathinaikos"
+    ],
+    "legends": [
+      "Mimis Papaioannou",
+      "Thomas Mavros",
+      "Demis Nikolaidis",
+      "Vasilios Tsiartas",
+      "Theodoros Zagorakis"
+    ]
+  },
+  "Fenerbahce": {
+    "nickname": "Sarı Kanaryalar (Yellow Canaries)",
+    "founded": 1907,
+    "identity": "An Istanbul giant from the city's Asian side, with a huge fan base and a strong rivalry with Galatasaray.",
+    "history": "Fenerbahçe have won many Süper Lig titles, the last in 2014. They reached the Champions League quarter-finals in 2008 and the Europa League semi-finals in 2013.",
+    "rivals": [
+      "Galatasaray",
+      "Beşiktaş"
+    ],
+    "legends": [
+      "Lefter Küçükandonyadis",
+      "Alex de Souza",
+      "Rüştü Reçber",
+      "Can Bartu",
+      "Oğuz Çetin"
+    ]
+  },
+  "Slavia Prague": {
+    "nickname": "Sešívaní",
+    "founded": 1892,
+    "identity": "One of Czech football's two giants, now known for high-intensity, physical football and smart recruitment.",
+    "history": "Slavia were dominant in Czech football before World War II. They have won several titles since 2017 and reached the Europa League quarter-finals in 2019 and 2021.",
+    "rivals": [
+      "Sparta Prague"
+    ],
+    "legends": [
+      "Josef Bican",
+      "František Plánička",
+      "Vladimír Šmicer",
+      "Karel Poborský",
+      "Patrik Berger"
+    ]
+  },
+  "Viking FK": {
+    "nickname": "Viking",
+    "founded": 1899,
+    "identity": "A traditional Norwegian club from Stavanger with loyal support and a history of developing players.",
+    "history": "Viking have won the Norwegian title several times, most recently in 1991. They won the 2019 Norwegian Cup.",
+    "rivals": [
+      "Bryne"
+    ],
+    "legends": [
+      "Egil Østenstad",
+      "Erik Thorstvedt",
+      "Svein Fjælberg"
+    ]
+  },
+  "FC Porto": {
+    "nickname": "Os Dragões",
+    "founded": 1893,
+    "identity": "Portugal's most successful club in Europe, with a model of scouting, developing and selling top talent.",
+    "history": "Porto won the 1987 European Cup and, under Mourinho, the 2003 UEFA Cup and 2004 Champions League. They also won the 2011 Europa League under André Villas-Boas.",
+    "rivals": [
+      "Benfica",
+      "Sporting CP"
+    ],
+    "legends": [
+      "Fernando Gomes",
+      "Vítor Baía",
+      "Deco",
+      "Rabah Madjer",
+      "João Pinto",
+      "Radamel Falcao"
+    ]
+  },
+  "Lille": {
+    "nickname": "Les Dogues (The Mastiffs)",
+    "founded": 1944,
+    "identity": "A northern French club known for smart player trading and occasional title surprises.",
+    "history": "Lille won the 2011 double under Rudi Garcia with Eden Hazard. They won Ligue 1 again in 2021, beating PSG to the title under Christophe Galtier.",
+    "rivals": [
+      "Lens"
+    ],
+    "legends": [
+      "Eden Hazard",
+      "Rio Mavuba",
+      "Jonathan David",
+      "José Fonte",
+      "Jean Baratte"
+    ]
+  },
+  "Slovan Bratislava": {
+    "nickname": "Belasí (The Sky Blues)",
+    "founded": 1919,
+    "identity": "Slovakia's most successful club, the dominant force in the domestic league.",
+    "history": "Slovan won the 1969 Cup Winners' Cup, the first Czechoslovak club to win a European trophy. They have dominated the Slovak league in recent years and reached the Champions League league phase in 2024-25.",
+    "rivals": [
+      "Spartak Trnava"
+    ],
+    "legends": [
+      "Ján Popluhár",
+      "Alexander Vencel",
+      "Karol Jokl",
+      "Ľudovít Cvetler",
+      "Peter Dubovský"
+    ]
+  }
+}
