@@ -29,7 +29,7 @@ Base `https://www.fotmob.com/api/data/` (the old `/api/matchDetails` paths are d
 |---|---|
 | `/matches?date=YYYYMMDD` | Find FotMob's match id for an ESPN match (kickoff within 3h + fuzzy team names, `findMatchId`). |
 | `/matchDetails?matchId=` | `content.lineup` (`lineupType`: `unavailable` → `predicted` 1-3 days out → `standard`; starters with `horizontalLayout` x/y, `performance.rating/seasonRating`, `marketValue`; `coach`; `unavailable[]` with expected return), `playerStats` (rating, xG, xA, minutes), `shotmap.shots` (x 0-105, y 0-68, xG), `momentum.main.data` (±100, positive = home), `stats.Periods.All` (xG, big chances...), `matchFacts.infoBox` (referee with season stats, stadium capacity), `weather`, `insights`, `h2h.summary`, `playerOfTheMatch`, `general.leagueRoundName`. |
-| `/teams?id=` | Squad (injuries, ratings, values, DOB, height), coach id, `history.trophyList` (honours), `overview.venue`, `stats.teams` (season stats with league ranks: xG, xGA, possession...). |
+| `/teams?id=` | `fixtures.allFixtures.fixtures` (recent match ids for formation history), squad `positionIds`/`positionIdsDesc` (natural positions, e.g. `34,32` = `CB,RB`; also how position ids were mapped), squad (injuries, ratings, values, DOB, height), coach id, `history.trophyList` (honours), `overview.venue`, `stats.teams` (season stats with league ranks: xG, xGA, possession...). |
 | `/playerData?id=` | Players: career, per-competition season stats with ratings, recent matches, traits (percentiles), trophies, contract end, market value. Coaches: `careerHistory` (clubs with dates), `coachStats` (W/D/L per club), `trophies.coachTrophies`. |
 | `/search/suggest?term=` | FotMob team id when a match didn't give one. |
 

@@ -15,6 +15,12 @@ A personal second screen for watching football. Pick a match and get one dashboa
 - Rating badges and markers for goals, assists, cards, substitutions and player of the match.
 - Before lineups are out it shows a **probable XI**: FotMob's prediction, or our own built from recent starting XIs minus injured and suspended players. A bar under each player shows how often they've started lately.
 - A **shot map** with dots sized by xG, and a **momentum** strip with goals marked.
+- **Formation story**: click a formation to see:
+  - whether ESPN and FotMob agree on it
+  - the shapes the team used in its last six matches, and how settled or fluid it is
+  - how the coach's team shifts with and without the ball
+  - players out of position today (also tagged on the pitch)
+  - likely shape changes during the match
 
 **Club columns** (one per club)
 - Club strip: position and points, form across all competitions, plus a **Club** modal with history, honours, fixtures and news.
