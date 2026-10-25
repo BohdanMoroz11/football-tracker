@@ -3,7 +3,7 @@ import type { MatchDetail, Side, TeamDetail } from "../../../shared/types";
 import { accent, go, kickoff, ordinal, tint, useMatch, useTeam, useWidth } from "../lib";
 import { tip } from "../glossary";
 import { Crest, ErrorNote, Flash, Segmented, Spinner, Term } from "./ui";
-import { BenchStrip, Momentum, Pitch, type PitchMode, type SquadIndex } from "./Pitch";
+import { Momentum, Pitch, type PitchMode, type SquadIndex } from "./Pitch";
 import { ClubPanel, type NumbersMode } from "./ClubPanel";
 import { TabBody, centerTabs, type CenterTab } from "./CenterTabs";
 import { PlayerModal } from "./PlayerModal";
@@ -42,6 +42,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
   const activeTab: CenterTab = tab ?? (m.state === "pre" ? "preview" : "story");
   const tabs = centerTabs(m);
   const layout = w >= 1500 ? "wide" : w >= 1000 ? "medium" : "narrow";
+  const shownPitchMode: PitchMode = pitchMode === "bench" && layout !== "narrow" ? "lineups" : pitchMode;
   const numbersToggle =
     m.state !== "pre" ? (
       <Segmented size="sm" value={mode} onChange={setNumbers} options={[{ value: "match", label: "This match", title: "Ratings and numbers from this match" }, { value: "season", label: "Season", title: "Season averages and totals" }]} />
@@ -57,15 +58,10 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
   const center = (withTabs: boolean) => (
     <div className="flex h-full min-h-0 flex-col gap-2">
       <div className="flex min-h-0 flex-[1.7_1_0] flex-col rounded-xl bg-stand p-2 ring-1 ring-rule">
-        <PitchBar m={m} mode={pitchMode} setMode={setPitchMode} />
+        <PitchBar m={m} mode={shownPitchMode} setMode={setPitchMode} benchTab={!withTabs} />
         <div className="min-h-0 flex-1 py-1.5">
-          <Pitch m={m} mode={pitchMode} showSeason={mode === "season"} squad={squad} />
+          <Pitch m={m} mode={shownPitchMode} showSeason={mode === "season"} squad={squad} />
         </div>
-        {!withTabs && (
-          <div className="shrink-0 px-1 pb-1">
-            <BenchStrip m={m} squad={squad} showSeason={mode === "season"} />
-          </div>
-        )}
         {m.momentum.length > 0 && (
           <div className="shrink-0 px-1">
             <div className="flex items-center justify-between font-ui text-[10.5px] text-faint">
@@ -144,7 +140,7 @@ export function MatchPage({ league, id, player }: { league: string; id: string; 
   );
 }
 
-function PitchBar({ m, mode, setMode }: { m: MatchDetail; mode: PitchMode; setMode: (v: PitchMode) => void }) {
+function PitchBar({ m, mode, setMode, benchTab }: { m: MatchDetail; mode: PitchMode; setMode: (v: PitchMode) => void; benchTab?: boolean }) {
   const side = (s: Side) => {
     const l = m.lineups[s];
     const status =
@@ -167,7 +163,17 @@ function PitchBar({ m, mode, setMode }: { m: MatchDetail; mode: PitchMode; setMo
   return (
     <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-1 @container">
       {side("home")}
-      <Segmented size="sm" value={mode} onChange={setMode} options={[{ value: "lineups", label: "Lineups" }, { value: "shots", label: `Shots${m.shots.length ? ` ${m.shots.length}` : ""}`, title: "Shot map: bigger dots were better chances" }]} />
+      <Segmented
+        size="sm"
+        value={mode}
+        onChange={setMode}
+        options={[
+          { value: "lineups", label: "Lineups" },
+          // Narrow windows have no room for dugouts beside the pitch, so the benches get their own view.
+          ...(benchTab ? [{ value: "bench" as const, label: "Bench" }] : []),
+          { value: "shots", label: `Shots${m.shots.length ? ` ${m.shots.length}` : ""}`, title: "Shot map: bigger dots were better chances" },
+        ]}
+      />
       {side("away")}
     </div>
   );

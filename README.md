@@ -10,7 +10,8 @@ A personal second screen for watching football. Pick a match and get one dashboa
 - Win/draw/win chances from the odds.
 
 **The pitch** (centre)
-- Both XIs on a tactics board: kit-colored counters with shirt numbers in the real formation geometry.
+- Both XIs on a tactics board in their real formation geometry: player faces in kit-colored rings with shirt numbers, plus season goals and assists.
+- The benches sit in dugouts beside the pitch, showing who came on and when.
 - Rating badges and markers for goals, assists, cards, substitutions and player of the match.
 - Before lineups are out it shows a **probable XI**: FotMob's prediction, or our own built from recent starting XIs minus injured and suspended players. A bar under each player shows how often they've started lately.
 - A **shot map** with dots sized by xG, and a **momentum** strip with goals marked.
@@ -20,7 +21,10 @@ A personal second screen for watching football. Pick a match and get one dashboa
 - **Coach card**: tenure, W/D/L, points per game and usual formation. It opens a coach profile with tactical style, career by club with PPG, and trophies.
 - **Fixture load**: days of rest, last result, next match and competition.
 - **Season profile** with league ranks: xG for and against, goals, possession, clean sheets, big chances.
-- **Matchday squad** that fits the window: the XI, absences with return dates, the bench, and the rest. Each player shows rating, goals, assists, appearances, market value and contract end. The same columns switch to match numbers (rating, minutes, xG, chances created) once the game starts.
+- **Missing players** with the reason and expected return date.
+- **Season leaders** with photos: top scorer, most assists, best rated, most valuable.
+- **Recent results** and what comes after this match.
+- A **Full squad** table showing rating, goals, assists, appearances, value and contract. Once the game starts, the table switches to match numbers.
 
 **Centre tabs**
 - **Preview/Context**: what's at stake in the table, talking points, form, referee card rates, venue, weather, and who's missing.

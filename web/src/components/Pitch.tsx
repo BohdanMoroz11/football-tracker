@@ -256,7 +256,7 @@ function ShotDot({ s, m, vertical }: { s: Shot; m: MatchDetail; vertical: boolea
   );
 }
 
-export type PitchMode = "lineups" | "shots";
+export type PitchMode = "lineups" | "shots" | "bench";
 
 export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: PitchMode; showSeason: boolean; squad: SquadIndex }) {
   const [ref, { w, h }] = useSize<HTMLDivElement>();
@@ -280,7 +280,7 @@ export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: Pi
   const strip = hasBench && !side;
   const stripH = strip ? (vertical ? 0 : STRIP) : 0;
   const { pw, ph } = side ? fitPitch(w - 2 * dug - 16, h) : fitPitch(w, h - stripH - (strip && !vertical ? 6 : 0));
-  const size = Math.round(Math.max(26, Math.min(50, vertical ? pw / 7.2 : Math.min(ph / 8.6, pw / 13))));
+  const size = Math.round(Math.max(26, Math.min(50, vertical ? Math.min(pw / 8.6, ph / 13.5) : Math.min(ph / 8.6, pw / 13))));
   const hasXI = (s: Side) => m.lineups[s].starters.length >= 11 && m.lineups[s].starters.every((p) => p.x != null);
 
   const pitch = (
@@ -303,6 +303,15 @@ export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: Pi
     </div>
   );
 
+  if (mode === "bench") {
+    return (
+      <div ref={ref} className="grid h-full min-h-0 w-full grid-cols-2 gap-3 py-1">
+        <Dugout m={m} side="home" squad={squad} showSeason={showSeason} />
+        <Dugout m={m} side="away" squad={squad} showSeason={showSeason} />
+      </div>
+    );
+  }
+
   return (
     <div ref={ref} className="relative h-full min-h-0 w-full">
       {w > 0 && side && (
@@ -323,16 +332,6 @@ export function Pitch({ m, mode, showSeason, squad }: { m: MatchDetail; mode: Pi
           )}
         </div>
       )}
-    </div>
-  );
-}
-
-/** Narrow windows: the benches go under the vertical pitch, scrolling sideways. */
-export function BenchStrip({ m, squad, showSeason }: { m: MatchDetail; squad: SquadIndex; showSeason: boolean }) {
-  if (!m.lineups.home.bench.length && !m.lineups.away.bench.length) return null;
-  return (
-    <div className="space-y-1.5">
-      {(["away", "home"] as Side[]).map((s) => <Dugout key={s} m={m} side={s} squad={squad} showSeason={showSeason} horizontal />)}
     </div>
   );
 }

@@ -34,8 +34,8 @@ web/src/
   lib.ts        query hooks, router, formatting, color helpers (accent/tint/onColor/ratingColor)
   glossary.ts   hover explainers; new stat or term = new entry
   styles.css    tokens (@theme) and the few custom classes (turf, counter, flash, goal-lift)
-  components/   MatchesPage, MatchPage (header + 3 layouts), Pitch (lineups, shot map, momentum),
-                ClubPanel (club header, coach card, load, profile, fit-to-height squad), CenterTabs
+  components/   MatchesPage, MatchPage (header + 3 layouts), Pitch (photo counters, dugouts, shot map, momentum),
+                ClubPanel (club header, coach card, load, profile, absences, leaders, fixtures, squad modal), CenterTabs
                 (Preview/Story/Stats/Coaches/Table/H2H), PlayerModal, CoachModal, ClubModal, ui
 docs/data-sources.md   every endpoint we use and its gotchas
 ```
@@ -59,7 +59,9 @@ Direction: **"tactics board under floodlights"**. Graphite night base (`night`, 
 - **The match page never scrolls** (owner's #1 rule). Detail goes into tabs, popovers and modals; tab bodies may scroll internally.
 - Football convention: **home on the left** (and at the bottom of a vertical pitch).
 - Layouts by window width (`useWidth`): ≥1500 wide = home | centre | away; ≥1000 medium = centre | club panel with home/away switch; narrow = tab bar (Pitch, Home, Away, centre tabs) with a vertical pitch.
-- Club panels use container queries (`@container`) so columns appear as they widen. The squad list fits itself to the remaining height (`Squad` → `visible`): XI, then absences, bench, rest; overflow goes behind "+N more".
+- **The pitch is the squad view** (owner's call: don't list the XI twice). Counters are player photos in a kit-colored ring with the shirt number as a badge (`PlayerDisc`), plus rating, events and a season G/A line. The bench lives in **dugouts** beside the pitch (`Dugout`), or in a two-row strip under it when side dugouts would shrink the pitch too much, or behind a "Bench" view on narrow screens.
+- Club panels hold what the pitch doesn't: coach, load, season profile, absences (with return dates), season leaders, results, next fixtures. `FitStack` drops whole sections that don't fit (priority order), never cuts one in half. The full squad table is a modal ("Full squad").
+- Club panels use container queries (`@container`) so columns appear as they widen.
 - Main grids need `grid-rows-[minmax(0,1fr)]`, or a tall panel grows the row past the viewport.
 - One numbers toggle (This match / Season) drives pitch badges and squad columns; it defaults to the match once it has started.
 - Every stat/term gets a hover explainer (`tip()` / `<Term>`). Tooltips are the app-wide `data-tip` layer; don't use `title=`.

@@ -358,7 +358,8 @@ export function mapMatch(league: string, s: any): MatchDetail {
   ) as Record<Side, Lineup>;
   const evs = events(s.keyEvents ?? [], home.id, lineups);
   markPlayers(lineups, evs);
-  const clockSeconds = Number(status?.clock ?? 0);
+  // The summary header sometimes lacks the raw clock; "67'" or "45'+2'" still tells the minute.
+  const clockSeconds = Number(status?.clock) || (parseInt(String(status?.displayClock ?? "0"), 10) || 0) * 60;
   const state = stateOf(status);
   const maxMinute = state === "pre" ? 0 : Math.max(90, Math.ceil(clockSeconds / 60), ...((s.commentary ?? []) as any[]).map((x) => Math.ceil(Number(x.play?.clock?.value ?? 0) / 60)));
   const gi = s.gameInfo ?? {};
