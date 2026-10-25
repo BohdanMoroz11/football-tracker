@@ -1,322 +1,1074 @@
 {
   "Hans-Dieter Flick": {
     "style": "Aggressive, front-foot football built on an extremely high defensive line and a well-drilled offside trap, usually from a 4-2-3-1. His teams press hard straight after losing the ball and attack vertically and fast rather than circulating it slowly. He is happy to trust young players.",
-    "known_for": "Winning the sextuple with Bayern in 2020, then reviving Barcelona with a domestic treble in his first season, 2024-25."
+    "known_for": "Winning the sextuple with Bayern in 2020, then reviving Barcelona with a domestic treble in his first season, 2024-25.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "2-3-5 / 3-2-5: the full-backs push very high, one pivot drops between the centre-backs and the wingers hold the touchline while the No.10 joins the striker.",
+      "out_of_possession": "4-4-2 high press with the No.10 stepping up beside the striker, behind an extremely high line that relies on the offside trap.",
+      "roles": [
+        "Very high defensive line with a drilled offside trap",
+        "Inside forwards attack the box from both flanks",
+        "Aggressive counter-press straight after losing the ball"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Diego Simeone": {
     "style": "The master of the compact, low-to-mid block, traditionally a narrow 4-4-2 that suffocates central spaces and breaks quickly. In recent years he has also used back threes and more possession, but the core is effort, aggression and game management. Famously animated on the touchline.",
-    "known_for": "Turning Atlético into a power, with two La Liga titles, two Europa Leagues and two Champions League finals since 2011."
+    "known_for": "Turning Atlético into a power, with two La Liga titles, two Europa Leagues and two Champions League finals since 2011.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "4-2-2-2 / 4-2-4: the wide midfielders tuck inside, the full-backs supply the width and the two strikers stay close together.",
+      "out_of_possession": "Narrow, compact 4-4-2 mid-to-low block that shuts the centre and springs fast counters.",
+      "roles": [
+        "Wide midfielders tuck in narrow to protect the centre",
+        "Second striker drops to link play and start counters"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "José Mourinho": {
     "style": "A pragmatist who prioritises defensive organisation, opponent-specific plans and quick transitions, often from a 4-2-3-1. His sides are comfortable without the ball and ruthless on set pieces and in big games. He is a master of the psychological battle and of protecting a lead.",
-    "known_for": "Champions League wins with Porto (2004) and Inter (2010, as part of a treble), plus league titles in Portugal, England, Italy and Spain."
+    "known_for": "Champions League wins with Porto (2004) and Inter (2010, as part of a treble), plus league titles in Portugal, England, Italy and Spain.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 with a cautious rest-defence: the double pivot stays home, one full-back advances and attacks go quickly to the front four.",
+      "out_of_possession": "4-4-1-1 mid-to-low block, the No.10 shadowing the opposition pivot and the wingers tracking full-backs.",
+      "roles": [
+        "Double pivot stays deep to protect the back four",
+        "Wingers expected to track back fully"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Manuel Pellegrini": {
     "style": "Calm, possession-minded and attack-friendly, usually in a 4-2-3-1 or 4-4-2 with creative players given freedom between the lines. His teams build patiently and value technical quality over physical pressing. A steady, low-drama figure in the dugout.",
-    "known_for": "Taking Villarreal to a Champions League semi-final, winning the 2014 Premier League with Manchester City and the 2022 Copa del Rey with Betis."
+    "known_for": "Taking Villarreal to a Champions League semi-final, winning the 2014 Premier League with Manchester City and the 2022 Copa del Rey with Betis.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that becomes a 2-4-4 / 4-2-4: the full-backs overlap, the wide men drift inside and the No.10 roams between the lines.",
+      "out_of_possession": "4-4-2 mid-block with the No.10 stepping up beside the striker; little extreme pressing.",
+      "roles": [
+        "Free-roaming No.10 between the lines",
+        "Wide playmakers drift inside to combine"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Pellegrino Matarazzo": {
     "style": "Energetic and pressing-focused, he has used both back-three and back-four systems with an emphasis on intensity, compactness and quick vertical attacks. Analytical and detail-oriented in preparation.",
-    "known_for": "An American coach who won promotion with Stuttgart and kept them in the Bundesliga, before a spell at Hoffenheim."
+    "known_for": "An American coach who won promotion with Stuttgart and kept them in the Bundesliga, before a spell at Hoffenheim.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "4-2-2-2: the wide midfielders tuck inside behind the two strikers while the full-backs provide the width.",
+      "out_of_possession": "4-4-2 pressing block that squeezes play wide and presses intensely in midfield.",
+      "roles": [
+        "Two strikers press and run channels as a pair"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Luis García": {
     "style": "Typically pragmatic and well organised, favouring a compact 4-4-2 or 4-2-3-1, a solid block and direct, efficient attacks. His teams are hard-working and hard to beat.",
-    "known_for": "A Spanish journeyman (assuming this is Luis García Plaza) with spells at Levante, Getafe, Mallorca and Alavés, where he won promotion and survival."
+    "known_for": "A Spanish journeyman (assuming this is Luis García Plaza) with spells at Levante, Getafe, Mallorca and Alavés, where he won promotion and survival.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that relies on direct, efficient attacks, the full-backs adding width and the No.10 supporting the striker.",
+      "out_of_possession": "Compact 4-4-2 / 4-4-1-1 mid-block with the No.10 joining the striker.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Quique Sánchez Flores": {
     "style": "A pragmatic, defensively solid coach who prefers a compact 4-4-2 and clear structure. His teams defend in a disciplined block and look to counter or exploit set pieces.",
-    "known_for": "Winning the 2010 Europa League and Super Cup with Atlético Madrid, and a long career in Spain and England, including two spells at Watford."
+    "known_for": "Winning the 2010 Europa League and Super Cup with Atlético Madrid, and a long career in Spain and England, including two spells at Watford.",
+    "shapes": {
+      "base": "5-3-2",
+      "in_possession": "3-5-2: the wing-backs push up for width while the three centre-backs and holding midfielder stay as a safe rest-defence.",
+      "out_of_possession": "Deep, disciplined 5-3-2 block that protects the box and looks to counter through the two strikers.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Strike pair stays high as the counter outlet"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Edin Terzić": {
     "style": "Emotional and attack-minded, usually a 4-2-3-1 or 4-3-3 with energetic pressing and quick wide combinations. His teams can be dangerous in transition and on big nights.",
-    "known_for": "Winning the 2021 DFB-Pokal and reaching the 2024 Champions League final with his boyhood club Borussia Dortmund."
+    "known_for": "Winning the 2021 DFB-Pokal and reaching the 2024 Champions League final with his boyhood club Borussia Dortmund.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that becomes a 2-3-5 / 3-2-5 with the full-backs pushing on and quick combinations down the wings.",
+      "out_of_possession": "4-4-2 press with the No.10 stepping up beside the striker, aggressive on triggers.",
+      "roles": [
+        "Wingers isolate full-backs in quick wide combinations"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Claudio Giráldez": {
     "style": "Brave, possession-based football, often with a back three and wing-backs, building patiently from the back and pressing high. Leans heavily on academy graduates.",
-    "known_for": "Promoted from Celta's B team in 2024, he took the club back into Europe with a young, homegrown side."
+    "known_for": "Promoted from Celta's B team in 2024, he took the club back into Europe with a young, homegrown side.",
+    "shapes": {
+      "base": "3-4-3",
+      "in_possession": "3-2-5 / 3-4-3: patient build-up through the back three, the wing-backs pushing high and the two inside forwards occupying the half-spaces.",
+      "out_of_possession": "High, man-oriented press from the 3-4-3 that drops into a 5-4-1 when pinned back.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Ball-playing outside centre-backs step into midfield"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Inigo Pérez": {
     "style": "Intense, energetic football with a heavy pressing game, usually in a 4-4-2 or 4-2-3-1. His teams are aggressive, organised and work hard for each other.",
-    "known_for": "Took over Rayo Vallecano in 2024 and led them to European qualification in 2025."
+    "known_for": "Took over Rayo Vallecano in 2024 and led them to European qualification in 2025.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "4-4-2 / 4-2-2-2: wide midfielders come inside, the full-backs overlap and the strikers attack the box together.",
+      "out_of_possession": "Intense 4-4-2 high press that pushes the line up and hunts the ball in packs.",
+      "roles": [
+        "Two-striker press that sets aggressive triggers"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Antonio Hidalgo": {
     "style": "Less-known coach; his teams have tended to be well organised and competitive, with a balanced 4-4-2 or 4-2-3-1.",
-    "known_for": "A former midfielder who made his name coaching in Spain's second tier, notably with Huesca."
+    "known_for": "A former midfielder who made his name coaching in Spain's second tier, notably with Huesca.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Organised 4-4-2 block, occasionally switching to a back five against stronger sides.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Jagoba Arrasate": {
     "style": "A competitive, organised coach who likes intensity and a strong collective identity, often in a 4-4-2. His teams press, fight for second balls and are dangerous from set pieces.",
-    "known_for": "Leading Osasuna to the 2023 Copa del Rey final and European football, and earlier spells at Real Sociedad and Mallorca."
+    "known_for": "Leading Osasuna to the 2023 Copa del Rey final and European football, and earlier spells at Real Sociedad and Mallorca.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Direct 4-4-2 that looks for the strikers early, fights for second balls and pushes the full-backs on when territory is won.",
+      "out_of_possession": "Compact 4-4-2 press, or a 5-4-1 low block against stronger opponents.",
+      "roles": [
+        "Strong set-piece threat"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "José López": {
     "style": "Less-known coach; appears to be José Alberto López, whose sides favour possession and a proactive 4-2-3-1 or 4-3-3.",
-    "known_for": "A Spanish coach who has worked mainly in the second tier, with clubs including Sporting Gijón and Racing Santander."
+    "known_for": "A Spanish coach who has worked mainly in the second tier, with clubs including Sporting Gijón and Racing Santander.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Luís Castro": {
     "style": "A possession-oriented coach who likes a 4-3-3 or 4-2-3-1, patient build-up and technical midfielders. Calm and measured on the touchline.",
-    "known_for": "A Portuguese coach with titles at Shakhtar Donetsk and Botafogo, and a spell at Al-Nassr."
+    "known_for": "A Portuguese coach with titles at Shakhtar Donetsk and Botafogo, and a spell at Al-Nassr.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Patient, possession-based build-up where the shape tilts into a 4-3-3 / 2-3-5 with the full-backs advancing.",
+      "out_of_possession": "4-4-2 mid-block, the No.8 or second striker stepping up to press the opposition pivot.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Martín Anselmi": {
     "style": "Aggressive and offensive, usually in a 3-4-3 or 3-4-2-1 with high wing-backs, man-oriented pressing and lots of bodies forward. Can leave his teams exposed at the back.",
-    "known_for": "Built his reputation at Independiente del Valle and Cruz Azul before a short spell at Porto in 2025."
+    "known_for": "Built his reputation at Independiente del Valle and Cruz Azul before a short spell at Porto in 2025.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Aggressive, man-oriented press when possible; has also switched to a back five in recent matches.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Beñat San José": {
     "style": "Less-known coach; generally favours an organised, possession-friendly 4-2-3-1.",
-    "known_for": "A Spanish coach whose career has taken him to Spain, Chile, Bolivia and the Middle East, among other places."
+    "known_for": "A Spanish coach whose career has taken him to Spain, Chile, Bolivia and the Middle East, among other places.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "José Bordalás": {
     "style": "Intense, physical and direct. His teams press aggressively, defend in a compact 4-4-2, foul tactically, and aim for second balls and set pieces. Loved by fans, criticised by opponents for the 'dark arts'.",
-    "known_for": "Taking Getafe to Europe and winning promotion with Alavés and Getafe."
+    "known_for": "Taking Getafe to Europe and winning promotion with Alavés and Getafe.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Direct play towards the strikers and wide men, competing for second balls rather than circulating patiently.",
+      "out_of_possession": "Compact, aggressive 4-4-2 that presses hard and fouls tactically, or a 5-4-1 low block against stronger sides.",
+      "roles": [
+        "Wins second balls around long passes into the front line",
+        "Heavy reliance on set pieces"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Manolo González": {
     "style": "Pragmatic and well organised, usually in a compact 4-4-2 or 4-2-3-1 that defends deep and strikes on the break. His teams are hard-working and hard to break down.",
-    "known_for": "Promoted to Espanyol's first team from the B side, he won promotion in 2024 and kept the club up the following season."
+    "known_for": "Promoted to Espanyol's first team from the B side, he won promotion in 2024 and kept the club up the following season.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Straightforward 4-2-3-1 that looks to break quickly, with the full-backs joining selectively.",
+      "out_of_possession": "Deep 4-4-1-1 block, occasionally a 5-4-1, that strikes on the break.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Javier Aguirre": {
     "style": "A pragmatic survivor who sets teams up compactly, often in a 4-4-2, with clear roles and physical commitment. Good at organising struggling sides quickly.",
-    "known_for": "A Mexican coach who has led Mexico at three World Cups and managed Osasuna, Atlético Madrid and Mallorca, reaching the 2024 Copa del Rey final."
+    "known_for": "A Mexican coach who has led Mexico at three World Cups and managed Osasuna, Atlético Madrid and Mallorca, reaching the 2024 Copa del Rey final.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Direct, physical 4-4-2 that goes early to the forwards and attacks crosses.",
+      "out_of_possession": "Compact 4-4-2 block, switching to a 5-4-1 when protecting a lead or against stronger sides.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Juan Funes": {
     "style": "Less-known coach; little reliable detail about his tactical approach at senior level.",
-    "known_for": "A Spanish coach who worked within Málaga's structure before taking the first-team job."
+    "known_for": "A Spanish coach who worked within Málaga's structure before taking the first-team job.",
+    "shapes": {
+      "base": "4-1-4-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Enzo Maresca": {
     "style": "A Guardiola disciple who favours patient positional play, often from a 4-2-3-1 that shifts to a 3-2-4-1 or 2-3-5 in possession with an inverted full-back. Wants control and a slow, deliberate build-up.",
-    "known_for": "Winning the Championship with Leicester, then the Conference League and the 2025 Club World Cup with Chelsea."
+    "known_for": "Winning the Championship with Leicester, then the Conference League and the 2025 Club World Cup with Chelsea.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "3-2-4-1 / 2-3-5: an inverted full-back steps into midfield beside the pivot, the wingers hold the width and the No.10 joins the front line.",
+      "out_of_possession": "4-4-2 mid-to-high press with the No.10 stepping up beside the striker.",
+      "roles": [
+        "Inverted full-back who becomes a second No.6",
+        "Goalkeeper used as an extra player in the build-up"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Mikel Arteta": {
     "style": "Detail-obsessed and positional, usually a 4-3-3 with a strong defensive structure, inverted full-backs and an emphasis on set pieces. His teams control games and defend aggressively.",
-    "known_for": "Rebuilding Arsenal into consistent title challengers after winning the 2020 FA Cup."
+    "known_for": "Rebuilding Arsenal into consistent title challengers after winning the 2020 FA Cup.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "3-2-5 / 2-3-5: one full-back inverts or holds as a third centre-back, the wingers pin the opposition full-backs and the No.10 attacks the box.",
+      "out_of_possession": "4-4-2 high press with the No.10 stepping up beside the striker, retreating into a compact 4-4-2 mid-block.",
+      "roles": [
+        "Full-back who tucks in or holds as a third centre-back",
+        "Highly rehearsed set-piece routines"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Fabian Hürzeler": {
     "style": "A young, modern coach who favours possession and positional play, often in a 3-4-3 or 4-2-3-1 with fluid rotations and aggressive pressing.",
-    "known_for": "Won promotion to the Bundesliga with St. Pauli, then became the youngest permanent manager in Premier League history at Brighton."
+    "known_for": "Won promotion to the Bundesliga with St. Pauli, then became the youngest permanent manager in Premier League history at Brighton.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "3-2-5 or 2-3-5 with lots of rotation: a full-back steps inside, the wingers hold the width and the No.10 drifts between the lines.",
+      "out_of_possession": "Aggressive 4-4-2 high press with the No.10 stepping up beside the striker.",
+      "roles": [
+        "Full-back who inverts into midfield",
+        "Rotations between No.10 and wingers"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Andoni Iraola": {
     "style": "High-intensity, man-oriented pressing and fast, vertical attacks, usually from a 4-2-3-1 or 4-4-2. His teams run hard and look to win the ball high.",
-    "known_for": "Turned Rayo Vallecano and then Bournemouth into energetic, overachieving sides."
+    "known_for": "Turned Rayo Vallecano and then Bournemouth into energetic, overachieving sides.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Vertical 4-2-3-1 / 2-4-4: the full-backs overlap and play is moved forward quickly rather than circulated.",
+      "out_of_possession": "Man-oriented 4-4-2 high press with the No.10 jumping onto the opposition pivot.",
+      "roles": [
+        "Man-oriented pressing across the pitch",
+        "No.10 who presses the opposition No.6"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Xabi Alonso": {
     "style": "Positional and possession-based, often a 3-4-2-1 with wing-backs providing width and two creative 10s. His teams are flexible, well-drilled and dangerous in transition.",
-    "known_for": "Leading Bayer Leverkusen to an unbeaten Bundesliga and DFB-Pokal double in 2023-24, before taking the Real Madrid job in 2025."
+    "known_for": "Leading Bayer Leverkusen to an unbeaten Bundesliga and DFB-Pokal double in 2023-24, before taking the Real Madrid job in 2025.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-2-5 / 3-4-3: the wing-backs push high for width, two No.10s occupy the half-spaces and a two-man pivot controls the build-up.",
+      "out_of_possession": "5-2-3 / 5-4-1 that presses from the front three and drops into a back five when pinned back.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Two inside No.10s who interchange with the striker"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Keith Andrews": {
     "style": "Less-known as a head coach; came up as a set-piece specialist and is expected to keep Brentford's aggressive, direct and set-piece-heavy style.",
-    "known_for": "A former Ireland midfielder who was Brentford's set-piece coach before being promoted to head coach in 2025."
+    "known_for": "A former Ireland midfielder who was Brentford's set-piece coach before being promoted to head coach in 2025.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Direct 4-2-3-1 that looks for the striker early and attacks second balls and crosses.",
+      "out_of_possession": "4-4-1-1 mid-block that presses on triggers and aims to win territory.",
+      "roles": [
+        "Heavy emphasis on set pieces and long throws"
+      ],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Daniel Farke": {
     "style": "Possession-based football in a 4-2-3-1 or 4-3-3, with patient build-up and attacking full-backs. His teams dominate the ball, especially in the Championship.",
-    "known_for": "Won the Championship twice with Norwich and earned promotion with Leeds."
+    "known_for": "Won the Championship twice with Norwich and earned promotion with Leeds.",
+    "shapes": {
+      "base": "3-5-2",
+      "in_possession": "3-4-3 / 3-2-5 with the wing-backs pushing on and patient build-up through the back three.",
+      "out_of_possession": "5-3-2 mid-block that becomes a 5-4-1 when pushed back.",
+      "roles": [
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Matthias Jaissle": {
     "style": "Red Bull school: aggressive pressing, quick transitions and vertical attacks, often in a 4-2-2-2 or 4-3-1-2.",
-    "known_for": "Won the Austrian title with Red Bull Salzburg and the AFC Champions League Elite with Al-Ahli in 2025."
+    "known_for": "Won the Austrian title with Red Bull Salzburg and the AFC Champions League Elite with Al-Ahli in 2025.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Vertical, fast attacks; the shape narrows towards a 4-2-2-2 with the wide men coming inside.",
+      "out_of_possession": "Aggressive 4-4-2 high press in the Red Bull tradition, hunting turnovers in central zones.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Unai Emery": {
     "style": "Obsessively detailed and highly adaptable, usually a 4-4-2 or 4-2-3-1 with a high defensive line and a well-coached offside trap. He prepares specific plans for every opponent and is especially strong in knockout football.",
-    "known_for": "A record four Europa League titles (three with Sevilla, one with Villarreal) and taking Aston Villa back into the Champions League."
+    "known_for": "A record four Europa League titles (three with Sevilla, one with Villarreal) and taking Aston Villa back into the Champions League.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "3-2-5 / 3-2-4-1: one full-back stays as a third centre-back while the other pushes on and a wide man tucks in as an extra No.10.",
+      "out_of_possession": "Compact 4-4-2 mid-block with a high line and a carefully coached offside trap.",
+      "roles": [
+        "Full-back who holds as a third centre-back",
+        "High line and coordinated offside trap"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Sergej Jakirović": {
     "style": "Organised and competitive, usually in a 4-2-3-1, with an emphasis on balance and transitions.",
-    "known_for": "A Bosnian-Croatian coach who won the domestic double with Dinamo Zagreb in 2024 before moving to Hull."
+    "known_for": "A Bosnian-Croatian coach who won the domestic double with Dinamo Zagreb in 2024 before moving to Hull.",
+    "shapes": {
+      "base": "5-4-1",
+      "in_possession": "3-4-3 / 3-4-2-1 with the wing-backs pushing up and two forwards supporting the striker.",
+      "out_of_possession": "Compact 5-4-1 block that aims to counter quickly.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "David Moyes": {
     "style": "Pragmatic and well organised, often in a 4-2-3-1 or back three. His teams are solid, compact, strong in the air and dangerous on the break and from set pieces.",
-    "known_for": "Eleven years at Everton, a short spell at Manchester United and winning the 2023 Conference League with West Ham."
+    "known_for": "Eleven years at Everton, a short spell at Manchester United and winning the 2023 Conference League with West Ham.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 with a solid double pivot staying home, the full-backs joining selectively and crosses into the box.",
+      "out_of_possession": "Compact 4-4-1-1 mid-to-low block that is strong in the air and breaks quickly.",
+      "roles": [
+        "Strong set-piece and aerial threat"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Gary O'Neil": {
     "style": "Flexible and tactically adaptable, often switching between back three and back four depending on opponents. His teams are organised and quick on the counter.",
-    "known_for": "Kept Bournemouth up and then overachieved with Wolves."
+    "known_for": "Kept Bournemouth up and then overachieved with Wolves.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that looks to break quickly, with the full-backs selectively supporting.",
+      "out_of_possession": "Organised 4-4-1-1 block; changes to a back three against particular opponents.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Marco Rose": {
     "style": "Red Bull-style pressing and quick vertical attacks, often in a 4-2-2-2 or 3-4-2-1. His teams are aggressive and dangerous in transition.",
-    "known_for": "Won the UEFA Youth League and Austrian titles with Salzburg and the 2023 DFB-Pokal with RB Leipzig."
+    "known_for": "Won the UEFA Youth League and Austrian titles with Salzburg and the 2023 DFB-Pokal with RB Leipzig.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Narrow, vertical 4-2-2-2 shape with the wide players coming inside and full-backs providing the width.",
+      "out_of_possession": "Aggressive 4-4-2 high press focused on winning the ball in central areas.",
+      "roles": [
+        "Narrow wide midfielders operating as inside No.10s"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Roberto De Zerbi": {
     "style": "Possession-based with a distinctive 'baiting' build-up, inviting the press with slow passes before breaking through it, often in a 4-2-3-1 or 4-1-4-1. Demanding, passionate and stubborn about his principles.",
-    "known_for": "Transformed Brighton with innovative build-up play and led them into Europe for the first time, after spells at Sassuolo and Shakhtar Donetsk."
+    "known_for": "Transformed Brighton with innovative build-up play and led them into Europe for the first time, after spells at Sassuolo and Shakhtar Donetsk.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "2-4-4 / 3-2-5 with deliberately slow build-up to bait the press, the pivots dropping close to the centre-backs and the wingers holding the touchline.",
+      "out_of_possession": "4-4-2 high press with the No.10 stepping up; aggressive but sometimes stretched.",
+      "roles": [
+        "Goalkeeper and centre-backs bait the press with slow passes",
+        "Wingers stay wide to isolate full-backs one-on-one"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Álvaro Arbeloa": {
     "style": "Less-known as a senior coach; his youth teams at Real Madrid played attacking, possession-based football in a 4-3-3.",
-    "known_for": "A former Real Madrid and Spain full-back who won trophies with Real Madrid's youth sides before stepping up to senior management."
+    "known_for": "A former Real Madrid and Spain full-back who won trophies with Real Madrid's youth sides before stepping up to senior management.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Michael Carrick": {
     "style": "Possession-based and calm, usually a 4-2-3-1 with patient build-up and full-backs pushing on. A measured presence on the touchline.",
-    "known_for": "A former Manchester United and England midfielder who built a good reputation at Middlesbrough."
+    "known_for": "A former Manchester United and England midfielder who built a good reputation at Middlesbrough.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Patient 4-2-3-1 that becomes a 2-4-4 with the full-backs pushing on and the double pivot controlling tempo.",
+      "out_of_possession": "4-4-2 mid-block with the No.10 stepping up beside the striker.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Pierre Sage": {
     "style": "Less-known coach; at Lyon his teams combined possession with aggressive pressing, often in a 4-3-3.",
-    "known_for": "Promoted from Lyon's academy in 2023, he turned around a struggling team and led it to the 2024 Coupe de France final and European qualification."
+    "known_for": "Promoted from Lyon's academy in 2023, he turned around a struggling team and led it to the 2024 Coupe de France final and European qualification.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-2-1 with the wing-backs providing width and the two No.10s working the half-spaces; the details under him are not yet clear.",
+      "out_of_possession": "5-4-1 / 5-2-3 block that presses on triggers.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Oliver Glasner": {
     "style": "A 3-4-2-1 or 3-4-3 with intense pressing, quick transitions and wing-backs carrying the width. His teams are direct and dangerous on the break, and he is strong in cup football.",
-    "known_for": "Winning the 2022 Europa League with Eintracht Frankfurt and the 2025 FA Cup with Crystal Palace."
+    "known_for": "Winning the 2022 Europa League with Eintracht Frankfurt and the 2025 FA Cup with Crystal Palace.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-3 / 3-2-5 that goes direct and fast, wing-backs pushing high and the two No.10s running in behind.",
+      "out_of_possession": "5-2-3 press that drops into a 5-4-1 mid-block and springs quick counters.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Two No.10s who sprint in behind on the counter"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Frank Lampard": {
     "style": "Attacking intent in a 4-2-3-1 or 4-3-3, with runners from midfield and a willingness to trust young players.",
-    "known_for": "A Chelsea legend who managed Derby, Chelsea and Everton."
+    "known_for": "A Chelsea legend who managed Derby, Chelsea and Everton.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 with runners from midfield into the box and full-backs overlapping.",
+      "out_of_possession": "4-4-2 mid-block with the No.10 stepping up; occasionally switches to a back three.",
+      "roles": [
+        "Late-arriving midfield runners into the box"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Régis Le Bris": {
     "style": "Possession-minded and patient, often a 4-2-3-1 with young players given responsibility and a calm, structured approach.",
-    "known_for": "Led Sunderland to Premier League promotion in 2025 after a spell at Lorient."
+    "known_for": "Led Sunderland to Premier League promotion in 2025 after a spell at Lorient.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Patient 4-2-3-1 that becomes a 3-2-5 with one full-back holding and the other advancing.",
+      "out_of_possession": "4-4-2 mid-block with the No.10 joining the striker.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Vincent Kompany": {
     "style": "Brave, possession-heavy football with a very high line, aggressive pressing and full-backs stepping into midfield, usually from a 4-2-3-1. Wants control and constant pressure.",
-    "known_for": "Won the Championship with Burnley in 2023 and the Bundesliga in his first season at Bayern."
+    "known_for": "Won the Championship with Burnley in 2023 and the Bundesliga in his first season at Bayern.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "2-3-5 / 3-2-5: the full-backs push into midfield or high up, the wingers hold the width and the No.10 attacks the box beside the striker.",
+      "out_of_possession": "Aggressive 4-4-2 high press behind a very high line, the No.10 stepping up beside the striker.",
+      "roles": [
+        "Very high defensive line",
+        "Full-backs step into midfield in possession"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Niko Kovač": {
     "style": "Pragmatic and physically demanding, often in a back three or 4-2-3-1, with an emphasis on defensive solidity and transitions.",
-    "known_for": "Won the 2018 DFB-Pokal with Eintracht Frankfurt and the 2019 double with Bayern Munich."
+    "known_for": "Won the 2018 DFB-Pokal with Eintracht Frankfurt and the 2019 double with Bayern Munich.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-3 / 3-2-5 with the wing-backs advancing and two No.10s supporting the striker.",
+      "out_of_possession": "5-4-1 / 5-2-3 block that prioritises defensive solidity and transitions.",
+      "roles": [
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Julian Schuster": {
     "style": "Continues Freiburg's well-organised, flexible approach, switching between back three and back four with an emphasis on defensive structure and collective effort.",
-    "known_for": "A Freiburg club legend as a player who succeeded Christian Streich as head coach in 2024."
+    "known_for": "A Freiburg club legend as a player who succeeded Christian Streich as head coach in 2024.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 with the full-backs supporting selectively and a balanced rest-defence; can switch to a back three.",
+      "out_of_possession": "Well-organised 4-4-2 / 4-4-1-1 mid-block focused on compactness.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Carles Martínez": {
     "style": "Less-known coach; little reliable detail available about his tactical approach.",
-    "known_for": "A Spanish coach in Leverkusen's dugout; his background is not widely documented."
+    "known_for": "A Spanish coach in Leverkusen's dugout; his background is not widely documented.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Martín Demichelis": {
     "style": "Positional, possession-based football inspired by Guardiola, usually in a 4-2-3-1 or 4-3-3 with full-backs pushing on.",
-    "known_for": "A former Bayern and Manchester City defender who won the Argentine title with River Plate in 2023."
+    "known_for": "A former Bayern and Manchester City defender who won the Argentine title with River Plate in 2023.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Positional 4-2-3-1 that shifts to a 3-2-5 / 2-3-5 with the full-backs pushing on.",
+      "out_of_possession": "4-4-2 / 4-5-1 mid-block depending on the opponent.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Daniel Thioune": {
     "style": "Organised and competitive, usually in a 4-3-3 or 4-2-3-1, with a mix of possession and intensity.",
-    "known_for": "Won promotion with Osnabrück and Fortuna Düsseldorf and had a spell at Hamburg."
+    "known_for": "Won promotion with Osnabrück and Fortuna Düsseldorf and had a spell at Hamburg.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 mixing possession with direct play; the full-backs push on to add width.",
+      "out_of_possession": "4-4-2 mid-block; switches to a back three against some opponents.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Urs Fischer": {
     "style": "Compact, disciplined defending in a 3-5-2 or 5-3-2, with quick counters and strong set pieces. His teams are well organised and hard to beat.",
-    "known_for": "Took Union Berlin from the 2. Bundesliga to the Champions League, after winning Swiss titles with Basel."
+    "known_for": "Took Union Berlin from the 2. Bundesliga to the Champions League, after winning Swiss titles with Basel.",
+    "shapes": {
+      "base": "3-5-2",
+      "in_possession": "3-5-2 that plays directly into the two strikers, with the wing-backs pushing on and crosses into the box.",
+      "out_of_possession": "Compact 5-3-2 block that defends the box and counters quickly.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Strong set-piece threat"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Vincent Wagner": {
     "style": "Less-known coach; at Elversberg he is expected to continue the club's attacking, possession-based style.",
-    "known_for": "A young German coach who worked as an assistant before becoming Elversberg's head coach."
+    "known_for": "A young German coach who worked as an assistant before becoming Elversberg's head coach.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Manuel Baum": {
     "style": "A thoughtful, analytical coach, often with a back three and a mix of possession and counter-attacking football.",
-    "known_for": "Kept Augsburg in the Bundesliga during his first spell (2016 to 2019) and has worked in youth development, including for the German FA."
+    "known_for": "Kept Augsburg in the Bundesliga during his first spell (2016 to 2019) and has worked in youth development, including for the German FA.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-2-1 with the wing-backs providing width and the two No.10s in the half-spaces.",
+      "out_of_possession": "5-4-1 block that defends compactly and looks to counter.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Christian Ilzer": {
     "style": "Aggressive pressing and quick vertical attacks, often in a 4-4-2 diamond or 3-4-3. His teams play with intensity and energy.",
-    "known_for": "Won the Austrian double with Sturm Graz in 2024, ending Salzburg's long dominance."
+    "known_for": "Won the Austrian double with Sturm Graz in 2024, ending Salzburg's long dominance.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Vertical, fast attacks; the shape narrows with the wide players coming inside.",
+      "out_of_possession": "Aggressive 4-4-2 press with the No.10 stepping up beside the striker.",
+      "roles": [
+        "Narrow wide players who attack the half-spaces"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Merlin Polzin": {
     "style": "A young coach who favours possession and attacking football, often in a 4-3-3 or 3-4-3.",
-    "known_for": "Led Hamburg back to the Bundesliga in 2025 after stepping up from assistant coach."
+    "known_for": "Led Hamburg back to the Bundesliga in 2025 after stepping up from assistant coach.",
+    "shapes": {
+      "base": "3-5-2",
+      "in_possession": "3-4-3 / 3-5-2 with the wing-backs advancing and the midfield three supporting the strike pair.",
+      "out_of_possession": "5-3-2 mid-block that becomes a 5-4-1 when pushed back.",
+      "roles": [
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Rene Wagner": {
     "style": "Less-known coach; little reliable detail about his approach as a head coach.",
-    "known_for": "A German coach promoted to lead Köln; previously worked as an assistant."
+    "known_for": "A German coach promoted to lead Köln; previously worked as an assistant.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Ralf Kettemann": {
     "style": "Less-known coach; little reliable detail about his tactical approach.",
-    "known_for": "A German coach who took charge of Paderborn."
+    "known_for": "A German coach who took charge of Paderborn.",
+    "shapes": {
+      "base": "3-5-2",
+      "in_possession": "3-5-2 with the wing-backs providing width; the details of the build-up are unclear.",
+      "out_of_possession": "5-3-2 block with the two strikers screening the centre.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Adolf Hütter": {
     "style": "Energetic pressing and fast vertical attacks, often in a 3-4-2-1 or 4-2-2-2. His teams are aggressive and direct.",
-    "known_for": "Won the Swiss title with Young Boys in 2018 and led Eintracht Frankfurt to the 2019 Europa League semi-finals."
+    "known_for": "Won the Swiss title with Young Boys in 2018 and led Eintracht Frankfurt to the 2019 Europa League semi-finals.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Vertical, direct attacks; the 4-4-2 narrows into a 4-2-2-2 or the team switches to a 3-4-2-1 with wing-backs.",
+      "out_of_possession": "Energetic 4-4-2 high press, dropping into a 5-4-1 when using the back three.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Sebastian Hoeneß": {
     "style": "Possession-minded and flexible, often a 4-2-3-1 or 3-4-2-1 with good ball circulation and attacking full-backs.",
-    "known_for": "Led Stuttgart from relegation battles to second place in 2024 and the 2025 DFB-Pokal."
+    "known_for": "Led Stuttgart from relegation battles to second place in 2024 and the 2025 DFB-Pokal.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Possession-based 4-2-3-1 that becomes a 3-2-5, one full-back holding and the other advancing.",
+      "out_of_possession": "4-4-2 press with the No.10 stepping up beside the striker; occasionally a back three.",
+      "roles": [
+        "Full-back who holds as a third centre-back in build-up"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Miron Muslić": {
     "style": "Energetic and aggressive, with a focus on pressing and quick attacks, often using a back three.",
-    "known_for": "Made his name at Cercle Brugge before spells at Plymouth and Schalke."
+    "known_for": "Made his name at Cercle Brugge before spells at Plymouth and Schalke.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-3 with the wing-backs high and two No.10s attacking the half-spaces quickly.",
+      "out_of_possession": "Aggressive 5-2-3 press that drops into a 5-4-1 when pushed back.",
+      "roles": [
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Mauro Lustrinelli": {
     "style": "Less-known coach; at Thun and with the Swiss under-21s his teams played organised, attacking football.",
-    "known_for": "A former Swiss international striker who coached Thun and the Switzerland under-21s."
+    "known_for": "A former Swiss international striker who coached Thun and the Switzerland under-21s.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Alexander Blessin": {
     "style": "Red Bull-style pressing and quick transitions, often in a 4-2-2-2 or 3-4-3. His teams are aggressive and intense.",
-    "known_for": "Coached Ostend, Genoa, Union Saint-Gilloise and St. Pauli."
+    "known_for": "Coached Ostend, Genoa, Union Saint-Gilloise and St. Pauli.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "Fast, vertical attacks from a 3-4-2-1, wing-backs pushing high and the two No.10s attacking the half-spaces.",
+      "out_of_possession": "Aggressive 5-2-3 high press, or a 4-4-2 press when using a back four.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Luis Enrique": {
     "style": "Intense positional football with relentless pressing, usually a 4-3-3 with full-backs pushing very high and forwards swapping positions. He prioritises collective work over stars.",
-    "known_for": "Won trebles with Barcelona in 2015 and PSG in 2025, including the club's first Champions League."
+    "known_for": "Won trebles with Barcelona in 2015 and PSG in 2025, including the club's first Champions League.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "2-3-5 / 3-2-5: the full-backs push very high, the No.8s drift wide or forward and the forwards constantly swap positions.",
+      "out_of_possession": "Relentless 4-4-2 / 4-3-3 high press with the full-backs jumping onto wide targets.",
+      "roles": [
+        "Full-backs push very high, almost as wingers",
+        "Front three interchange positions constantly",
+        "Central midfielders rotate into wide and forward areas"
+      ],
+      "fluidity": "fluid",
+      "confidence": "high"
+    }
   },
   "Cesc Fàbregas": {
     "style": "Possession-dominant, positional football inspired by his Barcelona and Arsenal roots, often a 4-2-3-1 with technical players and patient build-up.",
-    "known_for": "A Spain and Arsenal great who led Como back to Serie A and quickly established them in the top flight."
+    "known_for": "A Spain and Arsenal great who led Como back to Serie A and quickly established them in the top flight.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "3-2-5 / 2-3-5 with patient positional build-up, a full-back inverting and technical attackers between the lines.",
+      "out_of_possession": "4-4-2 high press with the No.10 stepping up beside the striker.",
+      "roles": [
+        "Full-back who inverts into midfield",
+        "Technical No.10 operating between the lines"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Ivan Leko": {
     "style": "Organised and aggressive, often a 4-3-3 or 3-4-3 with high pressing and quick transitions.",
-    "known_for": "Won the Belgian title with Club Brugge in 2018."
+    "known_for": "Won the Belgian title with Club Brugge in 2018.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 / 4-3-3 with the full-backs pushing on and quick transitions.",
+      "out_of_possession": "4-4-2 / 4-5-1 press depending on opponent.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Rui Borges": {
     "style": "Flexible and attack-minded, often a back three with wing-backs and quick combinations.",
-    "known_for": "Won the Portuguese double with Sporting CP in 2025 after making his name at Vitória Guimarães."
+    "known_for": "Won the Portuguese double with Sporting CP in 2025 after making his name at Vitória Guimarães.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that becomes a 3-2-5 with one full-back holding, quick combinations around the box.",
+      "out_of_possession": "4-4-2 mid-block with the No.10 joining the striker; switches to a 4-3-3 for some games.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Gian Piero Gasperini": {
     "style": "A 3-4-2-1 with man-to-man marking all over the pitch, intense physical demands and aggressive wing-backs. His teams are relentless, direct and attack-minded.",
-    "known_for": "Turned Atalanta into a Champions League regular and won the 2024 Europa League."
+    "known_for": "Turned Atalanta into a Champions League regular and won the 2024 Europa League.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-3 / 3-2-5: the wing-backs push very high, the outside centre-backs overlap and the two No.10s attack the box.",
+      "out_of_possession": "Man-to-man marking all over the pitch, every player matched to an opponent.",
+      "roles": [
+        "Man-to-man marking across the whole pitch",
+        "Outside centre-backs overlap into attack",
+        "Wing-backs provide all the width"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Arda Turan": {
     "style": "Less-known as a coach; favours attacking, possession-based football with technical players.",
-    "known_for": "A Turkey and Atlético Madrid great who won promotion with Eyüpspor before taking the Shakhtar job in 2025."
+    "known_for": "A Turkey and Atlético Madrid great who won promotion with Eyüpspor before taking the Shakhtar job in 2025.",
+    "shapes": {
+      "base": "4-1-4-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Peter Bosz": {
     "style": "Attacking, possession-based football with intense counter-pressing and a high line, usually in a 4-3-3. His teams take risks and score lots of goals.",
-    "known_for": "Reached the 2017 Europa League final with Ajax and won back-to-back Eredivisie titles with PSV in 2024 and 2025."
+    "known_for": "Reached the 2017 Europa League final with Ajax and won back-to-back Eredivisie titles with PSV in 2024 and 2025.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "2-3-5 / 3-2-5 with the full-backs high and quick combinations in the final third.",
+      "out_of_possession": "Intense counter-press straight after losing the ball, then a 4-4-2 high press behind a high line.",
+      "roles": [
+        "Immediate counter-press after losing the ball",
+        "High defensive line"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Cristian Chivu": {
     "style": "A young coach who favours an organised back three with wing-backs, mixing compact defending with quick attacks.",
-    "known_for": "A former Inter and Roma defender who coached Inter's youth team and kept Parma in Serie A before taking the Inter job in 2025."
+    "known_for": "A former Inter and Roma defender who coached Inter's youth team and kept Parma in Serie A before taking the Inter job in 2025.",
+    "shapes": {
+      "base": "3-5-2",
+      "in_possession": "3-5-2 / 3-3-4: the wing-backs push high, the outside centre-backs join the attack and the strike pair links up.",
+      "out_of_possession": "5-3-2 mid-block with the strikers screening the opposition pivot.",
+      "roles": [
+        "Wing-backs provide all the width",
+        "Outside centre-backs overlap into attack"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Massimiliano Allegri": {
     "style": "A pragmatic game manager who values balance, defensive solidity and control over style, often switching between back three and back four. His teams are often dull but effective.",
-    "known_for": "Won six Serie A titles with Juventus (five in a row) and one with Milan, and reached two Champions League finals."
+    "known_for": "Won six Serie A titles with Juventus (five in a row) and one with Milan, and reached two Champions League finals.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "Pragmatic shapes built around control: a back three with wing-backs or a 4-3-3, often happy to cede the ball.",
+      "out_of_possession": "Compact mid-to-low block, a 5-4-1 or 4-5-1 depending on the system.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Okan Buruk": {
     "style": "Attack-minded in a 4-2-3-1 with star players given freedom, combining possession and quick transitions.",
-    "known_for": "Won Süper Lig titles with Başakşehir in 2020 and Galatasaray in 2023, 2024 and 2025."
+    "known_for": "Won Süper Lig titles with Başakşehir in 2020 and Galatasaray in 2023, 2024 and 2025.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that becomes a 2-4-4 with the full-backs overlapping and the attackers given freedom to roam.",
+      "out_of_possession": "4-4-2 press with the No.10 stepping up beside the striker.",
+      "roles": [
+        "Attacking stars given freedom to roam"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Dietmar Kühbauer": {
     "style": "Passionate and demanding, his teams are compact, organised and physically strong, often in a 4-4-2 or 3-4-3.",
-    "known_for": "An Austrian coach who has worked with Rapid Vienna, Wolfsberger AC and LASK."
+    "known_for": "An Austrian coach who has worked with Rapid Vienna, Wolfsberger AC and LASK.",
+    "shapes": {
+      "base": "5-3-2",
+      "in_possession": "3-5-2 / 3-4-1-2 with the wing-backs advancing and a No.10 behind the two strikers.",
+      "out_of_possession": "Compact 5-3-2 or 5-4-1 block that relies on physical duels.",
+      "roles": [
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Valdas Dambrauskas": {
     "style": "Less-known coach; his teams are typically organised and attack-minded.",
-    "known_for": "A Lithuanian coach who won titles with Riga FC and coached Ludogorets in Bulgaria. (FotMob's squad page lists no coach for Sabah; this name comes from its coach history.)"
+    "known_for": "A Lithuanian coach who won titles with Riga FC and coached Ludogorets in Bulgaria. (FotMob's squad page lists no coach for Sabah; this name comes from its coach history.)",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Giovanni van Bronckhorst": {
     "style": "Possession-minded and organised, usually in a 4-3-3 or 4-2-3-1 with attacking full-backs.",
-    "known_for": "Won the Eredivisie with Feyenoord in 2017 and reached the 2022 Europa League final with Rangers."
+    "known_for": "Won the Eredivisie with Feyenoord in 2017 and reached the 2022 Europa League final with Rangers.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "4-3-3 that becomes a 2-3-5 with the full-backs pushing on and the No.8s supporting the front three.",
+      "out_of_possession": "4-4-2 / 4-3-3 mid-to-high press.",
+      "roles": [
+        "Attacking full-backs"
+      ],
+      "fluidity": "variable",
+      "confidence": "medium"
+    }
   },
   "Yannick Cahuzac": {
     "style": "Less-known coach; little reliable detail about his tactical approach as a head coach.",
-    "known_for": "A former midfielder who played for Bastia and Lens before moving into coaching."
+    "known_for": "A former midfielder who played for Bastia and Lens before moving into coaching.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "3-4-2-1 with the wing-backs providing width; the details of the build-up are unclear.",
+      "out_of_possession": "5-4-1 block when pushed back.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "low"
+    }
   },
   "Kjetil Knutsen": {
     "style": "Attacking, possession-based football in a 4-3-3 with intense pressing and quick combinations. His teams are fearless and very fit.",
-    "known_for": "Turned Bodø/Glimt into Norwegian champions and led them to the 2025 Europa League semi-finals."
+    "known_for": "Turned Bodø/Glimt into Norwegian champions and led them to the 2025 Europa League semi-finals.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "4-3-3 that becomes a 2-3-5 with the full-backs high, quick combinations and constant runs beyond.",
+      "out_of_possession": "Intense 4-3-3 / 4-4-2 high press.",
+      "roles": [
+        "Overlapping full-backs",
+        "Quick wall-pass combinations around the box"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Marko Nikolić": {
     "style": "Organised and competitive, often in a 4-2-3-1, with an emphasis on defensive balance and transitions.",
-    "known_for": "A Serbian coach who won the Russian Cup with Lokomotiv Moscow and has managed Partizan and AEK Athens."
+    "known_for": "A Serbian coach who won the Russian Cup with Lokomotiv Moscow and has managed Partizan and AEK Athens.",
+    "shapes": {
+      "base": "4-4-2",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "İsmail Kartal": {
     "style": "Attack-minded and organised, often in a 4-2-3-1, with an emphasis on quick wide play.",
-    "known_for": "Led Fenerbahçe to a 99-point season in 2023-24, finishing second to Galatasaray."
+    "known_for": "Led Fenerbahçe to a 99-point season in 2023-24, finishing second to Galatasaray.",
+    "shapes": {
+      "base": "4-2-3-1",
+      "in_possession": "4-2-3-1 that relies on quick wide play, with the full-backs overlapping.",
+      "out_of_possession": "4-4-2 / 4-4-1-1 mid-block.",
+      "roles": [],
+      "fluidity": "fixed",
+      "confidence": "medium"
+    }
   },
   "Jindřich Trpišovský": {
     "style": "High-intensity, man-oriented pressing and physical, direct football, often in a 3-4-3 or 4-2-3-1. His teams are aggressive and very fit.",
-    "known_for": "Won multiple Czech titles with Slavia Prague and took them to two Europa League quarter-finals."
+    "known_for": "Won multiple Czech titles with Slavia Prague and took them to two Europa League quarter-finals.",
+    "shapes": {
+      "base": "3-4-2-1",
+      "in_possession": "Direct and physical: 3-4-3 with wing-backs pushing high and early balls into the front three.",
+      "out_of_possession": "High-intensity, man-oriented press across the pitch.",
+      "roles": [
+        "Man-oriented pressing",
+        "Wing-backs provide the width"
+      ],
+      "fluidity": "variable",
+      "confidence": "high"
+    }
   },
   "Morten Jensen": {
     "style": "Less-known coach; little reliable detail about his tactical approach.",
-    "known_for": "A Danish coach working at Viking in Norway."
+    "known_for": "A Danish coach working at Viking in Norway.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Francesco Farioli": {
     "style": "Possession-based positional play with a very structured build-up, often in a 4-3-3. His teams defend well and control games.",
-    "known_for": "Made his name at Nice and came close to the Eredivisie title with Ajax in 2025."
+    "known_for": "Made his name at Nice and came close to the Eredivisie title with Ajax in 2025.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "Structured positional 4-3-3 that becomes a 3-2-5 / 2-3-5, with the full-backs inverting or pushing on and the wingers holding the width.",
+      "out_of_possession": "4-4-2 press with an No.8 stepping up beside the striker, then a compact mid-block.",
+      "roles": [
+        "Full-back who inverts into midfield in build-up",
+        "Goalkeeper heavily involved in build-up"
+      ],
+      "fluidity": "fixed",
+      "confidence": "high"
+    }
   },
   "Davide Ancelotti": {
     "style": "Less-known as a head coach; schooled as his father Carlo's assistant, he favours a balanced, flexible approach.",
-    "known_for": "Long-time assistant to Carlo Ancelotti at Bayern, Napoli, Everton and Real Madrid, before his first head-coach job at Botafogo in 2025."
+    "known_for": "Long-time assistant to Carlo Ancelotti at Bayern, Napoli, Everton and Real Madrid, before his first head-coach job at Botafogo in 2025.",
+    "shapes": {
+      "base": "4-3-3",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   },
   "Yaya Touré": {
     "style": "Less-known as a head coach; little reliable detail about his tactical approach.",
-    "known_for": "A Manchester City and Barcelona great as a player who has since worked in coaching roles, including as an assistant with Saudi Arabia."
+    "known_for": "A Manchester City and Barcelona great as a player who has since worked in coaching roles, including as an assistant with Saudi Arabia.",
+    "shapes": {
+      "base": "4-1-4-1",
+      "in_possession": "Builds from the back and pushes the full-backs on to add width, with the midfield supporting the front line; finer details of the in-possession structure are unclear.",
+      "out_of_possession": "Drops into a compact mid-block in its base shape, with the front line screening passes into midfield.",
+      "roles": [],
+      "fluidity": "variable",
+      "confidence": "low"
+    }
   }
 }
